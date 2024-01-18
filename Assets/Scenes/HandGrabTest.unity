@@ -1061,19 +1061,19 @@ MonoBehaviour:
   _hand: {fileID: 5106775089534849140}
   _skinnedMeshRenderer: {fileID: 1399293758}
   _updateRootPose: 1
-  _updateRootScale: 1
+  _updateRootScale: 0
   _root: {fileID: 0}
   _handMaterialPropertyBlockEditor: {fileID: 0}
   _jointTransforms:
-  - {fileID: 0}
+  - {fileID: 1884008603}
   - {fileID: 0}
   - {fileID: 9166269624896006957}
   - {fileID: 9166269624896006958}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 1681400741}
-  - {fileID: 51742688}
   - {fileID: 0}
+  - {fileID: 51742688}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1127,6 +1127,7 @@ MonoBehaviour:
   xRConstraint: 0
   yRConstraint: 0
   zRConstraint: 0
+  zOffset: 0
   xP: 0
   yP: 0
   zP: 0
@@ -1303,6 +1304,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2720035132689322368, guid: 2a54b78eced40e74db39ff12257d5702,
     type: 3}
   m_PrefabInstance: {fileID: 1502866972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1884008603 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1281533461043296595, guid: ca2d3be7e4326bc4086ef68ff52c91f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 9166269624896006951}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1912382557 stripped
 MonoBehaviour:
@@ -3712,7 +3719,12 @@ PrefabInstance:
     - target: {fileID: 6303876426752896056, guid: ea16c3c8c1688234fa81a4f39339bf1b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303876426752896057, guid: ea16c3c8c1688234fa81a4f39339bf1b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 6339505922184086532, guid: ea16c3c8c1688234fa81a4f39339bf1b,
         type: 3}
@@ -4195,6 +4207,7 @@ MonoBehaviour:
   xRConstraint: 0
   yRConstraint: 0
   zRConstraint: 0
+  zOffset: 0
   xP: 1
   yP: 1
   zP: 1
@@ -4219,6 +4232,7 @@ MonoBehaviour:
   xRConstraint: 0
   yRConstraint: 0
   zRConstraint: 0
+  zOffset: -25
   xP: 1
   yP: 1
   zP: 1
