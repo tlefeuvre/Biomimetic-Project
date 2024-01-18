@@ -4,19 +4,52 @@ using UnityEngine;
 
 public class ConstraintRotation : MonoBehaviour
 {
-    public bool xR, yR, zR;
-    public float xRConstraint, yRConstraint, zRConstraint;
+    [Header("Rotation Constraints")]
+    public bool xR;
+    public bool yR;
+    public bool zR;
+
+    public float xRConstraint;
+    public float yRConstraint;
+    public float zRConstraint;
+
+    [Header("Rotation Offsets")]
+    public float xOffset;
+    public float yOffset;
     public float zOffset;
 
-    public bool xP, yP, zP;
-    public float xPConstraint, yPConstraint, zPConstraint;
+   /* [Header("Rotation Max Value")]
+    public float xRMaxValue;
+    public float yRMaxValue;
+    public float zRMaxValue;*/
 
+
+    [Header("Position Constraints")]
+    public bool xP;
+    public bool yP;
+    public bool zP;
+    public float xPConstraint;
+    public float yPConstraint;
+    public float zPConstraint;
+
+    private void Start()
+    {
+    
+    }
     void Update()
     {
-        float xA = transform.localEulerAngles.x;
-        float yA = transform.localEulerAngles.y;
-        float zA = transform.localEulerAngles.z;
-        transform.localEulerAngles = new Vector3(xR?xRConstraint:xA, yR?yRConstraint:yA, zR?zRConstraint:zA+ zOffset);
+        float xA = transform.localEulerAngles.x + xOffset;
+        float yA = transform.localEulerAngles.y + yOffset;
+        float zA = transform.localEulerAngles.z + zOffset;
+
+       /* if (xRMaxValue != 0 && xA > xRMaxValue)
+            xA = xRMaxValue;
+        if (yRMaxValue != 0 && yA > yRMaxValue)
+            yA = yRMaxValue;
+        if (zRMaxValue != 0 && zA > zRMaxValue)
+            zA = zRMaxValue;*/
+
+        transform.localEulerAngles = new Vector3(xR?xRConstraint:xA, yR?yRConstraint:yA, zR?zRConstraint:zA);
 
         float xPos = transform.localPosition.x;
         float yPos = transform.localPosition.y;
