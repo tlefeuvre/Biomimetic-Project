@@ -308,7 +308,7 @@ Material:
     - _LightOffset: 0.224
     - _LittleSpecForce: 4.52
     - _LittleSpecSize: 12.56
-    - _MainTexMult: 0.73
+    - _MainTexMult: 0.922
     - _Metallic: 0
     - _Metallic0: 0
     - _Metallic1: 0
@@ -319,7 +319,7 @@ Material:
     - _Metallic6: 0
     - _Metallic7: 0
     - _Mode: 0
-    - _NormalMultiplier: 2
+    - _NormalMultiplier: 2.75
     - _NormalRTDepth: 0.47
     - _NormalRTStrength: 0.97
     - _NormalScale: 1
@@ -392,8 +392,8 @@ Material:
     - _WireframeThickness: 1
     - _ZWrite: 1
     m_Colors:
-    - _BotColor: {r: 0.85800004, g: 0.6123658, b: 0.31660202, a: 1}
-    - _Color: {r: 1, g: 0.8416, b: 0.496, a: 1}
+    - _BotColor: {r: 1, g: 0.9720057, b: 0.9386792, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CracksStrength: {r: -1.04, g: 0.36, b: -0.25, a: 0.1}
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
@@ -407,7 +407,7 @@ Material:
     - _ProjectedShadowColor: {r: 0.754717, g: 0.46620557, b: 0.10323961, a: 1}
     - _ReflectionColor: {r: 0, g: 0.099333376, b: 0.14899999, a: 0.8}
     - _RimColor: {r: 0.49056602, g: 0.2741946, b: 0.085617654, a: 0.50980395}
-    - _RockTint: {r: 0.83699995, g: 0.49622136, b: 0.2570785, a: 1}
+    - _RockTint: {r: 1, g: 1, b: 1, a: 1}
     - _RockTrail: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _Specular0: {r: 1, g: 1, b: 1, a: 1}
