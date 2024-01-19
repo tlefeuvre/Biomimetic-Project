@@ -685,7 +685,7 @@ MonoBehaviour:
   _handMaterialPropertyBlockEditor: {fileID: 0}
   _jointTransforms:
   - {fileID: 866250778}
-  - {fileID: 866250778}
+  - {fileID: 0}
   - {fileID: 808783317}
   - {fileID: 1210889202}
   - {fileID: 0}
@@ -972,9 +972,9 @@ MonoBehaviour:
   xRConstraint: 0
   yRConstraint: 0
   zRConstraint: 0
-  xOffset: 180
+  xOffset: 0
   yOffset: 0
-  zOffset: 0
+  zOffset: 180
   xP: 0
   yP: 0
   zP: 0
