@@ -5,6 +5,7 @@ using UnityEngine;
 public class MyOwnGrab : MonoBehaviour
 {
     public List<GameObject> RigidbodyList;
+    public ParticleSystem juice;
     public bool upperClaw, lowerClaw, isDestroy;
     private Material mat;
     void Start()
@@ -30,11 +31,11 @@ public class MyOwnGrab : MonoBehaviour
         isDestroy = true;
         if (mat)
             mat.color = Color.red;
-        foreach(GameObject obj in RigidbodyList)
+        juice.Play();
+        foreach (GameObject obj in RigidbodyList)
         {
             obj.GetComponent<Rigidbody>().useGravity = true;
             obj.GetComponent<BoxCollider>().isTrigger = false;
-            //body.useGravity = true;
         }
     }
 
