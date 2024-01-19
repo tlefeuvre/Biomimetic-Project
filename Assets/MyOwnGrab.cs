@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class MyOwnGrab : MonoBehaviour
 {
+    public List<GameObject> RigidbodyList;
     public bool upperClaw, lowerClaw, isDestroy;
     private Material mat;
     void Start()
     {
         mat = GetComponent<Renderer>().material;
+        if(mat)
         mat.color = Color.white;
 
     }
@@ -17,15 +19,23 @@ public class MyOwnGrab : MonoBehaviour
     {
         if(!isDestroy && upperClaw &&  lowerClaw)
         {
+            Debug.Log("destroy");
+
             DestroyObject();
         }
     }
 
     public void DestroyObject()
     {
-        Debug.Log("destroy");
         isDestroy = true;
-        mat.color = Color.red;
+        if (mat)
+            mat.color = Color.red;
+        foreach(GameObject obj in RigidbodyList)
+        {
+            obj.GetComponent<Rigidbody>().useGravity = true;
+            obj.GetComponent<BoxCollider>().isTrigger = false;
+            //body.useGravity = true;
+        }
     }
 
     public void OnTriggerEnter(Collider other)
