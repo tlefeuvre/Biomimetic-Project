@@ -8,14 +8,18 @@ public class MyOwnGrab : MonoBehaviour
     public ParticleSystem juice;
     public bool upperClaw, lowerClaw, isDestroy;
     private Material mat;
-    void Start()
+    public void Awake()
     {
-        mat = GetComponent<Renderer>().material;
-        if(mat)
-        mat.color = Color.white;
-
+        GetComponent<BoxCollider>().enabled = false;
+        StartCoroutine("ActivateCollider");
     }
 
+    IEnumerator ActivateCollider()
+    {
+        yield return new WaitForSeconds(5.0f);
+        GetComponent<BoxCollider>().enabled = true;
+
+    }
     void Update()
     {
         if(!isDestroy && upperClaw &&  lowerClaw)
@@ -29,14 +33,22 @@ public class MyOwnGrab : MonoBehaviour
     public void DestroyObject()
     {
         isDestroy = true;
-        if (mat)
-            mat.color = Color.red;
-        juice.Play();
+        if(juice)
+            juice.Play();
+
         foreach (GameObject obj in RigidbodyList)
         {
-            obj.GetComponent<Rigidbody>().useGravity = true;
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            if (rb)
+            {
+                rb.useGravity = true;
+                rb.AddForce(Vector3.up,ForceMode.Impulse);
+            }
             obj.GetComponent<BoxCollider>().isTrigger = false;
         }
+
+        Measures.Instance.AddBrokenTag(this.tag);
+        FruitsSpawner.Instance.SpawnNewFruit(this.tag);
     }
 
     public void OnTriggerEnter(Collider other)
