@@ -7,6 +7,7 @@ TagManager:
   - SamplesInfoPanel
   - LowerClaw
   - UpperClaw
+  - Fruit_coco
   layers:
   - Default
   - TransparentFX
