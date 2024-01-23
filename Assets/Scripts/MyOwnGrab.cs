@@ -7,11 +7,36 @@ public class MyOwnGrab : MonoBehaviour
     public List<GameObject> RigidbodyList;
     public ParticleSystem juice;
     public bool upperClaw, lowerClaw, isDestroy;
-    private Material mat;
+
+    public float force;
     public void Awake()
     {
-        GetComponent<BoxCollider>().enabled = false;
-        StartCoroutine("ActivateCollider");
+        BoxCollider bx = GetComponent<BoxCollider>();
+        if (bx)
+        {
+            bx.enabled = true;
+            bx.isTrigger = false;
+        }
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb)
+        {
+            rb.useGravity = true;
+
+        }
+
+        foreach (GameObject obj in RigidbodyList)
+        {
+            Rigidbody rbf = obj.GetComponent<Rigidbody>();
+            if (rbf)
+            {
+                rbf.isKinematic = true;
+                rbf.useGravity = false;
+
+            }
+        
+        }
+      
+        StartCoroutine("ActivateCollider"); 
     }
 
     IEnumerator ActivateCollider()
@@ -36,19 +61,28 @@ public class MyOwnGrab : MonoBehaviour
         if(juice)
             juice.Play();
 
+        Measures.Instance.AddBrokenTag(this.tag);
+        FruitsSpawner.Instance.SpawnNewFruit(this.tag);
+
+        if (RigidbodyList.Count == 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
         foreach (GameObject obj in RigidbodyList)
         {
             Rigidbody rb = obj.GetComponent<Rigidbody>();
             if (rb)
             {
                 rb.useGravity = true;
-                rb.AddForce(Vector3.up,ForceMode.Impulse);
+                rb.isKinematic = false;
+                rb.AddForce(Vector3.up* force, ForceMode.Impulse);
             }
             obj.GetComponent<BoxCollider>().isTrigger = false;
         }
 
-        Measures.Instance.AddBrokenTag(this.tag);
-        FruitsSpawner.Instance.SpawnNewFruit(this.tag);
+     
+
     }
 
     public void OnTriggerEnter(Collider other)

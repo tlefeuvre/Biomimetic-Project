@@ -130,7 +130,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -264,7 +264,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -398,7 +398,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -437,7 +437,7 @@ Transform:
   - {fileID: 8318345701236244285}
   - {fileID: 9146792335717914997}
   - {fileID: 8417502662256216865}
-  - {fileID: 893993470551726480}
+  - {fileID: 1618660398884848268}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3793911926208236380
@@ -456,10 +456,11 @@ MonoBehaviour:
   - {fileID: 3135357940226986276}
   - {fileID: 5742515227989024239}
   - {fileID: 8889287889717287478}
-  juice: {fileID: 4235208295464423658}
+  juice: {fileID: 6950080477265284290}
   upperClaw: 0
   lowerClaw: 0
   isDestroy: 0
+  force: 1
 --- !u!65 &5650736606770387121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -475,9 +476,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.14295316, y: 0.14302945, z: 0.14209071}
   m_Center: {x: -0.01700139, y: -0.0041918755, z: -0.014790252}
@@ -503,12 +504,12 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1001 &5973169795241404996
+--- !u!1001 &4231309410506499636
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -516,75 +517,75 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1561815258214675063}
     m_Modifications:
-    - target: {fileID: 471234543322431858, guid: 5c6ab0e5a668de94f9921952c8ae9b5f,
-        type: 3}
-      propertyPath: m_Name
-      value: JuiceSmoke
-      objectReference: {fileID: 0}
-    - target: {fileID: 6813079938081878996, guid: 5c6ab0e5a668de94f9921952c8ae9b5f,
+    - target: {fileID: 3228520676009174200, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6813079938081878996, guid: 5c6ab0e5a668de94f9921952c8ae9b5f,
+    - target: {fileID: 3228520676009174200, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6813079938081878996, guid: 5c6ab0e5a668de94f9921952c8ae9b5f,
+    - target: {fileID: 3228520676009174200, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6813079938081878996, guid: 5c6ab0e5a668de94f9921952c8ae9b5f,
+    - target: {fileID: 3228520676009174200, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6813079938081878996, guid: 5c6ab0e5a668de94f9921952c8ae9b5f,
+    - target: {fileID: 3228520676009174200, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6813079938081878996, guid: 5c6ab0e5a668de94f9921952c8ae9b5f,
+    - target: {fileID: 3228520676009174200, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6813079938081878996, guid: 5c6ab0e5a668de94f9921952c8ae9b5f,
+    - target: {fileID: 3228520676009174200, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6813079938081878996, guid: 5c6ab0e5a668de94f9921952c8ae9b5f,
+    - target: {fileID: 3228520676009174200, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 6813079938081878996, guid: 5c6ab0e5a668de94f9921952c8ae9b5f,
+    - target: {fileID: 3228520676009174200, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6813079938081878996, guid: 5c6ab0e5a668de94f9921952c8ae9b5f,
+    - target: {fileID: 3228520676009174200, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268642888674289668, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
+        type: 3}
+      propertyPath: m_Name
+      value: CoconutJuice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5c6ab0e5a668de94f9921952c8ae9b5f, type: 3}
---- !u!4 &893993470551726480 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 58a8c3f1474b92e4298ecc76c669e4cf, type: 3}
+--- !u!4 &1618660398884848268 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6813079938081878996, guid: 5c6ab0e5a668de94f9921952c8ae9b5f,
+  m_CorrespondingSourceObject: {fileID: 3228520676009174200, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
     type: 3}
-  m_PrefabInstance: {fileID: 5973169795241404996}
+  m_PrefabInstance: {fileID: 4231309410506499636}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &4235208295464423658 stripped
+--- !u!198 &6950080477265284290 stripped
 ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7503715825267063470, guid: 5c6ab0e5a668de94f9921952c8ae9b5f,
+  m_CorrespondingSourceObject: {fileID: 6542327434132826870, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
     type: 3}
-  m_PrefabInstance: {fileID: 5973169795241404996}
+  m_PrefabInstance: {fileID: 4231309410506499636}
   m_PrefabAsset: {fileID: 0}

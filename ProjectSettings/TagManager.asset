@@ -8,6 +8,11 @@ TagManager:
   - LowerClaw
   - UpperClaw
   - Fruit_coco
+  - Fruit_nut
+  - Fruit_lemon
+  - Fruit_orange
+  - Fruit_pineapple
+  - Fruit_watermelon
   layers:
   - Default
   - TransparentFX
