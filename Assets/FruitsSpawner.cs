@@ -16,6 +16,10 @@ public class FruitsSpawner : MonoBehaviour
 
     private static FruitsSpawner instance = null;
     public static FruitsSpawner Instance => instance;
+
+    public List<GameObject> fruitsCat01;
+    public List<GameObject> fruitsCat02;
+    public List<GameObject> fruitsCat03;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -48,6 +52,11 @@ public class FruitsSpawner : MonoBehaviour
             }
         } 
 
+
+    }
+
+    public void NewRound()
+    {
 
     }
 
