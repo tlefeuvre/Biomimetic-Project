@@ -12,14 +12,22 @@ public class Fruit
 public class FruitsSpawner : MonoBehaviour
 {
 
-    public List<Fruit> fruits;
+    //public List<Fruit> fruits;
 
     private static FruitsSpawner instance = null;
     public static FruitsSpawner Instance => instance;
 
-    public List<GameObject> fruitsCat01;
-    public List<GameObject> fruitsCat02;
-    public List<GameObject> fruitsCat03;
+    [Header("Fruits")]
+    public List<GameObject> fruitsCat01List;
+    public List<GameObject> fruitsCat02List;
+    public List<GameObject> fruitsCat03List;
+
+    [Header("Fruits positions")]
+    public Transform spawnerCat01Pos;
+    public Transform spawnerCat02Pos;
+    public Transform spawnerCat03Pos;
+
+    public List<GameObject> spawnedFruits;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -57,6 +65,8 @@ public class FruitsSpawner : MonoBehaviour
 
     public void NewRound()
     {
+        GameObject cat1Fruit = fruitsCat01[Random.Range(0,fruitsCat01.Count-1)];
+        GameObject fruit = Instantiate(cat1Fruit, fruit.spawnerPos.position, Quaternion.identity);
 
     }
 
