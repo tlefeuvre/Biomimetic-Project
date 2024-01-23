@@ -475,7 +475,7 @@ MonoBehaviour:
   upperClaw: 0
   lowerClaw: 0
   isDestroy: 0
-  force: 0
+  force: 1
 --- !u!65 &2218218304709248218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -495,5 +495,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.03839898, y: 0.04264085, z: 0.050117135}
+  m_Center: {x: -0.00034964085, y: -0.002060052, z: -0.0006363988}

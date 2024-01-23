@@ -7,12 +7,9 @@ TagManager:
   - SamplesInfoPanel
   - LowerClaw
   - UpperClaw
-  - Fruit_coco
-  - Fruit_nut
-  - Fruit_lemon
-  - Fruit_orange
-  - Fruit_pineapple
-  - Fruit_watermelon
+  - Fruit_cat1
+  - Fruit_cat2
+  - Fruit_cat3
   layers:
   - Default
   - TransparentFX

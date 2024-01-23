@@ -197,7 +197,7 @@ MonoBehaviour:
   upperClaw: 0
   lowerClaw: 0
   isDestroy: 0
-  force: 0
+  force: 1
 --- !u!65 &3167446262513392640
 BoxCollider:
   m_ObjectHideFlags: 0

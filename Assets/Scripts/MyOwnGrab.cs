@@ -33,9 +33,10 @@ public class MyOwnGrab : MonoBehaviour
                 rbf.useGravity = false;
 
             }
-        
+            obj.GetComponent<BoxCollider>().isTrigger = true;
+
         }
-      
+
         StartCoroutine("ActivateCollider"); 
     }
 
@@ -62,13 +63,11 @@ public class MyOwnGrab : MonoBehaviour
             juice.Play();
 
         Measures.Instance.AddBrokenTag(this.tag);
-        FruitsSpawner.Instance.SpawnNewFruit(this.tag);
+        FruitsSpawner.Instance.CallNewRound();
 
         if (RigidbodyList.Count == 0)
-        {
-            Destroy(gameObject);
-            return;
-        }
+            StartCoroutine("SpawnNewFruit");
+
         foreach (GameObject obj in RigidbodyList)
         {
             Rigidbody rb = obj.GetComponent<Rigidbody>();
@@ -103,5 +102,13 @@ public class MyOwnGrab : MonoBehaviour
 
         if (other.tag == "LowerClaw")
             lowerClaw = false;
+    }
+
+    IEnumerator SpawnNewFruit()
+    {
+        yield return new WaitForSeconds(1.0f);
+        Destroy(gameObject);
+        
+
     }
 }
