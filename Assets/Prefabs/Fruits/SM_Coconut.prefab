@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 4902579651961654657}
   m_Layer: 0
   m_Name: SM_Coconut
-  m_TagString: Fruit_coco
+  m_TagString: Fruit_cat3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -517,6 +517,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1561815258214675063}
     m_Modifications:
+    - target: {fileID: 190309297140917105, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3228520676009174200, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -571,6 +576,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CoconutJuice
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477673601264505878, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6542327434132826870, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

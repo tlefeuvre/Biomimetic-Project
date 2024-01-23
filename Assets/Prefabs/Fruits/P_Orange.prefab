@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9f79eb3ce02c36f439637e2146b70e67,
         type: 3}
       propertyPath: m_TagString
-      value: Fruit_orange
+      value: Fruit_cat1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -146,11 +146,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RigidbodyList: []
-  juice: {fileID: 0}
+  juice: {fileID: 5847570876944399360}
   upperClaw: 0
   lowerClaw: 0
   isDestroy: 0
-  force: 0
+  force: 1
 --- !u!65 &6618456439849951070
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -184,6 +184,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OrangeJuice
+      objectReference: {fileID: 0}
+    - target: {fileID: 2062914605893600490, guid: 14033cff42acd69458dee24c9c2df8bc,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341644824662909306, guid: 14033cff42acd69458dee24c9c2df8bc,
         type: 3}
@@ -235,6 +240,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3571481612385362686, guid: 14033cff42acd69458dee24c9c2df8bc,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5353504711467616795, guid: 14033cff42acd69458dee24c9c2df8bc,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5526044912112453225, guid: 14033cff42acd69458dee24c9c2df8bc,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -243,6 +263,12 @@ PrefabInstance:
 --- !u!4 &5686117111272783748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3341644824662909306, guid: 14033cff42acd69458dee24c9c2df8bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 6968983017354239742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5847570876944399360 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3571481612385362686, guid: 14033cff42acd69458dee24c9c2df8bc,
     type: 3}
   m_PrefabInstance: {fileID: 6968983017354239742}
   m_PrefabAsset: {fileID: 0}

@@ -8,6 +8,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8764064960128844647}
     m_Modifications:
+    - target: {fileID: 5002414477043478448, guid: 03bb58c399463044f83d4f989267fdf7,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089524808850670392, guid: 03bb58c399463044f83d4f989267fdf7,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017130463119566808, guid: 03bb58c399463044f83d4f989267fdf7,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7622876969539835866, guid: 03bb58c399463044f83d4f989267fdf7,
         type: 3}
       propertyPath: m_Name
@@ -63,11 +78,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8662887950243649835, guid: 03bb58c399463044f83d4f989267fdf7,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03bb58c399463044f83d4f989267fdf7, type: 3}
+--- !u!198 &210633055711244895 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8662887950243649835, guid: 03bb58c399463044f83d4f989267fdf7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8850860884832512884}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1140467602321114224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8432799164913839876, guid: 03bb58c399463044f83d4f989267fdf7,
@@ -145,7 +171,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2cea5baa49ed9b94ebc528ebdea0c3b9,
         type: 3}
       propertyPath: m_TagString
-      value: Fruit_watermelon
+      value: Fruit_cat2
       objectReference: {fileID: 0}
     - target: {fileID: 3606363710039674146, guid: 2cea5baa49ed9b94ebc528ebdea0c3b9,
         type: 3}
@@ -409,12 +435,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b695c7939373840989d3db011893f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RigidbodyList: []
-  juice: {fileID: 0}
+  RigidbodyList:
+  - {fileID: 7846489282546870678}
+  - {fileID: 231451319921132934}
+  - {fileID: 7559116846712998274}
+  juice: {fileID: 210633055711244895}
   upperClaw: 0
   lowerClaw: 0
   isDestroy: 0
-  force: 0
+  force: 1
 --- !u!65 &8774633206397243643
 BoxCollider:
   m_ObjectHideFlags: 0
