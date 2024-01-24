@@ -19,6 +19,8 @@ public class FruitsSpawner : MonoBehaviour
 
     [Header("Parameters")]
     public float timeToWait;
+    public int numbOfRounds;
+    private int currentRound;
     [Header("Fruits")]
     public List<GameObject> fruitsCat01List;
     public List<GameObject> fruitsCat02List;
@@ -46,10 +48,11 @@ public class FruitsSpawner : MonoBehaviour
 
     public void Start()
     {
-        NewRound();
+        currentRound = 0;
 
-    
+        NewRound();
     }
+
     public void CallNewRound()
     {
         StartCoroutine("WaitForNewRound");
@@ -63,11 +66,17 @@ public class FruitsSpawner : MonoBehaviour
 
     public void NewRound()
     {
-        foreach( GameObject fruit in spawnedFruits)
+        Debug.Log("NewRound");
+
+        foreach ( GameObject fruit in spawnedFruits)
         {
             Destroy (fruit.gameObject);
         }
+
         spawnedFruits.Clear();
+
+        if (currentRound >= numbOfRounds)
+            return;
 
         GameObject cat1Fruit = fruitsCat01List[Random.Range(0, fruitsCat01List.Count)];
         GameObject newFruit1 = Instantiate(cat1Fruit, spawnerCat01Pos.position, Quaternion.identity);
@@ -80,6 +89,8 @@ public class FruitsSpawner : MonoBehaviour
         GameObject cat3Fruit = fruitsCat03List[Random.Range(0, fruitsCat03List.Count )];
         GameObject newFruit3 = Instantiate(cat3Fruit, spawnerCat03Pos.position, Quaternion.identity);
         spawnedFruits.Add(newFruit3);
+
+        currentRound += 1;
 
     }
 

@@ -58,6 +58,8 @@ public class MyOwnGrab : MonoBehaviour
 
     public void DestroyObject()
     {
+        Debug.Log("fonction DestroyObject");
+
         isDestroy = true;
         if(juice)
             juice.Play();
@@ -80,7 +82,8 @@ public class MyOwnGrab : MonoBehaviour
             obj.GetComponent<BoxCollider>().isTrigger = false;
         }
 
-     
+
+        Debug.Log("fin fonction DestroyObject");
 
     }
 
@@ -106,7 +109,11 @@ public class MyOwnGrab : MonoBehaviour
 
     IEnumerator SpawnNewFruit()
     {
+        Debug.Log("SpawnNewFruit debut");
+
         yield return new WaitForSeconds(1.0f);
+        Debug.Log("SpawnNewFruit fin");
+
         Destroy(gameObject);
         
 
