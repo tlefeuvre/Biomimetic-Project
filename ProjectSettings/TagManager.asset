@@ -10,6 +10,7 @@ TagManager:
   - Fruit_cat1
   - Fruit_cat2
   - Fruit_cat3
+  - RightHand
   layers:
   - Default
   - TransparentFX

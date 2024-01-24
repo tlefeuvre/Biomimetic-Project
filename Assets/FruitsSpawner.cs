@@ -20,7 +20,7 @@ public class FruitsSpawner : MonoBehaviour
     [Header("Parameters")]
     public float timeToWait;
     public int numbOfRounds;
-    private int currentRound;
+    public int currentRound;
     [Header("Fruits")]
     public List<GameObject> fruitsCat01List;
     public List<GameObject> fruitsCat02List;
@@ -70,7 +70,9 @@ public class FruitsSpawner : MonoBehaviour
 
         foreach ( GameObject fruit in spawnedFruits)
         {
-            Destroy (fruit.gameObject);
+            fruit.SetActive(false);
+
+            //Destroy (fruit.gameObject);
         }
 
         spawnedFruits.Clear();
@@ -91,6 +93,8 @@ public class FruitsSpawner : MonoBehaviour
         spawnedFruits.Add(newFruit3);
 
         currentRound += 1;
+        Debug.Log("endnewround");
+
 
     }
 

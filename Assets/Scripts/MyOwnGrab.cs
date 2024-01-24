@@ -33,19 +33,21 @@ public class MyOwnGrab : MonoBehaviour
                 rbf.useGravity = false;
 
             }
-            obj.GetComponent<BoxCollider>().isTrigger = true;
+            BoxCollider bc = obj.GetComponent<BoxCollider>();
+            if(bc)
+                bc.isTrigger = true;
 
         }
 
-        StartCoroutine("ActivateCollider"); 
+        //StartCoroutine("ActivateCollider"); 
     }
 
-    IEnumerator ActivateCollider()
+    /*IEnumerator ActivateCollider()
     {
         yield return new WaitForSeconds(5.0f);
         GetComponent<BoxCollider>().enabled = true;
 
-    }
+    }*/
     void Update()
     {
         if(!isDestroy && upperClaw &&  lowerClaw)
@@ -58,14 +60,17 @@ public class MyOwnGrab : MonoBehaviour
 
     public void DestroyObject()
     {
+        if (isDestroy)
+            return;
+
         Debug.Log("fonction DestroyObject");
 
         isDestroy = true;
         if(juice)
             juice.Play();
 
-        Measures.Instance.AddBrokenTag(this.tag);
-        FruitsSpawner.Instance.CallNewRound();
+        //Measures.Instance.AddBrokenTag(this.tag);
+        //FruitsSpawner.Instance.CallNewRound();
 
         if (RigidbodyList.Count == 0)
             StartCoroutine("SpawnNewFruit");
@@ -89,7 +94,6 @@ public class MyOwnGrab : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
 
         if (other.tag == "UpperClaw") 
             upperClaw = true;
@@ -114,7 +118,8 @@ public class MyOwnGrab : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         Debug.Log("SpawnNewFruit fin");
 
-        Destroy(gameObject);
+        this.GetComponent<Renderer>().enabled = false;
+        //Destroy(gameObject);
         
 
     }

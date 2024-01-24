@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9f79eb3ce02c36f439637e2146b70e67,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0279989
+      value: 0.847
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f79eb3ce02c36f439637e2146b70e67,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.050000012
+      value: 0.604
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f79eb3ce02c36f439637e2146b70e67,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.095690496
+      value: -0.308
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f79eb3ce02c36f439637e2146b70e67,
         type: 3}
@@ -101,6 +101,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -5485719409239582516}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9f79eb3ce02c36f439637e2146b70e67,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4315496773363525858}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9f79eb3ce02c36f439637e2146b70e67,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6090718345973418346}
   m_SourcePrefab: {fileID: 100100000, guid: 9f79eb3ce02c36f439637e2146b70e67, type: 3}
 --- !u!4 &2640081145497807938 stripped
 Transform:
@@ -197,8 +205,7 @@ MonoBehaviour:
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
   _pointableElement: {fileID: -5485719409239582516}
-  _rigidbody: {fileID: 6300076046444037360, guid: b9cd5059d097a0743b2054b72e3358b4,
-    type: 3}
+  _rigidbody: {fileID: 5656605433658822669}
   _physicsGrabbable: {fileID: 0}
   _resetGrabOnGrabsUpdated: 1
   _scoringModifier:
@@ -241,6 +248,89 @@ MonoBehaviour:
   _twoGrabTransformer: {fileID: 0}
   _targetTransform: {fileID: 0}
   _maxGrabPoints: -1
+--- !u!114 &4315496773363525858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3452188871598159608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea158ab04e5f8aa40a84b9cade63ba81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 25
+--- !u!114 &6090718345973418346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3452188871598159608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f8f6e9e6f3e114b9bf9a57c2160615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pointable: {fileID: -5485719409239582516}
+  _whenRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenHover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5656605433658822669}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: set_useGravity
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5656605433658822669}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody, UnityEngine
+        m_MethodName: set_useGravity
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4315496773363525858}
+        m_TargetAssemblyTypeName: ThrowDirection, Assembly-CSharp
+        m_MethodName: Throw
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenMove:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenCancel:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &6968983017354239742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -254,10 +344,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrangeJuice
       objectReference: {fileID: 0}
+    - target: {fileID: 1303803650446037933, guid: 14033cff42acd69458dee24c9c2df8bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2062914605893600490, guid: 14033cff42acd69458dee24c9c2df8bc,
         type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2062914605893600490, guid: 14033cff42acd69458dee24c9c2df8bc,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3341644824662909306, guid: 14033cff42acd69458dee24c9c2df8bc,
         type: 3}
@@ -314,15 +414,45 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3571481612385362686, guid: 14033cff42acd69458dee24c9c2df8bc,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3699454179556261101, guid: 14033cff42acd69458dee24c9c2df8bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5353504711467616795, guid: 14033cff42acd69458dee24c9c2df8bc,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5353504711467616795, guid: 14033cff42acd69458dee24c9c2df8bc,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5526044912112453225, guid: 14033cff42acd69458dee24c9c2df8bc,
         type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5526044912112453225, guid: 14033cff42acd69458dee24c9c2df8bc,
         type: 3}
-      propertyPath: playOnAwake
-      value: 0
+      propertyPath: InitialModule.maxNumParticles
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887075286429457453, guid: 14033cff42acd69458dee24c9c2df8bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211808259306947031, guid: 14033cff42acd69458dee24c9c2df8bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
