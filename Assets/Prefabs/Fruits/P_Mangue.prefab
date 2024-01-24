@@ -23,6 +23,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MangoJuice
       objectReference: {fileID: 0}
+    - target: {fileID: 5692950952604129403, guid: 38cfc3cb8d9f5464f9f8a714d8d8b533,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6312593553161841272, guid: 38cfc3cb8d9f5464f9f8a714d8d8b533,
         type: 3}
       propertyPath: playOnAwake

@@ -729,6 +729,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoconutJuice
       objectReference: {fileID: 0}
+    - target: {fileID: 4268642888674289668, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4477673601264505878, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: playOnAwake

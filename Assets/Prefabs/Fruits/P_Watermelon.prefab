@@ -43,6 +43,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WatermelonJuice
       objectReference: {fileID: 0}
+    - target: {fileID: 7622876969539835866, guid: 03bb58c399463044f83d4f989267fdf7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8432799164913839876, guid: 03bb58c399463044f83d4f989267fdf7,
         type: 3}
       propertyPath: m_LocalPosition.x

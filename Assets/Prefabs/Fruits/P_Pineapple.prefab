@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PineappleJuice
       objectReference: {fileID: 0}
+    - target: {fileID: 4195627378134408626, guid: f12a4b1ae12e68d4bb628c9c36a0ee00,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7982701579122927596, guid: f12a4b1ae12e68d4bb628c9c36a0ee00,
         type: 3}
       propertyPath: playOnAwake

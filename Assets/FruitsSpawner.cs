@@ -70,9 +70,9 @@ public class FruitsSpawner : MonoBehaviour
 
         foreach ( GameObject fruit in spawnedFruits)
         {
-            fruit.SetActive(false);
+            //fruit.SetActive(false);
 
-            //Destroy (fruit.gameObject);
+            Destroy (fruit.gameObject);
         }
 
         spawnedFruits.Clear();

@@ -69,8 +69,8 @@ public class MyOwnGrab : MonoBehaviour
         if(juice)
             juice.Play();
 
-        //Measures.Instance.AddBrokenTag(this.tag);
-        //FruitsSpawner.Instance.CallNewRound();
+        Measures.Instance.AddBrokenTag(this.tag);
+        FruitsSpawner.Instance.CallNewRound();
 
         if (RigidbodyList.Count == 0)
             StartCoroutine("SpawnNewFruit");
@@ -113,13 +113,10 @@ public class MyOwnGrab : MonoBehaviour
 
     IEnumerator SpawnNewFruit()
     {
-        Debug.Log("SpawnNewFruit debut");
-
         yield return new WaitForSeconds(1.0f);
-        Debug.Log("SpawnNewFruit fin");
 
-        this.GetComponent<Renderer>().enabled = false;
-        //Destroy(gameObject);
+        //this.GetComponent<Renderer>().enabled = false;
+        Destroy(gameObject);
         
 
     }
