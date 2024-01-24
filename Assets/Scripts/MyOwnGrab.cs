@@ -100,6 +100,15 @@ public class MyOwnGrab : MonoBehaviour
 
         if(other.tag =="LowerClaw")
             lowerClaw = true;
+        if(other.tag == "RightHand")
+        {
+
+            float handSpeed = other.gameObject.GetComponent<HandVelocity>().GetMagnitude();
+            if(handSpeed > .6f)
+            {
+                DestroyObject();
+            }
+        }
     }
 
     public void OnTriggerExit(Collider other)
