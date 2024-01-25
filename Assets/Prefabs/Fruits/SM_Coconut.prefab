@@ -416,7 +416,6 @@ GameObject:
   - component: {fileID: 4902579651961654657}
   - component: {fileID: -5501343502690078191}
   - component: {fileID: -4948739351777648315}
-  - component: {fileID: 2586255933475174072}
   - component: {fileID: 6397493841524850807}
   m_Layer: 0
   m_Name: SM_Coconut
@@ -576,19 +575,6 @@ MonoBehaviour:
   _twoGrabTransformer: {fileID: 0}
   _targetTransform: {fileID: 0}
   _maxGrabPoints: -1
---- !u!114 &2586255933475174072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9053336414309105102}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea158ab04e5f8aa40a84b9cade63ba81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 25
 --- !u!114 &6397493841524850807
 MonoBehaviour:
   m_ObjectHideFlags: 0
