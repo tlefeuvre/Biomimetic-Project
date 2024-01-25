@@ -52,7 +52,7 @@ public class ThrowDirection : MonoBehaviour
         Debug.Log("collision ??");
         if(velocity.magnitude > 0.5f)
         {
-            GetComponent<MyOwnGrab>().DestroyObject();
+            GetComponent<FruitManager>().DestroyObject();
         }
     }
 }

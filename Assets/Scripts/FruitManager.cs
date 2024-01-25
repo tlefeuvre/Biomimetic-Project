@@ -2,13 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyOwnGrab : MonoBehaviour
+public class FruitManager : MonoBehaviour
 {
     public List<GameObject> RigidbodyList;
     public ParticleSystem juice;
     public bool upperClaw, lowerClaw, isDestroy;
 
-    public float force;
+    public float explosionForce;
+
+    private Vector3 newPos;
+    private Vector3 oldPos;
+    private Vector3 velocity;
+
+    public int throwForce;
+    private float initTimer;
+
+
+
     public void Awake()
     {
         BoxCollider bx = GetComponent<BoxCollider>();
@@ -42,12 +52,24 @@ public class MyOwnGrab : MonoBehaviour
         //StartCoroutine("ActivateCollider"); 
     }
 
+    public float magnitudeToExplode;
+    public float handMagnitudeToExplode;
+
     /*IEnumerator ActivateCollider()
     {
         yield return new WaitForSeconds(5.0f);
         GetComponent<BoxCollider>().enabled = true;
 
     }*/
+
+    private void Start()
+    {
+        initTimer = Time.time;
+
+
+        newPos = transform.position;
+        oldPos = transform.position;
+    }
     void Update()
     {
         if(!isDestroy && upperClaw &&  lowerClaw)
@@ -56,7 +78,16 @@ public class MyOwnGrab : MonoBehaviour
 
             DestroyObject();
         }
+
+
     }
+    private void FixedUpdate()
+    {
+        newPos = transform.position;
+        velocity = (newPos - oldPos) / Time.fixedDeltaTime;
+        oldPos = newPos;
+    }
+
 
     public void DestroyObject()
     {
@@ -74,6 +105,8 @@ public class MyOwnGrab : MonoBehaviour
 
         if (RigidbodyList.Count == 0)
             StartCoroutine("SpawnNewFruit");
+        else
+            GetComponent<BoxCollider>().isTrigger = true;
 
         foreach (GameObject obj in RigidbodyList)
         {
@@ -82,13 +115,31 @@ public class MyOwnGrab : MonoBehaviour
             {
                 rb.useGravity = true;
                 rb.isKinematic = false;
-                rb.AddForce(Vector3.up* force, ForceMode.Impulse);
+                rb.AddForce(Vector3.up* explosionForce, ForceMode.Impulse);
             }
             obj.GetComponent<BoxCollider>().isTrigger = false;
         }
 
 
         Debug.Log("fin fonction DestroyObject");
+
+    }
+
+    public void Throw()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (!rb)
+            return;
+
+        rb.AddForce(velocity * throwForce);
+    }
+    IEnumerator SpawnNewFruit()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        //this.GetComponent<Renderer>().enabled = false;
+        Destroy(gameObject);
+
 
     }
 
@@ -104,7 +155,7 @@ public class MyOwnGrab : MonoBehaviour
         {
 
             float handSpeed = other.gameObject.GetComponent<HandVelocity>().GetMagnitude();
-            if(handSpeed > .6f)
+            if(handSpeed > handMagnitudeToExplode)
             {
                 DestroyObject();
             }
@@ -120,13 +171,18 @@ public class MyOwnGrab : MonoBehaviour
             lowerClaw = false;
     }
 
-    IEnumerator SpawnNewFruit()
+    public void OnCollisionEnter(Collision collision)
     {
-        yield return new WaitForSeconds(1.0f);
 
-        //this.GetComponent<Renderer>().enabled = false;
-        Destroy(gameObject);
-        
+        if (Time.time < initTimer + 2.0f)
+            return;
 
+        Debug.Log("collision ??");
+        if (velocity.magnitude > magnitudeToExplode)
+        {
+            DestroyObject();
+        }
     }
+    
+
 }

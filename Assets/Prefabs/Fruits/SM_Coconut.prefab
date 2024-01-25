@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 6397493841524850807}
   m_Layer: 0
   m_Name: SM_Coconut
-  m_TagString: Fruit_cat3
+  m_TagString: 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -464,7 +464,10 @@ MonoBehaviour:
   upperClaw: 0
   lowerClaw: 0
   isDestroy: 0
-  force: 1
+  explosionForce: 1
+  throwForce: 25
+  magnitudeToExplode: 4
+  handMagnitudeToExplode: 1
 --- !u!65 &5650736606770387121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -580,7 +583,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9053336414309105102}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea158ab04e5f8aa40a84b9cade63ba81, type: 3}
   m_Name: 
@@ -638,8 +641,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2586255933475174072}
-        m_TargetAssemblyTypeName: ThrowDirection, Assembly-CSharp
+      - m_Target: {fileID: 3793911926208236380}
+        m_TargetAssemblyTypeName: FruitManager, Assembly-CSharp
         m_MethodName: Throw
         m_Mode: 1
         m_Arguments:

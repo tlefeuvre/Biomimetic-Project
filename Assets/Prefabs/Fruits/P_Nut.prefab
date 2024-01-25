@@ -91,7 +91,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0938991c49d31814c9aa7d444ee8c9ea,
         type: 3}
       propertyPath: m_TagString
-      value: Fruit_cat2
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -245,8 +245,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.040177017, y: 0.038193718, z: 0.032491792}
-  m_Center: {x: -0.00000007916242, y: -0.0008697631, z: 0.009957222}
+  m_Size: {x: 0.040177017, y: 0.038193718, z: 0.02271533}
+  m_Center: {x: -0.000000078231096, y: -0.00086976215, z: 0.0074945022}
 --- !u!54 &8197266883208957964
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -353,8 +353,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.040177017, y: 0.03766608, z: 0.024865527}
-  m_Center: {x: -0.00000007916242, y: -0.0012772512, z: -0.010479704}
+  m_Size: {x: 0.030335188, y: 0.03766608, z: 0.020651162}
+  m_Center: {x: 0.00066280365, y: -0.0012772512, z: -0.008372521}
 --- !u!54 &8459875903126095827
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -407,8 +407,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.03851559, y: 0.019723907, z: 0.021782596}
-  m_Center: {x: -0.00012160372, y: 0.009861955, z: 0.015311822}
+  m_Size: {x: 0.032117724, y: 0.019723907, z: 0.021782596}
+  m_Center: {x: -0.0006480813, y: 0.009861955, z: 0.015311822}
 --- !u!54 &5336568474073929478
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -491,7 +491,10 @@ MonoBehaviour:
   upperClaw: 0
   lowerClaw: 0
   isDestroy: 0
-  force: 1
+  explosionForce: 1
+  throwForce: 25
+  magnitudeToExplode: 4
+  handMagnitudeToExplode: 1
 --- !u!65 &2218218304709248218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -625,8 +628,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: -6841494633972918059}
-        m_TargetAssemblyTypeName: ThrowDirection, Assembly-CSharp
+      - m_Target: {fileID: 2846215913803859558}
+        m_TargetAssemblyTypeName: FruitManager, Assembly-CSharp
         m_MethodName: Throw
         m_Mode: 1
         m_Arguments:
@@ -650,7 +653,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6967707849778275724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea158ab04e5f8aa40a84b9cade63ba81, type: 3}
   m_Name: 

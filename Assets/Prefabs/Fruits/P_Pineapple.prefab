@@ -228,7 +228,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fb2fa596293ff154f988e9af94d002db,
         type: 3}
       propertyPath: m_TagString
-      value: Fruit_cat3
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3082303770016604726, guid: fb2fa596293ff154f988e9af94d002db,
         type: 3}
@@ -511,7 +511,10 @@ MonoBehaviour:
   upperClaw: 0
   lowerClaw: 0
   isDestroy: 0
-  force: 1
+  explosionForce: 1
+  throwForce: 25
+  magnitudeToExplode: 4
+  handMagnitudeToExplode: 1
 --- !u!54 &7327701119779816725
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -606,7 +609,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4506419694209279401}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea158ab04e5f8aa40a84b9cade63ba81, type: 3}
   m_Name: 
@@ -664,8 +667,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: -6219403566289557446}
-        m_TargetAssemblyTypeName: ThrowDirection, Assembly-CSharp
+      - m_Target: {fileID: 7966648791632491637}
+        m_TargetAssemblyTypeName: FruitManager, Assembly-CSharp
         m_MethodName: Throw
         m_Mode: 1
         m_Arguments:

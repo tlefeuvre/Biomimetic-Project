@@ -2,11 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum HandType
+{
+    HAND,
+    CLAW
+}
 public class Measures : MonoBehaviour
 {
+    [Header("Total Time")]
     public bool isTimer;
-    public float elapsedTime;
+    public float totalElapsedTime;
+
+    [Header("Fruits order")]
     public List<string> brokeOrder = new List<string>();
+
+
+    [Header("Round Time")]
+    public List<float> roundElapsedTime = new List<float>();
+    public float elapsedTime;
+
+    [Header("Others")]
+    public HandType handType;
 
     private static Measures instance = null;
     public static Measures Instance => instance;
@@ -27,9 +43,7 @@ public class Measures : MonoBehaviour
 
     void Start()
     {
-
-
-        isTimer = false;
+        isTimer = true;
     }
 
     // Update is called once per frame
@@ -38,17 +52,26 @@ public class Measures : MonoBehaviour
         if (isTimer)
             elapsedTime += Time.deltaTime;
     }
-    public void SetTimer()
+
+    public void NewTimer(int nbRoundMaw)
     {
-        isTimer = true;
-    }
-    public void UnsetTimer()
-    {
-        isTimer = false;
+        roundElapsedTime.Add(elapsedTime);
+        elapsedTime = 0;
+
+        //fin des rounds
+        if (nbRoundMaw == roundElapsedTime.Count)
+            foreach (var time in roundElapsedTime)
+                totalElapsedTime += time;
+
     }
     public void AddBrokenTag(string tag)
     {
         brokeOrder.Add(tag);
+    }
+
+    public void EndOfExp()
+    {
+
     }
 
 }

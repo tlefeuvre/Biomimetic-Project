@@ -9,8 +9,23 @@ public class SaveUserData : MonoBehaviour
 {
     StringBuilder newuserdata = new System.Text.StringBuilder();
 
+    private static SaveUserData instance = null;
+    public static SaveUserData Instance => instance;
 
-    // ecrit les donnees des variables dans le StringBuilder newuserdata puis ecrit les données du StringBuilder newuserdata dans le fichier UsersData.csv 
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
+
 
     public void WriteNewUserData() // (float v, int t) // variables mises en exemple
     {
@@ -45,7 +60,9 @@ public class SaveUserData : MonoBehaviour
     void CreateUsersDataFile()
     {
         /* "Velocite" + ";" + "Temps" + ";" // variables mises en exemple*/
-        string headers =  "Genre" +";"+ "Hand Type" + ";"+  "Totale Time" + ";" + " Round_1 Fruit" + ";" + " Round_2 Fruit" + ";" + " Round_3 Fruit" + ";" + " Round_4 Fruit" + ";" + " Round_5 Fruit" + ";" + " Round_1 Time" + ";" + " Round_2 Time" + ";" + " Round_3 Time" + ";" + " Round_4 Time" + ";" + " Round_5 Time" + ";"; 
+        string headers =  "Genre" +";"+ "Hand Type" + ";"+  "Totale Time" + ";" 
+            + " Round_1 Fruit" + ";" + " Round_2 Fruit" + ";" + " Round_3 Fruit" + ";" + " Round_4 Fruit" + ";" + " Round_5 Fruit" + ";" 
+            + " Round_1 Time" + ";" + " Round_2 Time" + ";" + " Round_3 Time" + ";" + " Round_4 Time" + ";" + " Round_5 Time" + ";"; 
 
         newuserdata.AppendLine(headers);
     }
@@ -67,7 +84,11 @@ public class SaveUserData : MonoBehaviour
 
     void NewUserData() // (float v, int t) // variables mises en exemple
     {
-        string data =  "" + ";" + "Pince" + ";"+ "20" + ";" + "1" + ";" + "2" + ";" + "3" + ";" + "3" + ";" + "2" + ";" + "15" + ";" + "17" + ";" + "12" + ";" + "13" + ";" + "25" + ";" ;
+        string data = "" + ";" +Measures.Instance.handType + ";" + Measures.Instance.totalElapsedTime + ";" 
+            + Measures.Instance.brokeOrder[0] + ";" + Measures.Instance.brokeOrder[1] + ";" + Measures.Instance.brokeOrder[2] + ";" + Measures.Instance.brokeOrder[3] + ";" + Measures.Instance.brokeOrder[4] + ";" 
+            + Measures.Instance.roundElapsedTime[0] + ";" + Measures.Instance.roundElapsedTime[1] + ";" + Measures.Instance.roundElapsedTime[2] + ";" + Measures.Instance.roundElapsedTime[3] + ";" + Measures.Instance.roundElapsedTime[4] + ";";
+
+
 
         newuserdata.AppendLine(data);
     }
@@ -87,6 +108,6 @@ public class SaveUserData : MonoBehaviour
 
     private void Start()
     {
-        WriteNewUserData();
+       // WriteNewUserData();
     }
 }

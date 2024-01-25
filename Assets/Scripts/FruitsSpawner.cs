@@ -76,9 +76,15 @@ public class FruitsSpawner : MonoBehaviour
         }
 
         spawnedFruits.Clear();
+        if(currentRound !=0)
+            Measures.Instance.NewTimer(numbOfRounds);
 
         if (currentRound >= numbOfRounds)
+        {
+            SaveUserData.Instance.WriteNewUserData();
             return;
+        }
+
 
         GameObject cat1Fruit = fruitsCat01List[Random.Range(0, fruitsCat01List.Count)];
         GameObject newFruit1 = Instantiate(cat1Fruit, spawnerCat01Pos.position, Quaternion.identity);
