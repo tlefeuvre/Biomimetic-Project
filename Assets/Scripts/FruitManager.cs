@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class FruitManager : MonoBehaviour
 {
+    [Header("Parameters")]
     public List<GameObject> RigidbodyList;
     public ParticleSystem juice;
     public bool upperClaw, lowerClaw, isDestroy;
 
+    [Header("Physic Parameters")]
     public float explosionForce;
+    public int throwForce;
+
+    [Header("Explosion Parameters")]
+    public float magnitudeToExplode;
+    public float handMagnitudeToExplode;
+
+    private float initTimer;
 
     private Vector3 newPos;
     private Vector3 oldPos;
     private Vector3 velocity;
-
-    public int throwForce;
-    private float initTimer;
-
-
+    private AudioSource audioSource;
 
     public void Awake()
     {
@@ -52,8 +57,7 @@ public class FruitManager : MonoBehaviour
         //StartCoroutine("ActivateCollider"); 
     }
 
-    public float magnitudeToExplode;
-    public float handMagnitudeToExplode;
+ 
 
     /*IEnumerator ActivateCollider()
     {
@@ -66,7 +70,7 @@ public class FruitManager : MonoBehaviour
     {
         initTimer = Time.time;
 
-
+        audioSource = GetComponent<AudioSource>();
         newPos = transform.position;
         oldPos = transform.position;
     }
@@ -99,6 +103,8 @@ public class FruitManager : MonoBehaviour
         isDestroy = true;
         if(juice)
             juice.Play();
+        if (audioSource)
+            audioSource.Play();
 
         Measures.Instance.AddBrokenTag(this.tag);
         FruitsSpawner.Instance.CallNewRound();
