@@ -60,7 +60,7 @@ public class SaveUserData : MonoBehaviour
     void CreateUsersDataFile()
     {
         /* "Velocite" + ";" + "Temps" + ";" // variables mises en exemple*/
-        string headers =  "Genre" +";"+ "Hand Type" + ";"+  "Totale Time" + ";" 
+        string headers =  "Sex" +";"+ "Hand Type" + ";"+  "Totale Time" + ";" 
             + " Round_1 Fruit" + ";" + " Round_2 Fruit" + ";" + " Round_3 Fruit" + ";" + " Round_4 Fruit" + ";" + " Round_5 Fruit" + ";" 
             + " Round_1 Time" + ";" + " Round_2 Time" + ";" + " Round_3 Time" + ";" + " Round_4 Time" + ";" + " Round_5 Time" + ";"; 
 
