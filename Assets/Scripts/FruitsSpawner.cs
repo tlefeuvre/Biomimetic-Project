@@ -22,14 +22,16 @@ public class FruitsSpawner : MonoBehaviour
     public int numbOfRounds;
     public int currentRound;
     [Header("Fruits")]
-    public List<GameObject> fruitsCat01List;
-    public List<GameObject> fruitsCat02List;
-    public List<GameObject> fruitsCat03List;
+    public List<GameObject> fruitsList;
+    /*public List<GameObject> fruitsCat01List;
+    /*public List<GameObject> fruitsCat02List;
+    public List<GameObject> fruitsCat03List;*/
 
     [Header("Fruits positions")]
-    public Transform spawnerCat01Pos;
-    public Transform spawnerCat02Pos;
-    public Transform spawnerCat03Pos;
+    public Transform spawnerPos;
+    /*public Transform spawnerCat01Pos;
+    /*public Transform spawnerCat02Pos;
+    public Transform spawnerCat03Pos;*/
 
     public List<GameObject> spawnedFruits;
     private void Awake()
@@ -68,11 +70,11 @@ public class FruitsSpawner : MonoBehaviour
     {
         Debug.Log("NewRound");
 
-        foreach ( GameObject fruit in spawnedFruits)
+        foreach ( GameObject oldFruit in spawnedFruits)
         {
             //fruit.SetActive(false);
 
-            Destroy (fruit.gameObject);
+            Destroy (oldFruit.gameObject);
         }
 
         spawnedFruits.Clear();
@@ -84,9 +86,11 @@ public class FruitsSpawner : MonoBehaviour
             SaveUserData.Instance.WriteNewUserData();
             return;
         }
+        GameObject fruit = fruitsList[Random.Range(0, fruitsList.Count)];
+        GameObject newFruit = Instantiate(fruit, spawnerPos.position, Quaternion.identity);
+        spawnedFruits.Add(newFruit);
 
-
-        GameObject cat1Fruit = fruitsCat01List[Random.Range(0, fruitsCat01List.Count)];
+        /*GameObject cat1Fruit = fruitsCat01List[Random.Range(0, fruitsCat01List.Count)];
         GameObject newFruit1 = Instantiate(cat1Fruit, spawnerCat01Pos.position, Quaternion.identity);
         spawnedFruits.Add(newFruit1);
 
@@ -96,7 +100,7 @@ public class FruitsSpawner : MonoBehaviour
 
         GameObject cat3Fruit = fruitsCat03List[Random.Range(0, fruitsCat03List.Count )];
         GameObject newFruit3 = Instantiate(cat3Fruit, spawnerCat03Pos.position, Quaternion.identity);
-        spawnedFruits.Add(newFruit3);
+        spawnedFruits.Add(newFruit3);*/
 
         currentRound += 1;
         Debug.Log("endnewround");
