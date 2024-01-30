@@ -60,10 +60,14 @@ public class SaveUserData : MonoBehaviour
     void CreateUsersDataFile()
     {
         /* "Velocite" + ";" + "Temps" + ";" // variables mises en exemple*/
-        string headers =  "Sex" +";"+ "Hand Type" + ";"+  "Totale Time" + ";" 
-            + " Round_1 Fruit" + ";" + " Round_2 Fruit" + ";" + " Round_3 Fruit" + ";" + " Round_4 Fruit" + ";" + " Round_5 Fruit" + ";" 
-            + " Round_1 Time" + ";" + " Round_2 Time" + ";" + " Round_3 Time" + ";" + " Round_4 Time" + ";" + " Round_5 Time" + ";"; 
+        string headers = "Sex" + ";" + "Hand Type" + ";" + "Totale Time" + ";";
+           
 
+        for(int i = 0; i < FruitsSpawner.Instance.numbOfRounds; i++)
+            headers = headers + "Round_" + i.ToString() + " Fruit ;";
+
+        for (int i = 0; i < FruitsSpawner.Instance.numbOfRounds; i++)
+            headers = headers + "Round_" + i.ToString() + " Time ;";
         newuserdata.AppendLine(headers);
     }
 
@@ -84,12 +88,13 @@ public class SaveUserData : MonoBehaviour
 
     void NewUserData() // (float v, int t) // variables mises en exemple
     {
-        string data = "" + ";" +Measures.Instance.handType + ";" + Measures.Instance.totalElapsedTime + ";" 
-            + Measures.Instance.brokeOrder[0] + ";" + Measures.Instance.brokeOrder[1] + ";" + Measures.Instance.brokeOrder[2] + ";" + Measures.Instance.brokeOrder[3] + ";" + Measures.Instance.brokeOrder[4] + ";" 
-            + Measures.Instance.roundElapsedTime[0] + ";" + Measures.Instance.roundElapsedTime[1] + ";" + Measures.Instance.roundElapsedTime[2] + ";" + Measures.Instance.roundElapsedTime[3] + ";" + Measures.Instance.roundElapsedTime[4] + ";";
+        string data = "" + ";" + (int)MySceneManager.Instance.handType + ";" + Measures.Instance.totalElapsedTime + ";";
+          
+        for (int i = 0; i < FruitsSpawner.Instance.numbOfRounds; i++)
+            data = data + Measures.Instance.brokeOrder[i] + ";";
 
-
-
+        for (int i = 0; i < FruitsSpawner.Instance.numbOfRounds; i++)
+            data = data + Measures.Instance.roundElapsedTime[i] + ";";
         newuserdata.AppendLine(data);
     }
 

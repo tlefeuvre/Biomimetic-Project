@@ -21,8 +21,7 @@ public class Measures : MonoBehaviour
     public List<float> roundElapsedTime = new List<float>();
     public float elapsedTime;
 
-    [Header("Others")]
-    public HandType handType;
+ 
 
     private static Measures instance = null;
     public static Measures Instance => instance;

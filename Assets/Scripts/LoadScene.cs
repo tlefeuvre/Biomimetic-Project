@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+    public HandType HandType;
     public float timeNextScene;
     private float timer;
     // Start is called before the first frame update
     void Start()
     {
         timer = Time.time;
+        PlayerPrefs.SetInt("handType", (int)HandType);
+
     }
 
     // Update is called once per frame
@@ -18,6 +21,13 @@ public class LoadScene : MonoBehaviour
     {
         if (Time.time > timer + timeNextScene)
             SceneManager.LoadScene("SecondScene",LoadSceneMode.Single);
+
+        
+    }
+    public void SaveHand(int handId)
+    {
+        PlayerPrefs.SetInt("handId", 0);
+        Debug.Log("hand " + handId);
 
     }
 }
