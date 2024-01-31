@@ -38,7 +38,7 @@ public class FruitsSpawner : MonoBehaviour
     public List <GameObject> fruitsList = new List<GameObject>();
     public List <Transform> spawnersPosList = new List<Transform>();
     public GameObject placeHolder;
-    public Animator tableAnimator;
+    public List<Animator> tableAnimator = new List<Animator>();
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -64,11 +64,33 @@ public class FruitsSpawner : MonoBehaviour
 
     public void CallNewRound()
     {
+        
         StartCoroutine("WaitForNewRound");
+
     }
-    
+
     IEnumerator WaitForNewRound()
     {
+        foreach (GameObject fruit in spawnedFruits)
+        {
+            fruit.GetComponent<FruitManager>().ActivateGravity();
+        }
+        yield return new WaitForSeconds(.2f);
+
+        foreach (Animator animator in tableAnimator)
+        {
+
+            animator.SetBool("IsOpen", true);
+        }
+
+        yield return new WaitForSeconds(2.0f);
+
+
+        foreach (Animator animator in tableAnimator)
+        {
+
+            animator.SetBool("IsOpen", false);
+        }
         yield return new WaitForSeconds(timeToWait);
         //NewRound();
         SpawnNewRound();

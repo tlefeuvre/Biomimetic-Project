@@ -35,7 +35,8 @@ public class FruitManager : MonoBehaviour
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb)
         {
-            rb.useGravity = true;
+            rb.useGravity = false;
+            rb.isKinematic = true;
 
         }
 
@@ -192,5 +193,15 @@ public class FruitManager : MonoBehaviour
         }
     }
     
+    public void ActivateGravity()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb)
+        {
+            rb.useGravity = true;
+            rb.isKinematic = false;
+            //rb.AddForce(Vector3.up * 2);
+        }
+    }
 
 }
