@@ -57,6 +57,7 @@ public class FruitsSpawner : MonoBehaviour
     {
         isRoundFinished = false;
         currentRound = 0;
+        placeHolder.SetActive(false);
         SpawnNewRound();
 
         //NewRound();
@@ -71,28 +72,32 @@ public class FruitsSpawner : MonoBehaviour
 
     IEnumerator WaitForNewRound()
     {
+        //gravity
         foreach (GameObject fruit in spawnedFruits)
         {
             fruit.GetComponent<FruitManager>().ActivateGravity();
         }
-        yield return new WaitForSeconds(.2f);
 
+
+        //open animation
+        yield return new WaitForSeconds(.1f);
         foreach (Animator animator in tableAnimator)
         {
-
+            Debug.Log("animator set bool true");
             animator.SetBool("IsOpen", true);
         }
 
-        yield return new WaitForSeconds(2.0f);
-
-
+        //close animation
+        yield return new WaitForSeconds(.2f);
         foreach (Animator animator in tableAnimator)
         {
+            Debug.Log("animator set bool false");
 
             animator.SetBool("IsOpen", false);
         }
-        yield return new WaitForSeconds(timeToWait);
+
         //NewRound();
+        yield return new WaitForSeconds(timeToWait);
         SpawnNewRound();
     }
 
