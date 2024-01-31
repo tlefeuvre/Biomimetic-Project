@@ -31,7 +31,12 @@ public class FruitsSpawner : MonoBehaviour
     public Transform spawnerCat02Pos;
     public Transform spawnerCat03Pos;
 
-    public List<GameObject> spawnedFruits;
+    public List<GameObject> spawnedFruits = new List<GameObject>();
+
+    [Header("New")]
+    public List <GameObject> fruitsList = new List<GameObject>();
+    public List <Transform> spawnersPosList = new List<Transform>();
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -49,8 +54,9 @@ public class FruitsSpawner : MonoBehaviour
     public void Start()
     {
         currentRound = 0;
+        SpawnNewRound();
 
-        NewRound();
+        //NewRound();
     }
 
     public void CallNewRound()
@@ -61,7 +67,8 @@ public class FruitsSpawner : MonoBehaviour
     IEnumerator WaitForNewRound()
     {
         yield return new WaitForSeconds(timeToWait);
-        NewRound();
+        //NewRound();
+        SpawnNewRound();
     }
 
     public void NewRound()
@@ -103,7 +110,37 @@ public class FruitsSpawner : MonoBehaviour
 
 
     }
+    public void SpawnNewRound()
+    {
 
+        foreach (GameObject fruit in spawnedFruits)
+        {
+            //fruit.SetActive(false);
+
+            Destroy(fruit.gameObject);
+        }
+
+        spawnedFruits.Clear();
+        if (currentRound != 0)
+            Measures.Instance.NewTimer(numbOfRounds);
+
+        if (currentRound >= numbOfRounds)
+        {
+            SaveUserData.Instance.WriteNewUserData();
+            return;
+        }
+
+        List<GameObject> copyFruitsList = new List<GameObject>(fruitsList);
+        foreach (Transform spawner in spawnersPosList)
+        {
+            int rand = Random.Range(0, copyFruitsList.Count);
+            GameObject newFruit = Instantiate(copyFruitsList[rand], spawner.position, Quaternion.identity);
+            spawnedFruits.Add(newFruit);
+            copyFruitsList.RemoveAt(rand);
+        }
+        currentRound += 1;
+        Debug.Log("end new spawn round");
+    }
 }
 
 
