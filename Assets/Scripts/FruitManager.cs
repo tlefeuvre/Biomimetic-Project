@@ -157,7 +157,7 @@ public class FruitManager : MonoBehaviour
 
         if(other.tag =="LowerClaw")
             lowerClaw = true;
-        if(other.tag == "RightHand")
+        if(other.tag == "Hand")
         {
 
             float handSpeed = other.gameObject.GetComponent<HandVelocity>().GetMagnitude();

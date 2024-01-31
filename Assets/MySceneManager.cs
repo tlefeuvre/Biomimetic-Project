@@ -9,33 +9,11 @@ public class MySceneManager : MonoBehaviour
     public List<GameObject> rightHand = new List<GameObject>();
 
 
-    [Header("Others")]
-    public HandType handType;
-    public HandId handId;
-
-
-    private static MySceneManager instance = null;
-    public static MySceneManager Instance => instance;
-    private void Awake()
-    {
-        if (instance != null && instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        else
-        {
-            instance = this;
-        }
-        DontDestroyOnLoad(this.gameObject);
-    }
+    private HandType handType;
 
     void Start()
     {
-       
-
         SetHandVisual();
-
     }
 
     // Update is called once per frame
@@ -46,6 +24,8 @@ public class MySceneManager : MonoBehaviour
 
     public void SetHandVisual()
     {
+        Debug.Log("set hand visual");
+
         for (int i = 0; i < leftHand.Count; i++)
         {
             leftHand[i].SetActive(false);
@@ -53,7 +33,7 @@ public class MySceneManager : MonoBehaviour
         }
 
         handType = (HandType)PlayerPrefs.GetInt("handType");
-        handId= (HandId)PlayerPrefs.GetInt("handId");
+        HandId handId = (HandId)PlayerPrefs.GetInt("handId");
 
         if(handId == HandId.LEFT)
             leftHand[(int)handType].SetActive(true);
@@ -62,5 +42,10 @@ public class MySceneManager : MonoBehaviour
             rightHand[(int)handType].SetActive(true);
 
        
+    }
+
+    public HandType GetHandType()
+    {
+        return handType;
     }
 }

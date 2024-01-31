@@ -88,7 +88,7 @@ public class SaveUserData : MonoBehaviour
 
     void NewUserData() // (float v, int t) // variables mises en exemple
     {
-        string data = "" + ";" + (int)MySceneManager.Instance.handType + ";" + Measures.Instance.totalElapsedTime + ";";
+        string data = "" + ";" + (int)GetComponent<MySceneManager>().GetHandType() + ";" + Measures.Instance.totalElapsedTime + ";";
           
         for (int i = 0; i < FruitsSpawner.Instance.numbOfRounds; i++)
             data = data + Measures.Instance.brokeOrder[i] + ";";
