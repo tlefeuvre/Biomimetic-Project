@@ -108,7 +108,7 @@ public class FruitManager : MonoBehaviour
 
         Measures.Instance.AddBrokenTag(this.tag);
         FruitsSpawner.Instance.isRoundFinished = true;
-        FruitsSpawner.Instance.CallNewRound();
+        //FruitsSpawner.Instance.CallNewRound();
 
         if (RigidbodyList.Count == 0)
             StartCoroutine("SpawnNewFruit");
