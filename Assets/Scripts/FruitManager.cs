@@ -108,6 +108,7 @@ public class FruitManager : MonoBehaviour
 
         Measures.Instance.AddBrokenTag(this.tag);
         FruitsSpawner.Instance.isRoundFinished = true;
+        FruitsSpawner.Instance.SetPlaceHolder(true);
         //FruitsSpawner.Instance.CallNewRound();
 
         if (RigidbodyList.Count == 0)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlaceHolderManager : MonoBehaviour
@@ -18,8 +19,15 @@ public class PlaceHolderManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("place holder triggered");
-        FruitsSpawner.Instance.CallNewRound();
+        
+        if(other.tag == "Hand" || other.tag == "UpperClaw" || other.tag == "LowerClaw")
+            if (FruitsSpawner.Instance.isRoundFinished)
+            {
+            
+                Debug.Log("place holder triggered");
+                FruitsSpawner.Instance.CallNewRound();
+                gameObject.SetActive(false);
+            }
 
     }
 }

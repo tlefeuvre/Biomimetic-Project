@@ -936,13 +936,14 @@ GameObject:
   - component: {fileID: 3220858442469944211}
   - component: {fileID: 7584171634534561178}
   - component: {fileID: 8845926616473064987}
+  - component: {fileID: 8148835505843074184}
   m_Layer: 0
   m_Name: PlaceHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3220858442469944211
 Transform:
   m_ObjectHideFlags: 0
@@ -996,9 +997,21 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.4073351, y: 0.094087, z: 0.41387624}
   m_Center: {x: -0.00014094554, y: 0.044490315, z: -0.005570961}
+--- !u!114 &8148835505843074184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8163885985886424189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307a12b637d24784f9381ad2639f8a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

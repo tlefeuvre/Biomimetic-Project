@@ -37,6 +37,7 @@ public class FruitsSpawner : MonoBehaviour
     [Header("New")]
     public List <GameObject> fruitsList = new List<GameObject>();
     public List <Transform> spawnersPosList = new List<Transform>();
+    public GameObject placeHolder;
 
     private void Awake()
     {
@@ -142,11 +143,15 @@ public class FruitsSpawner : MonoBehaviour
         }
         currentRound += 1;
         FruitsSpawner.Instance.isRoundFinished = false;
+        FruitsSpawner.Instance.SetPlaceHolder(false);
 
         Debug.Log("end new spawn round");
     }
+    public void SetPlaceHolder(bool isActive)
+    {
+        placeHolder.SetActive(isActive);
+    }
 }
-
 
 /*public void SpawnNewFruit(string destroyedFruitTag)
     {
