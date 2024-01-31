@@ -5,11 +5,13 @@ using UnityEngine;
 public class MySceneManager : MonoBehaviour
 {
     [Header("Hand")]
-    public GameObject normalHand;
-    public GameObject clawHand;
+    public List<GameObject> leftHand = new List<GameObject>();
+    public List<GameObject> rightHand = new List<GameObject>();
+
 
     [Header("Others")]
     public HandType handType;
+    public HandId handId;
 
 
     private static MySceneManager instance = null;
@@ -30,14 +32,9 @@ public class MySceneManager : MonoBehaviour
 
     void Start()
     {
-        normalHand.SetActive(false);
-        clawHand.SetActive(false);
+       
 
-        handType = (HandType)PlayerPrefs.GetInt("handType");
-        if(handType == HandType.HAND)
-            normalHand.SetActive(true);
-        else
-            clawHand.SetActive(true);
+        SetHandVisual();
 
     }
 
@@ -45,5 +42,25 @@ public class MySceneManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetHandVisual()
+    {
+        for (int i = 0; i < leftHand.Count; i++)
+        {
+            leftHand[i].SetActive(false);
+            rightHand[i].SetActive(false);
+        }
+
+        handType = (HandType)PlayerPrefs.GetInt("handType");
+        handId= (HandId)PlayerPrefs.GetInt("handId");
+
+        if(handId == HandId.LEFT)
+            leftHand[(int)handType].SetActive(true);
+
+        if (handId == HandId.RIGHT)
+            rightHand[(int)handType].SetActive(true);
+
+       
     }
 }

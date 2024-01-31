@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    public HandType HandType;
     public float timeNextScene;
     private float timer;
     // Start is called before the first frame update
     void Start()
     {
         timer = Time.time;
-        PlayerPrefs.SetInt("handType", (int)HandType);
+        PlayerPrefs.SetInt("handType", (int)MySceneManager.Instance.handType);
+        PlayerPrefs.SetInt("handId", (int)MySceneManager.Instance.handId);
 
     }
 
@@ -26,8 +26,8 @@ public class LoadScene : MonoBehaviour
     }
     public void SaveHand(int handId)
     {
-        PlayerPrefs.SetInt("handId", 0);
+        PlayerPrefs.SetInt("handId", handId);
         Debug.Log("hand " + handId);
-
+        MySceneManager.Instance.SetHandVisual();
     }
 }

@@ -7,6 +7,12 @@ public enum HandType
     HAND,
     CLAW
 }
+
+public enum HandId
+{
+    LEFT,
+    RIGHT
+}
 public class Measures : MonoBehaviour
 {
     [Header("Total Time")]

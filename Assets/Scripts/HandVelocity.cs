@@ -21,7 +21,7 @@ public class HandVelocity : MonoBehaviour
         newPos = transform.position;
         velocity = (newPos - oldPos) / Time.fixedDeltaTime;
         oldPos = newPos;
-        Debug.Log(velocity.magnitude);
+        //Debug.Log(velocity.magnitude);
     }
 
     public Vector3 GetVelocity()
