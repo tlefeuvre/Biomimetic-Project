@@ -38,7 +38,7 @@ public class FruitsSpawner : MonoBehaviour
     public List <GameObject> fruitsList = new List<GameObject>();
     public List <Transform> spawnersPosList = new List<Transform>();
     public GameObject placeHolder;
-
+    public Animator tableAnimator;
     private void Awake()
     {
         if (instance != null && instance != this)
