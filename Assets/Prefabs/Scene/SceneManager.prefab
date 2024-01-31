@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3218781813722568078}
   - component: {fileID: 358479886101018035}
   - component: {fileID: 7618089556316363530}
+  - component: {fileID: 4750020065198921788}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -50,7 +51,6 @@ MonoBehaviour:
   brokeOrder: []
   roundElapsedTime: []
   elapsedTime: 0
-  handType: 0
 --- !u!114 &7618089556316363530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,3 +63,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b8fec3465b61e46ad7d79cc4d170a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4750020065198921788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7157336545119695115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe12508bd451a14da976012538dc0e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftHand:
+  - {fileID: 0}
+  - {fileID: 0}
+  rightHand:
+  - {fileID: 0}
+  - {fileID: 0}

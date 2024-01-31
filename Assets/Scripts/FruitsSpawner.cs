@@ -21,6 +21,7 @@ public class FruitsSpawner : MonoBehaviour
     public float timeToWait;
     public int numbOfRounds;
     public int currentRound;
+    public bool isRoundFinished;
     [Header("Fruits")]
     public List<GameObject> fruitsCat01List;
     public List<GameObject> fruitsCat02List;
@@ -53,6 +54,7 @@ public class FruitsSpawner : MonoBehaviour
 
     public void Start()
     {
+        isRoundFinished = false;
         currentRound = 0;
         SpawnNewRound();
 
@@ -139,6 +141,8 @@ public class FruitsSpawner : MonoBehaviour
             copyFruitsList.RemoveAt(rand);
         }
         currentRound += 1;
+        FruitsSpawner.Instance.isRoundFinished = false;
+
         Debug.Log("end new spawn round");
     }
 }

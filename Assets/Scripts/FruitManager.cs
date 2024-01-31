@@ -95,7 +95,7 @@ public class FruitManager : MonoBehaviour
 
     public void DestroyObject()
     {
-        if (isDestroy)
+        if (FruitsSpawner.Instance.isRoundFinished)
             return;
 
         Debug.Log("fonction DestroyObject");
@@ -107,6 +107,7 @@ public class FruitManager : MonoBehaviour
             audioSource.Play();
 
         Measures.Instance.AddBrokenTag(this.tag);
+        FruitsSpawner.Instance.isRoundFinished = true;
         FruitsSpawner.Instance.CallNewRound();
 
         if (RigidbodyList.Count == 0)
