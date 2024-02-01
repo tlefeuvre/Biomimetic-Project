@@ -9,11 +9,11 @@ public class LoadScene : MonoBehaviour
     public HandType handType;
     public HandId handId;
     public float timeNextScene;
-    private float timer;
+
+    public GameObject UIHand;
     // Start is called before the first frame update
     void Start()
     {
-        timer = Time.time;
         PlayerPrefs.SetInt("handType", (int)handType);
         PlayerPrefs.SetInt("handId", (int)handId);
 
@@ -22,8 +22,6 @@ public class LoadScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > timer + timeNextScene)
-            SceneManager.LoadScene("SecondScene",LoadSceneMode.Single);
 
         
     }
@@ -32,7 +30,12 @@ public class LoadScene : MonoBehaviour
         PlayerPrefs.SetInt("handId", handId);
         Debug.Log("hand " + handId);
         GetComponent<MySceneManager>().SetHandVisual();
+        UIHand.SetActive(false);
     }
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene("SecondScene", LoadSceneMode.Single);
 
+    }
 
 }

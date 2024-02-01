@@ -434,7 +434,7 @@ Transform:
   m_GameObject: {fileID: 9053336414309105102}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.74, z: 0.681}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -760,6 +760,11 @@ PrefabInstance:
       propertyPath: InitialModule.maxNumParticles
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1599997685619539638, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3228520676009174200, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -818,7 +823,7 @@ PrefabInstance:
     - target: {fileID: 4268642888674289668, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4477673601264505878, guid: 58a8c3f1474b92e4298ecc76c669e4cf,
         type: 3}

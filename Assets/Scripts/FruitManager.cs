@@ -24,6 +24,8 @@ public class FruitManager : MonoBehaviour
     private Vector3 velocity;
     private AudioSource audioSource;
 
+    private float gravityTimer;
+    private bool isGravity;
     public void Awake()
     {
         BoxCollider bx = GetComponent<BoxCollider>();
@@ -69,6 +71,9 @@ public class FruitManager : MonoBehaviour
 
     private void Start()
     {
+        gravityTimer = Time.time;
+        isGravity = false;
+
         initTimer = Time.time;
 
         audioSource = GetComponent<AudioSource>();
@@ -84,7 +89,11 @@ public class FruitManager : MonoBehaviour
             DestroyObject();
         }
 
-
+        if (!isGravity && Time.time >  gravityTimer +.1f)
+        {
+            isGravity = true;
+            ActivateGravity();
+        }
     }
     private void FixedUpdate()
     {
@@ -102,8 +111,10 @@ public class FruitManager : MonoBehaviour
         Debug.Log("fonction DestroyObject");
 
         isDestroy = true;
+
         if(juice)
             juice.Play();
+
         if (audioSource)
             audioSource.Play();
 
@@ -146,8 +157,8 @@ public class FruitManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
 
-        //this.GetComponent<Renderer>().enabled = false;
-        Destroy(gameObject);
+        this.GetComponent<Renderer>().enabled = false;
+        //Destroy(gameObject);
 
 
     }
