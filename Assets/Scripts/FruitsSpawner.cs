@@ -88,7 +88,7 @@ public class FruitsSpawner : MonoBehaviour
         }
 
         //close animation
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(2.0f);
         foreach (Animator animator in tableAnimator)
         {
             Debug.Log("animator set bool false");
@@ -169,8 +169,8 @@ public class FruitsSpawner : MonoBehaviour
             copyFruitsList.RemoveAt(rand);
         }
         currentRound += 1;
-        FruitsSpawner.Instance.isRoundFinished = false;
-        FruitsSpawner.Instance.SetPlaceHolder(false);
+        isRoundFinished = false;
+        SetPlaceHolder(false);
 
         Debug.Log("end new spawn round");
     }
