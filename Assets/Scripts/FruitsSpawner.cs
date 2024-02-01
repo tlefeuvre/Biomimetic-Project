@@ -169,8 +169,8 @@ public class FruitsSpawner : MonoBehaviour
             copyFruitsList.RemoveAt(rand);
         }
         currentRound += 1;
-        FruitsSpawner.Instance.isRoundFinished = false;
-        FruitsSpawner.Instance.SetPlaceHolder(false);
+        isRoundFinished = false;
+        SetPlaceHolder(false);
 
         Debug.Log("end new spawn round");
     }
