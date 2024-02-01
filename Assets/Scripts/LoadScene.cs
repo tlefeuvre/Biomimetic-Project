@@ -11,6 +11,8 @@ public class LoadScene : MonoBehaviour
     public float timeNextScene;
 
     public GameObject UIHand;
+
+    public List<GameObject> render = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,11 @@ public class LoadScene : MonoBehaviour
         PlayerPrefs.SetInt("handId", (int)handId);
         GetComponent<BoxCollider>().isTrigger = true;
         GetComponent<BoxCollider>().enabled = false;
-        GetComponent<Renderer>().enabled = false;
+        foreach(GameObject go in render)
+        {
+            go.GetComponent<Renderer>().enabled = false;
+
+        }
 
     }
 
@@ -41,7 +47,11 @@ public class LoadScene : MonoBehaviour
     public void ActivateButton()
     {
         GetComponent<BoxCollider>().enabled = true;
-        GetComponent<Renderer>().enabled = true;
+        foreach (GameObject go in render)
+        {
+            go.GetComponent<Renderer>().enabled = true;
+
+        }
 
 
     }
