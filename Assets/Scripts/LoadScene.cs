@@ -16,6 +16,9 @@ public class LoadScene : MonoBehaviour
     {
         PlayerPrefs.SetInt("handType", (int)handType);
         PlayerPrefs.SetInt("handId", (int)handId);
+        GetComponent<BoxCollider>().isTrigger = true;
+        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<Renderer>().enabled = false;
 
     }
 
@@ -31,6 +34,16 @@ public class LoadScene : MonoBehaviour
         Debug.Log("hand " + handId);
         GetComponent<MySceneManager>().SetHandVisual();
         UIHand.SetActive(false);
+
+        ActivateButton();
+    }
+
+    public void ActivateButton()
+    {
+        GetComponent<BoxCollider>().enabled = true;
+        GetComponent<Renderer>().enabled = true;
+
+
     }
     public void LoadNextScene()
     {
@@ -38,4 +51,11 @@ public class LoadScene : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Hand" || other.tag == "UpperClaw" || other.tag == "LowerClaw")
+        {
+            LoadNextScene();
+        }
+    }
 }
