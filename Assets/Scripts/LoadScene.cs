@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,8 @@ public class LoadScene : MonoBehaviour
     public float timeNextScene;
 
     public GameObject UIHand;
+
+    public List<GameObject> buttonParts = new List<GameObject>();
     // Start is called before the first frame update
      private void Awake()
     {
@@ -22,7 +25,9 @@ public class LoadScene : MonoBehaviour
     {
         GetComponent<BoxCollider>().isTrigger = true;
         GetComponent<BoxCollider>().enabled = false;
-        GetComponent<Renderer>().enabled = false;
+
+        foreach(GameObject part in buttonParts)
+            part.SetActive(false);
 
     }
 
@@ -39,13 +44,20 @@ public class LoadScene : MonoBehaviour
         GetComponent<MySceneManager>().SetHandVisual();
         UIHand.SetActive(false);
 
+       
+       
+
         ActivateButton();
     }
 
     public void ActivateButton()
     {
+        Debug.Log("ActivateButton");
+        foreach (GameObject part in buttonParts)
+            part.SetActive(true);
+
         GetComponent<BoxCollider>().enabled = true;
-        GetComponent<Renderer>().enabled = true;
+
 
 
     }
