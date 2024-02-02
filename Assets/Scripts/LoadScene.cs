@@ -12,10 +12,14 @@ public class LoadScene : MonoBehaviour
 
     public GameObject UIHand;
     // Start is called before the first frame update
-    void Start()
+     private void Awake()
     {
         PlayerPrefs.SetInt("handType", (int)handType);
-        PlayerPrefs.SetInt("handId", (int)handId);
+        PlayerPrefs.SetInt("handId", 1);
+        
+    }
+    void Start()
+    {
         GetComponent<BoxCollider>().isTrigger = true;
         GetComponent<BoxCollider>().enabled = false;
         GetComponent<Renderer>().enabled = false;
