@@ -42,7 +42,7 @@ public class LoadScene : MonoBehaviour
         PlayerPrefs.SetInt("handId", handId);
         Debug.Log("hand " + handId);
         GetComponent<MySceneManager>().SetHandVisual();
-        UIHand.SetActive(false);
+        //UIHand.SetActive(false);
 
        
        

@@ -63,7 +63,8 @@ public class FruitsSpawner : MonoBehaviour
         chaineAudio = GetComponent<AudioSource>();
         isRoundFinished = false;
         currentRound = 0;
-        placeHolder.SetActive(false);
+        SetPlaceHolder(true);
+
         SpawnNewRound();
 
         //NewRound();
@@ -177,13 +178,14 @@ public class FruitsSpawner : MonoBehaviour
         }
         currentRound += 1;
         isRoundFinished = false;
-        SetPlaceHolder(false);
+        //SetPlaceHolder(false);
 
         Debug.Log("end new spawn round");
     }
     public void SetPlaceHolder(bool isActive)
     {
-        placeHolder.SetActive(isActive);
+        //placeHolder.SetActive(isActive);
+        placeHolder.GetComponent<PlaceHolderManager>().IsPressed(isActive);
     }
 }
 
