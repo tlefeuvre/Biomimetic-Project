@@ -22,7 +22,7 @@ public class FruitsSpawner : MonoBehaviour
     public int numbOfRounds;
     public int currentRound;
     public bool isRoundFinished;
-    [Header("Fruits")]
+   /* [Header("Fruits")]
     public List<GameObject> fruitsCat01List;
     public List<GameObject> fruitsCat02List;
     public List<GameObject> fruitsCat03List;
@@ -31,7 +31,7 @@ public class FruitsSpawner : MonoBehaviour
     public Transform spawnerCat01Pos;
     public Transform spawnerCat02Pos;
     public Transform spawnerCat03Pos;
-
+   */
     public List<GameObject> spawnedFruits = new List<GameObject>();
 
     [Header("New")]
@@ -101,7 +101,7 @@ public class FruitsSpawner : MonoBehaviour
         SpawnNewRound();
     }
 
-    public void NewRound()
+    /*public void NewRound()
     {
         Debug.Log("NewRound");
 
@@ -139,7 +139,7 @@ public class FruitsSpawner : MonoBehaviour
         Debug.Log("endnewround");
 
 
-    }
+    }*/
     public void SpawnNewRound()
     {
 

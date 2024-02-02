@@ -65,11 +65,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "D\xE9truisez un fruit que vous pensez pouvoir bris\xE9."
+  m_text: "D\xE9truisez un fruit que vous pensez pouvoir briser."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a71b3286a58c40a4aa83bb1518f64e0a, type: 2}
-  m_sharedMaterial: {fileID: -4352704207158521988, guid: a71b3286a58c40a4aa83bb1518f64e0a,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -258,17 +257,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d77f8a5703a768442ac246a32a460b8b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.416
+      value: 1.514
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d77f8a5703a768442ac246a32a460b8b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.859
+      value: 0.8488388
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d77f8a5703a768442ac246a32a460b8b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.336
+      value: -0.122
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d77f8a5703a768442ac246a32a460b8b,
         type: 3}
@@ -408,7 +407,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d77f8a5703a768442ac246a32a460b8b,
         type: 3}
       propertyPath: m_Name
-      value: SM_WoodSign 1
+      value: P_WoodSign 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d77f8a5703a768442ac246a32a460b8b,
         type: 3}
