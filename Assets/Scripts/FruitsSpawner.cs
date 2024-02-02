@@ -8,6 +8,8 @@ public class Fruit
     public string fruitTag;
     public Transform spawnerPos;
     public GameObject prefab;
+
+
 }
 public class FruitsSpawner : MonoBehaviour
 {
@@ -34,11 +36,14 @@ public class FruitsSpawner : MonoBehaviour
    */
     public List<GameObject> spawnedFruits = new List<GameObject>();
 
-    [Header("New")]
+    [Header("Fruits")]
     public List <GameObject> fruitsList = new List<GameObject>();
     public List <Transform> spawnersPosList = new List<Transform>();
+
+    [Header("Animations")]
     public GameObject placeHolder;
     public List<Animator> tableAnimator = new List<Animator>();
+    private AudioSource chaineAudio;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -55,6 +60,7 @@ public class FruitsSpawner : MonoBehaviour
 
     public void Start()
     {
+        chaineAudio = GetComponent<AudioSource>();
         isRoundFinished = false;
         currentRound = 0;
         placeHolder.SetActive(false);
@@ -86,8 +92,9 @@ public class FruitsSpawner : MonoBehaviour
             Debug.Log("animator set bool true");
             animator.SetBool("IsOpen", true);
         }
-
         //close animation
+        if (chaineAudio)
+            chaineAudio.Play();
         yield return new WaitForSeconds(2.0f);
         foreach (Animator animator in tableAnimator)
         {
