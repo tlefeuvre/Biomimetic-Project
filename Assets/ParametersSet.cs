@@ -9,7 +9,7 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class ParametersSet : MonoBehaviour
 {
-    public Dropdown dropdown;
+    public TMP_Dropdown dropdown;
     public TMP_InputField inputField;
     // Start is called before the first frame update
     void Start()
