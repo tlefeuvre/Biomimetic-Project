@@ -46,6 +46,7 @@ public class SaveUserData : MonoBehaviour
     {
         if (!File.Exists(path))
         {
+
             CreateUsersDataFile();
         }
         else
@@ -110,6 +111,13 @@ public class SaveUserData : MonoBehaviour
             writer.Write(data, Encoding.UTF8);
             writer.Flush();
             writer.Close();
+        }
+
+        using (var writerLog = new StreamWriter(path + PlayerPrefs.GetInt("IDPlayer").ToString()))
+        {
+            writerLog.Write(data, Encoding.UTF8);
+            writerLog.Flush();
+            writerLog.Close();
         }
     }
 
