@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class MySceneManager : MonoBehaviour
@@ -13,6 +14,16 @@ public class MySceneManager : MonoBehaviour
 
     void Start()
     {
+        if(leftHand.Count > 1 && leftHand[0] == null)
+        {
+            leftHand[0] = GameObject.FindGameObjectWithTag("Missing1");
+            leftHand[1] = GameObject.FindGameObjectWithTag("Missing2");
+        }
+        if (rightHand.Count > 1 && rightHand[0] == null)
+        {
+            rightHand[0] = GameObject.FindGameObjectWithTag("Missing3");
+            rightHand[1] = GameObject.FindGameObjectWithTag("Missing4");
+        }
         SetHandVisual();
     }
 

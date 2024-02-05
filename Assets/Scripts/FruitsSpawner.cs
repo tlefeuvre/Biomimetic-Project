@@ -64,6 +64,18 @@ public class FruitsSpawner : MonoBehaviour
         chaineAudio = GetComponent<AudioSource>();
         isRoundFinished = false;
         currentRound = 0;
+
+        if(tableAnimator.Count > 0 && tableAnimator[0] == null) {
+            for(int i = 0;i< tableAnimator.Count; i++)
+            {
+                tableAnimator[i] = GameObject.FindGameObjectWithTag("Animator"+i.ToString()).GetComponent<Animator>();
+
+            }
+        }
+
+        if (placeHolder == null)
+            placeHolder = GameObject.FindGameObjectWithTag("Missing5");
+
         SetPlaceHolder(true);
 
         SpawnNewRound();

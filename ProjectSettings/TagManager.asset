@@ -18,6 +18,17 @@ TagManager:
   - Fruit_lemon
   - 4
   - 5
+  - Missing1
+  - Missing2
+  - Missing3
+  - Missing4
+  - Missing5
+  - Animator1
+  - Animator2
+  - Animator3
+  - Animator4
+  - Animator5
+  - Animator0
   layers:
   - Default
   - TransparentFX
