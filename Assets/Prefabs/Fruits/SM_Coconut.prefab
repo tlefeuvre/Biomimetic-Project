@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 1113913641294385850}
   m_Layer: 0
   m_Name: SM_Coconut
-  m_TagString: 3
+  m_TagString: 5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -468,9 +468,6 @@ MonoBehaviour:
   throwForce: 25
   magnitudeToExplode: 4
   handMagnitudeToExplode: 1
-  explosionClip: {fileID: 8300000, guid: 1c0cf16209868da4d904464ed438c40c, type: 3}
-  bonkClip: {fileID: 0}
-  cutClip: {fileID: 0}
 --- !u!65 &5650736606770387121
 BoxCollider:
   m_ObjectHideFlags: 0

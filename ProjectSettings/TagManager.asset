@@ -14,6 +14,10 @@ TagManager:
   - 3
   - Hand
   - Decor
+  - Fruit_watermelon
+  - Fruit_lemon
+  - 4
+  - 5
   layers:
   - Default
   - TransparentFX

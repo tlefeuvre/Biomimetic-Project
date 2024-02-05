@@ -10,7 +10,8 @@ using static UnityEngine.Rendering.DebugUI;
 public class ParametersSet : MonoBehaviour
 {
     public TMP_Dropdown dropdown;
-    public TMP_InputField inputField;
+    public TMP_InputField inputFieldID;
+    public TMP_InputField inputFieldRound;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,22 +26,26 @@ public class ParametersSet : MonoBehaviour
 
     public void LaunchExp()
     {
+        int handID = int.Parse(inputFieldID.text.ToString());
+        PlayerPrefs.SetInt("IDPlayer", handID);
+
+        int nbRounds = int.Parse(inputFieldRound.text.ToString());
+        PlayerPrefs.SetInt("nbRounds", nbRounds);
+
+        int handType = dropdown.value;
+        PlayerPrefs.SetInt("handType", handType);
+
         SceneManager.LoadScene("FirstScene", LoadSceneMode.Single);
 
     }
     public void SetHandType()
     {
-        int handType = dropdown.value;
-        Debug.Log("hand type: " + handType);
-        PlayerPrefs.SetInt("handType", handType);
+      
 
     }
     public void SetID()
     {
-        int handID = int.Parse(inputField.text.ToString());
-        Debug.Log("id: " + handID);
-
-        PlayerPrefs.SetInt("IDPlayer", handID);
+     
 
     }
 }

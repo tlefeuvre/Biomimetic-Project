@@ -60,6 +60,7 @@ public class FruitsSpawner : MonoBehaviour
 
     public void Start()
     {
+        numbOfRounds = PlayerPrefs.GetInt("nbRounds");
         chaineAudio = GetComponent<AudioSource>();
         isRoundFinished = false;
         currentRound = 0;

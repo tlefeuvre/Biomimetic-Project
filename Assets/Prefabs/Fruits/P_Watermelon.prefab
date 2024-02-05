@@ -206,7 +206,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2cea5baa49ed9b94ebc528ebdea0c3b9,
         type: 3}
       propertyPath: m_TagString
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3606363710039674146, guid: 2cea5baa49ed9b94ebc528ebdea0c3b9,
         type: 3}
@@ -498,9 +498,6 @@ MonoBehaviour:
   throwForce: 25
   magnitudeToExplode: 4
   handMagnitudeToExplode: 1
-  explosionClip: {fileID: 8300000, guid: 1c0cf16209868da4d904464ed438c40c, type: 3}
-  bonkClip: {fileID: 0}
-  cutClip: {fileID: 0}
 --- !u!65 &8774633206397243643
 BoxCollider:
   m_ObjectHideFlags: 0
