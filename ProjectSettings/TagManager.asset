@@ -13,6 +13,7 @@ TagManager:
   - 2
   - 3
   - Hand
+  - Decor
   layers:
   - Default
   - TransparentFX

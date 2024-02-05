@@ -326,6 +326,9 @@ MonoBehaviour:
   throwForce: 25
   magnitudeToExplode: 4
   handMagnitudeToExplode: 1
+  explosionClip: {fileID: 8300000, guid: 1c0cf16209868da4d904464ed438c40c, type: 3}
+  bonkClip: {fileID: 0}
+  cutClip: {fileID: 0}
 --- !u!114 &-2343666742357895344
 MonoBehaviour:
   m_ObjectHideFlags: 0

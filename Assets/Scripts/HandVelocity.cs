@@ -32,4 +32,5 @@ public class HandVelocity : MonoBehaviour
     {
         return velocity.magnitude;
     }
+  
 }
