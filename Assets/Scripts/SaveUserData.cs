@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class SaveUserData : MonoBehaviour
 {
@@ -29,8 +30,10 @@ public class SaveUserData : MonoBehaviour
 
     public void WriteNewUserData() // (float v, int t) // variables mises en exemple
     {
+
         
-        var path = Path.Combine("C:\\Users\\etudiant\\Documents", "UsersData.csv");
+
+        var path = Path.Combine(Application.dataPath, "Participant_" + PlayerPrefs.GetInt("IDPlayer")+"_Condition_" + PlayerPrefs.GetInt("handType") +"_"+ System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm") + ".csv");
         Debug.Log(path);
         FindUsersDataFile(path);
 
@@ -113,12 +116,6 @@ public class SaveUserData : MonoBehaviour
             writer.Close();
         }
 
-        using (var writerLog = new StreamWriter(path + PlayerPrefs.GetInt("IDPlayer").ToString()))
-        {
-            writerLog.Write(data, Encoding.UTF8);
-            writerLog.Flush();
-            writerLog.Close();
-        }
     }
 
     private void Start()
