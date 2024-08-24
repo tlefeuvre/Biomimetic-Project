@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     public List<GameObject> variants = new List<GameObject>();
-    public int indexVariant;
+    private int indexVariant;
 
     public Transform keySpawner;
     // Start is called before the first frame update
@@ -42,7 +42,9 @@ public class ItemManager : MonoBehaviour
     public void Destroyed()
     {
         NewExpManager.Instance.AddBrokenTag(this.tag);
-        
+        NewExpManager.Instance.RemoveFromList(this.gameObject);
+
+
         foreach (GameObject var in variants)
         {
             var.gameObject.SetActive(false);
@@ -53,7 +55,8 @@ public class ItemManager : MonoBehaviour
 
     public void spawnKey(GameObject key)
     {
-        Instantiate(key, keySpawner);
+        GameObject keyObj = Instantiate(key, keySpawner);
+        keyObj.transform.localPosition = Vector3.zero;
     }
 
     private void OnCollisionEnter(Collision collision)

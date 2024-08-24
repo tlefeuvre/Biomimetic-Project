@@ -29,6 +29,7 @@ TagManager:
   - Animator4
   - Animator5
   - Animator0
+  - Chest
   layers:
   - Default
   - TransparentFX

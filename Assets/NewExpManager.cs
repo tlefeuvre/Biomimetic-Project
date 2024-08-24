@@ -37,6 +37,10 @@ public class NewExpManager : MonoBehaviour
     {
         
     }
+    public void RemoveFromList(GameObject obj)
+    {
+        allObjects.Remove(obj);
+    }
 
     public void AddBrokenTag(string tag)
     {
@@ -46,8 +50,13 @@ public class NewExpManager : MonoBehaviour
     public void NewDestroyedFruit()
     {
         nbDestroyedFruit++;
-        if(nbDestroyedFruit > 5)
+        if(nbDestroyedFruit >= 5)
         {
+            Debug.Log("spawn key");
+            foreach(GameObject obj in allObjects)
+            {
+                obj.GetComponent<ItemManager>().spawnKey(keyPrefab);
+            }
 
         }
 
