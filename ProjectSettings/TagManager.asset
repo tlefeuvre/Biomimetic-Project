@@ -39,8 +39,8 @@ TagManager:
   - UI
   - UpperClaw
   - LowerClaw
-  - 
-  - 
+  - GrabbableHandler
+  - Hands
   - 
   - 
   - 
