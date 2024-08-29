@@ -3,18 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveTowardHandle : MonoBehaviour
+public class ChestManager : MonoBehaviour
 {
     public Transform target;
-    public Vector3 start;
+    public GameObject vrHandler;
+    public Transform handlePosition;
+
+    private bool lookat;
+    private Vector3 start;
+
+    private Rigidbody rbHandler;
+
+    public float ValueToBeOpen;
+    private bool isOpened = false;
     private void Start()
     {
         start = transform.localEulerAngles;
         Debug.Log(transform.localEulerAngles);
+        lookat = false;
+
+        rbHandler=  vrHandler.GetComponent<Rigidbody>();
+        
 
     }
     void Update()
     {
+        if (isOpened)
+        {
+            return;
+        }
         /*Quaternion targ = Quaternion.LookRotation(target.transform.position - this.transform.position);
         /this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targ, Time.deltaTime);
         Vector3 diff = target.transform.position - target.transform.forward;
@@ -33,14 +50,36 @@ public class MoveTowardHandle : MonoBehaviour
         Vector3 lookAtY = new  Vector3(transform.position.x, target.position.y, transform.position.z);
         Vector3 lookAtZ = new Vector3(transform.position.x, transform.position.y, target.position.z);
 
+        if(lookat )
+        {
 
-        transform.LookAt(target, new Vector3(0,1,0));
-        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, start.y, start.z);
+            transform.LookAt(target, new Vector3(0,1,0));
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, start.y, start.z);
+        }
+        else
+        {
+            vrHandler.transform.position = handlePosition.transform.position;
+
+            rbHandler.velocity = Vector3.zero;
+        }
 
 
         /*Vector3 difference = target.transform.position - transform.position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
         */
+    }
+
+    public void HandleIsSelected()
+    {
+        lookat = true;
+
+        Debug.Log("IS GRABB");
+    }
+    public void HandleNotSelected()
+    {
+        lookat = false;
+        Debug.Log("IS NOT GRABB");
+
     }
 }
