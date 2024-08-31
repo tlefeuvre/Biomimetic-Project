@@ -8,7 +8,8 @@ public class ChestManager : MonoBehaviour
     public Transform target;
     public GameObject vrHandler;
     public Transform handlePosition;
-
+    public float openSpeed;
+    public Vector3 vectorLookAt;
     private bool lookat;
     private Vector3 start;
 
@@ -50,15 +51,29 @@ public class ChestManager : MonoBehaviour
         Vector3 lookAtY = new  Vector3(transform.position.x, target.position.y, transform.position.z);
         Vector3 lookAtZ = new Vector3(transform.position.x, transform.position.y, target.position.z);
 
-        if(lookat )
+        bool tmp = true;
+        if(handlePosition.position.x > target.position.x)
+        {
+            tmp = false;
+        }
+        if(lookat)
         {
 
-            transform.LookAt(target, new Vector3(0,1,0));
+            //Vector3 lookatvectEuler = new Vector3(transform.localEulerAngles.x * vectorLookAt.x + start.x * ((vectorLookAt.x+1)%2), transform.localEulerAngles.y * vectorLookAt.y + start.y * ((vectorLookAt.y + 1) % 2), transform.localEulerAngles.z * vectorLookAt.z + start.z * ((vectorLookAt.z + 1) % 2));
+            //transform.localEulerAngles = lookatvectEuler;
+            //transform.LookAt(target, new Vector3(0, 1, 0));
+
+
+            Quaternion lookOnLook = Quaternion.LookRotation(target.transform.position - transform.position);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, Time.deltaTime* openSpeed);
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, start.y, start.z);
+
         }
         else
         {
             vrHandler.transform.position = handlePosition.transform.position;
+            vrHandler.transform.rotation = handlePosition.transform.rotation;
 
             rbHandler.velocity = Vector3.zero;
         }
@@ -70,6 +85,11 @@ public class ChestManager : MonoBehaviour
         */
     }
 
+    public bool GetLookAt()
+    {
+        //return lookat to dont destroy chest when opening it
+        return lookat;
+    }
     public void HandleIsSelected()
     {
         lookat = true;

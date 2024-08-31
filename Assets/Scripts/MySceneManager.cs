@@ -46,6 +46,7 @@ public class MySceneManager : MonoBehaviour
         handType = (HandType)PlayerPrefs.GetInt("handType");
         HandId handId = (HandId)PlayerPrefs.GetInt("handId");
 
+        handType = HandType.HAND; 
         if(handId == HandId.LEFT)
             leftHand[(int)handType].SetActive(true);
 

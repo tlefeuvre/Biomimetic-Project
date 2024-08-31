@@ -8,7 +8,9 @@ public class NewExpManager : MonoBehaviour
     private static NewExpManager instance = null;
     public static NewExpManager Instance => instance;
 
-    public int nbDestroyedFruit = 0;
+
+    public int nbDestroyedObjects = 0;
+    public int nbHits = 0;
     public List<string> brokeOrderTags = new List<string>();
     public List<GameObject> allObjects = new List<GameObject>();
 
@@ -47,10 +49,10 @@ public class NewExpManager : MonoBehaviour
         brokeOrderTags.Add(tag);
     }
 
-    public void NewDestroyedFruit()
+    public void NewDestroyedObject()
     {
-        nbDestroyedFruit++;
-        if(nbDestroyedFruit >= 5)
+        nbDestroyedObjects++;
+        if(nbDestroyedObjects >= 5)
         {
             Debug.Log("spawn key");
             foreach(GameObject obj in allObjects)
@@ -60,6 +62,10 @@ public class NewExpManager : MonoBehaviour
 
         }
 
+    }
+    public void NewHit()
+    {
+        nbHits++;
     }
 
     public void ExpFinished()
