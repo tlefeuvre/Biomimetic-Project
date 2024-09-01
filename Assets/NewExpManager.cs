@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class NewExpManager : MonoBehaviour
 {
@@ -32,7 +33,6 @@ public class NewExpManager : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     void Update()

@@ -10,9 +10,13 @@ public class ItemManager : MonoBehaviour
     public float handMagnitudeToExplode = 4;
 
     public GameObject chestManagerChild;
-    private int indexVariant;
+    public GameObject amphoraManagerChild;
+    public int indexVariant;
 
     public Transform keySpawner;
+
+
+    private bool isDestroyed = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,26 +31,54 @@ public class ItemManager : MonoBehaviour
 
     public void ObjectHit()
     {
-        NewExpManager.Instance.NewHit();
+        if (!isDestroyed)
+        {
+            NewExpManager.Instance.NewHit();
 
-        variantsMain[indexVariant].gameObject.SetActive(false);
-        if(variantsTop.Count > 0 )
+        }
+
+        if (indexVariant < variantsMain.Count-1)
+            variantsMain[indexVariant].gameObject.SetActive(false);
+
+
+        if(variantsTop.Count > 0 && variantsTop.Count-1 > indexVariant)
         {
             variantsTop[indexVariant].gameObject.SetActive(false);
 
         }
+        
         indexVariant++;
 
+        //activate
         if (indexVariant < variantsMain.Count)
         {
             variantsMain[indexVariant].gameObject.SetActive(true);
-            variantsTop[indexVariant].gameObject.SetActive(true);
 
         }
-        else
+        if (indexVariant < variantsTop.Count)
         {
-            Destroyed();
+            variantsTop[indexVariant].gameObject.SetActive(true);
+           
 
+        }
+
+
+        if (indexVariant >= variantsMain.Count -1)
+        {
+            if (!isDestroyed)
+            {
+                Destroyed();
+                if (chestManagerChild)
+                {
+                    chestManagerChild.GetComponent<ChestManager>().IsBroken();
+                }
+                //amphora explode
+                if (amphoraManagerChild)
+                {
+                    amphoraManagerChild.GetComponent<AmphoraManager>().ActivateGravity();
+                }
+                isDestroyed = true;
+            }
         }
 
 
@@ -55,21 +87,11 @@ public class ItemManager : MonoBehaviour
     {
 
 
-        foreach (GameObject var in variantsMain)
-        {
-            var.gameObject.SetActive(false);
-        }
-        foreach (GameObject var in variantsTop)
-        {
-            var.gameObject.SetActive(false);
-        }
-
-
         NewExpManager.Instance.AddBrokenTag(this.tag);
         NewExpManager.Instance.RemoveFromList(this.gameObject);
 
         NewExpManager.Instance.NewDestroyedObject();
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 
     public void spawnKey(GameObject key)
@@ -107,7 +129,11 @@ public class ItemManager : MonoBehaviour
             float handSpeed = other.gameObject.GetComponent<HandVelocity>().GetMagnitude();
             if (handSpeed > handMagnitudeToExplode)
             {
+                
+                
+
                 ObjectHit();
+                
 
             }
 

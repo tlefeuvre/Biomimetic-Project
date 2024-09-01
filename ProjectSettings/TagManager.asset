@@ -30,6 +30,11 @@ TagManager:
   - Animator5
   - Animator0
   - Chest
+  - Chest2
+  - Woodbox
+  - Woodbox2
+  - Amphora
+  - Amphora2
   layers:
   - Default
   - TransparentFX

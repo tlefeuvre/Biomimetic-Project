@@ -17,6 +17,8 @@ public class ChestManager : MonoBehaviour
 
     public float ValueToBeOpen;
     private bool isOpened = false;
+
+    private bool isBroken = false;
     private void Start()
     {
         start = transform.localEulerAngles;
@@ -101,5 +103,10 @@ public class ChestManager : MonoBehaviour
         lookat = false;
         Debug.Log("IS NOT GRABB");
 
+    }
+
+    public void IsBroken()
+    {
+        isBroken = true;
     }
 }
