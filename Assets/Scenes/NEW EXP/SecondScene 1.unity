@@ -15585,30 +15585,85 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amphora_Final (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 6687241830600541162, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.0072431695
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.size
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 6687241830600541162, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.09530692
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.size
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 6687241830600541162, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0875
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 6687241830600541162, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.2875
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1616129326}
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 6687241830600541162, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.0494
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1616129326}
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_isTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: set_isTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Collider, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.Collider, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+        type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045971010634919091, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15624,6 +15679,12 @@ GameObject:
 --- !u!4 &1616129321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 792587665465804175, guid: bd9a660d436cd45469fcb4e4bccc0f72,
+    type: 3}
+  m_PrefabInstance: {fileID: 1616129319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1616129326 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8478486237373094787, guid: bd9a660d436cd45469fcb4e4bccc0f72,
     type: 3}
   m_PrefabInstance: {fileID: 1616129319}
   m_PrefabAsset: {fileID: 0}
@@ -20003,11 +20064,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1536152135}
     m_Modifications:
-    - target: {fileID: 2847189154076733358, guid: 17c05bc7db129fe4b836d9eb5c558ea5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5800988438112589376, guid: 17c05bc7db129fe4b836d9eb5c558ea5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20062,16 +20118,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Amphora2_Final
-      objectReference: {fileID: 0}
-    - target: {fileID: 8486617040328716114, guid: 17c05bc7db129fe4b836d9eb5c558ea5,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.0038335163
-      objectReference: {fileID: 0}
-    - target: {fileID: 8486617040328716114, guid: 17c05bc7db129fe4b836d9eb5c558ea5,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.11477809
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
