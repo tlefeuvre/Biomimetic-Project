@@ -14,9 +14,11 @@ public class ItemManager : MonoBehaviour
     public int indexVariant;
 
     public Transform keySpawner;
-
+    public GameObject AmphoreGrab;
 
     private bool isDestroyed = false;
+
+    private bool isOpened = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,12 +74,10 @@ public class ItemManager : MonoBehaviour
                 {
                     chestManagerChild.GetComponent<ChestManager>().IsBroken();
                 }
-                //amphora explode
-                if (amphoraManagerChild)
+                if (AmphoreGrab)
                 {
-                    amphoraManagerChild.GetComponent<AmphoraManager>().ActivateGravity();
+                    AmphoreGrab.SetActive(false);
                 }
-                isDestroyed = true;
             }
         }
 
@@ -90,10 +90,25 @@ public class ItemManager : MonoBehaviour
         NewExpManager.Instance.AddBrokenTag(this.tag);
         NewExpManager.Instance.RemoveFromList(this.gameObject);
 
-        NewExpManager.Instance.NewDestroyedObject();
+        if(!isOpened && !isDestroyed)
+            NewExpManager.Instance.NewDestroyedObject();
         //Destroy(this.gameObject);
+        isDestroyed = true;
     }
+    public void Opened()
+    {
+        Debug.Log("itemmanager");
 
+
+        NewExpManager.Instance.AddBrokenTag(this.tag);
+        NewExpManager.Instance.RemoveFromList(this.gameObject);
+
+        if(!isDestroyed && !isOpened)
+            NewExpManager.Instance.NewOpenedObject();
+
+        isOpened = true;
+
+    }
     public void spawnKey(GameObject key)
     {
         GameObject keyObj = Instantiate(key, keySpawner);

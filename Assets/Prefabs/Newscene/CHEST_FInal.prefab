@@ -326,6 +326,7 @@ MonoBehaviour:
   handMagnitudeToExplode: 3
   chestManagerChild: {fileID: 6036715605611359353}
   amphoraManagerChild: {fileID: 0}
+  indexVariant: 0
   keySpawner: {fileID: 8737929629470931434}
 --- !u!1 &2111108535718133499
 GameObject:
@@ -2114,6 +2115,9 @@ MonoBehaviour:
   openSpeed: 10
   vectorLookAt: {x: 0, y: 1, z: 0}
   ValueToBeOpen: 90
+  isOpened: 0
+  isBroken: 0
+  angleToOpen: 25
 --- !u!54 &1054882731987044958
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2392,6 +2396,9 @@ MonoBehaviour:
   openSpeed: 0
   vectorLookAt: {x: 0, y: 0, z: 0}
   ValueToBeOpen: 0
+  isOpened: 0
+  isBroken: 0
+  angleToOpen: 0
 --- !u!1 &6512659533488245883
 GameObject:
   m_ObjectHideFlags: 0

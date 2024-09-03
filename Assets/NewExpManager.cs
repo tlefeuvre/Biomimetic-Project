@@ -11,8 +11,9 @@ public class NewExpManager : MonoBehaviour
 
 
     public int nbDestroyedObjects = 0;
+    public int nbOpenedObjects = 0;
     public int nbHits = 0;
-    public List<string> brokeOrderTags = new List<string>();
+    public List<string> brokeOpenOrderTags = new List<string>();
     public List<GameObject> allObjects = new List<GameObject>();
 
     public GameObject keyPrefab;
@@ -46,22 +47,35 @@ public class NewExpManager : MonoBehaviour
 
     public void AddBrokenTag(string tag)
     {
-        brokeOrderTags.Add(tag);
+        brokeOpenOrderTags.Add(tag);
     }
 
     public void NewDestroyedObject()
     {
         nbDestroyedObjects++;
-        if(nbDestroyedObjects >= 5)
+        CheckObjectsStates();
+
+
+    }
+    public void NewOpenedObject()
+    {
+        Debug.Log("newexpmanager");
+
+        nbOpenedObjects++;
+        CheckObjectsStates();
+
+    }
+    public void CheckObjectsStates()
+    {
+        if (nbDestroyedObjects + nbOpenedObjects >= 5)
         {
             Debug.Log("spawn key");
-            foreach(GameObject obj in allObjects)
+            foreach (GameObject obj in allObjects)
             {
                 obj.GetComponent<ItemManager>().spawnKey(keyPrefab);
             }
 
         }
-
     }
     public void NewHit()
     {

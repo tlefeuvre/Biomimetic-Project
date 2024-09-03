@@ -12,7 +12,7 @@ public class AmphoraManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        ActivateGravity();
     }
 
     // Update is called once per frame
@@ -53,9 +53,9 @@ public class AmphoraManager : MonoBehaviour
 
 
     }
-
     public void ActivateGravity()
     {
+        Debug.Log("ActivateGravity");
         foreach (GameObject obj in RigidbodyList)
         {
             Rigidbody rb = obj.GetComponent<Rigidbody>();
@@ -63,11 +63,14 @@ public class AmphoraManager : MonoBehaviour
             {
                 rb.useGravity = true;
                 rb.isKinematic = false;
-                rb.AddForce(Vector3.up * 2, ForceMode.Impulse);
+                rb.AddForce(Vector3.up , ForceMode.Impulse);
             }
             obj.GetComponent<BoxCollider>().isTrigger = false;
 
         }
 
     }
+
+    
+
 }

@@ -15,10 +15,11 @@ public class ChestManager : MonoBehaviour
 
     private Rigidbody rbHandler;
 
-    public float ValueToBeOpen;
-    private bool isOpened = false;
+    public bool isOpened ;
 
-    private bool isBroken = false;
+    public bool isBroken ;
+
+    public float angleToOpen;
     private void Start()
     {
         start = transform.localEulerAngles;
@@ -26,15 +27,15 @@ public class ChestManager : MonoBehaviour
         lookat = false;
 
         rbHandler=  vrHandler.GetComponent<Rigidbody>();
-        
+        isBroken = false;
+        isOpened = false;
 
     }
     void Update()
     {
-        if (isOpened)
-        {
-            return;
-        }
+        
+
+       
         /*Quaternion targ = Quaternion.LookRotation(target.transform.position - this.transform.position);
         /this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targ, Time.deltaTime);
         Vector3 diff = target.transform.position - target.transform.forward;
@@ -70,7 +71,12 @@ public class ChestManager : MonoBehaviour
 
             transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, Time.deltaTime* openSpeed);
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, start.y, start.z);
-
+            if (!isOpened && transform.localEulerAngles.x < 360-angleToOpen)
+            {
+                Debug.Log("chestmanager + " + isOpened);
+                isOpened = true;
+                transform.parent.gameObject.GetComponent<ItemManager>().Opened();
+            }
         }
         else
         {
@@ -79,7 +85,6 @@ public class ChestManager : MonoBehaviour
 
             rbHandler.velocity = Vector3.zero;
         }
-
 
         /*Vector3 difference = target.transform.position - transform.position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
