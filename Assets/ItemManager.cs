@@ -2,11 +2,19 @@ using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Recorder.OutputPath;
 
 public class ItemManager : MonoBehaviour
 {
+    private AudioSource audioSource;
     public List<GameObject> variantsMain = new List<GameObject>();
     public List<GameObject> variantsTop = new List<GameObject>();
+    public int objectIndex;
+    public AudioClip[] woodSounds;
+    public AudioClip[] metalSounds;
+    public AudioClip[] potterySounds;
+    public AudioClip[] damageSoundlist;
+    private AudioClip DamageSound;
     public float handMagnitudeToExplode = 4;
 
     public GameObject chestManagerChild;
@@ -22,6 +30,7 @@ public class ItemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
         indexVariant = 0;
     }
 
@@ -85,7 +94,23 @@ public class ItemManager : MonoBehaviour
     }
     public void Destroyed()
     {
+        switch (objectIndex)
+        {
+            case 1:
+                damageSoundlist = potterySounds; ;
+                break;
+            case 2:
+                damageSoundlist = woodSounds; ;
+                break;
+            case 3:
+                damageSoundlist = metalSounds; ;
+                break;
+        }
+        int index = Random.Range(0, damageSoundlist.Length);
+        DamageSound = damageSoundlist[index];
 
+        audioSource.clip = DamageSound;
+        audioSource.Play();
 
         NewExpManager.Instance.AddBrokenTag(this.tag);
         NewExpManager.Instance.RemoveFromList(this.gameObject);

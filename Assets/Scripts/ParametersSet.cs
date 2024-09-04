@@ -35,7 +35,7 @@ public class ParametersSet : MonoBehaviour
         int handType = dropdown.value;
         PlayerPrefs.SetInt("handType", handType);
 
-        SceneManager.LoadScene("FirstScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("FirstSceneNEW", LoadSceneMode.Single);
 
     }
     public void SetHandType()

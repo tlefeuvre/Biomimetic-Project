@@ -1739,11 +1739,23 @@ MonoBehaviour:
   - {fileID: 5601128351734446667}
   - {fileID: 3076570598857085420}
   - {fileID: 6362481117183576148}
+  objectIndex: 2
+  woodSounds:
+  - {fileID: 8300000, guid: 1b83c20525f04b64e977f9f9736d906d, type: 3}
+  - {fileID: 8300000, guid: 8a4b55fa30aeddf4bba98aadf18268dd, type: 3}
+  - {fileID: 8300000, guid: 26c8e4d766095d74a8f84073b005d5e3, type: 3}
+  - {fileID: 8300000, guid: e44459646e4608640b172039112d4e9b, type: 3}
+  - {fileID: 8300000, guid: f9d64ad7113949d439880604944d273a, type: 3}
+  - {fileID: 8300000, guid: 53a9a8b060d41954d98ab47a206fd9b2, type: 3}
+  metalSounds: []
+  potterySounds: []
+  damageSoundlist: []
   handMagnitudeToExplode: 3
   chestManagerChild: {fileID: 0}
   amphoraManagerChild: {fileID: 0}
   indexVariant: 0
   keySpawner: {fileID: 4606555810349891319}
+  AmphoreGrab: {fileID: 0}
 --- !u!1 &5484995497601571909
 GameObject:
   m_ObjectHideFlags: 0

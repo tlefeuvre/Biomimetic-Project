@@ -555,7 +555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8486617040328716114
 Transform:
   m_ObjectHideFlags: 0
@@ -983,6 +983,18 @@ MonoBehaviour:
   - {fileID: 5436746434662605396}
   - {fileID: 8259876926336682395}
   variantsTop: []
+  objectIndex: 1
+  woodSounds:
+  - {fileID: 0}
+  metalSounds: []
+  potterySounds:
+  - {fileID: 8300000, guid: a17f2814b770156499527f5cb483a721, type: 3}
+  - {fileID: 8300000, guid: 98d31ddd9640e434e978d0be16e48112, type: 3}
+  - {fileID: 8300000, guid: 7102809f4fe22df49bdb7a745178e6fe, type: 3}
+  - {fileID: 8300000, guid: ffa21b9605902ef449fa01041efafe48, type: 3}
+  - {fileID: 8300000, guid: a0d6798d6a9403446924329ab0bac168, type: 3}
+  - {fileID: 8300000, guid: 935e7219d3434c6419299cfa1e309161, type: 3}
+  damageSoundlist: []
   handMagnitudeToExplode: 2
   chestManagerChild: {fileID: 0}
   amphoraManagerChild: {fileID: 0}
