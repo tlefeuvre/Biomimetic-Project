@@ -22,7 +22,7 @@ public class GrabAmphore : MonoBehaviour
         if (isBeingGrab)
         {
             parent.transform.position = transform.position +  distanceFromParent;
-            //parent.transform.rotation = transform.rotation;
+            //parent.transform.localRotation = transform.localRotation;
         }
         else
         {
@@ -44,7 +44,7 @@ public class GrabAmphore : MonoBehaviour
     {
         parent.GetComponent<Rigidbody>().useGravity = true;
         parent.GetComponent<Rigidbody>().isKinematic = false;
-
+        
         isBeingGrab = false;
 
     }

@@ -85,7 +85,7 @@ public class ItemManager : MonoBehaviour
                 }
                 if (AmphoreGrab)
                 {
-                    AmphoreGrab.SetActive(false);
+                    //AmphoreGrab.SetActive(false);
                 }
             }
         }
