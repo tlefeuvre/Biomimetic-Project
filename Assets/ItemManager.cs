@@ -109,8 +109,8 @@ public class ItemManager : MonoBehaviour
         int index = Random.Range(0, damageSoundlist.Length);
         DamageSound = damageSoundlist[index];
 
-        audioSource.clip = DamageSound;
-        audioSource.Play();
+        //audioSource.clip = DamageSound;
+        //audioSource.Play();
 
         NewExpManager.Instance.AddBrokenTag(this.tag);
         NewExpManager.Instance.RemoveFromList(this.gameObject);

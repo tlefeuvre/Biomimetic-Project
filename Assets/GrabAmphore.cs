@@ -8,6 +8,8 @@ public class GrabAmphore : MonoBehaviour
     private GameObject parent;
     public Vector3 startPos;
     public bool isBeingGrab;
+
+    public Transform spawnPos;
     void Start()
     {
         parent = transform.parent.gameObject;
@@ -21,12 +23,12 @@ public class GrabAmphore : MonoBehaviour
     {
         if (isBeingGrab)
         {
-            parent.transform.position = transform.position +  distanceFromParent;
+            //parent.transform.position = transform.position +  distanceFromParent;
             //parent.transform.localRotation = transform.localRotation;
         }
         else
         {
-            transform.localPosition = startPos;
+            transform.position = spawnPos.position;
 
         }
 
@@ -34,18 +36,23 @@ public class GrabAmphore : MonoBehaviour
 
     public void IsBeingGrab()
     {
-        parent.GetComponent<Rigidbody>().isKinematic = true;
-        parent.GetComponent<Rigidbody>().useGravity = false;
+        //parent.GetComponent<Rigidbody>().isKinematic = true;
+        //parent.GetComponent<Rigidbody>().useGravity = false;
 
         Debug.Log("isBeingGrab");
         isBeingGrab = true;
     }
     public void IsNotBeingGrab()
     {
-        parent.GetComponent<Rigidbody>().useGravity = true;
-        parent.GetComponent<Rigidbody>().isKinematic = false;
+        //parent.GetComponent<Rigidbody>().useGravity = true;
+       // parent.GetComponent<Rigidbody>().isKinematic = false;
         
         isBeingGrab = false;
 
+    }
+
+    public void Replace()
+    {
+        transform.position = spawnPos.position;
     }
 }
