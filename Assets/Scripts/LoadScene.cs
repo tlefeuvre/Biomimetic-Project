@@ -16,8 +16,8 @@ public class LoadScene : MonoBehaviour
     // Start is called before the first frame update
      private void Awake()
     {
-        PlayerPrefs.SetInt("handType", (int)handType);
-        PlayerPrefs.SetInt("handId", 1);
+        //PlayerPrefs.SetInt("handType", (int)handType);
+        //PlayerPrefs.SetInt("handId", 1);
         
     }
     void Start()

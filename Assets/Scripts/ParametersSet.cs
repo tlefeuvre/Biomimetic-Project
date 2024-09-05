@@ -12,6 +12,7 @@ public class ParametersSet : MonoBehaviour
     public TMP_Dropdown dropdown;
     public TMP_InputField inputFieldID;
     public TMP_InputField inputFieldRound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +30,8 @@ public class ParametersSet : MonoBehaviour
         int handID = int.Parse(inputFieldID.text.ToString());
         PlayerPrefs.SetInt("IDPlayer", handID);
 
-        int nbRounds = int.Parse(inputFieldRound.text.ToString());
-        PlayerPrefs.SetInt("nbRounds", nbRounds);
+        //int nbRounds = int.Parse(inputFieldRound.text.ToString());
+        //PlayerPrefs.SetInt("nbRounds", nbRounds);
 
         int handType = dropdown.value;
         PlayerPrefs.SetInt("handType", handType);
