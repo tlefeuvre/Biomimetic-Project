@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Game/PreScene.unity
     guid: 25d59d4f28be87e4bb92f8fbc025da9f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NEW EXP/PreSceneNEW.unity
     guid: 386a964da81d654499d69665b27f4a63
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/NEW EXP/FirstSceneNEW.unity
     guid: 6b519109de8f38342a896061e0a6ee04
   - enabled: 0
