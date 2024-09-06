@@ -64,14 +64,14 @@ public class SaveUserData : MonoBehaviour
     void CreateUsersDataFile()
     {
         /* "Velocite" + ";" + "Temps" + ";" // variables mises en exemple*/
-        string headers = "ID" + ";" + "Condition" + ";" + "Totale Time" + ";";
+        string headers = "ID" + ";" + "Condition" + ";" + "Totale Time" + ";" +"Number of hits"+";"+"Number of open";
            
 
-        for(int i = 0; i < FruitsSpawner.Instance.numbOfRounds; i++)
+        /*for(int i = 0; i < FruitsSpawner.Instance.numbOfRounds; i++)
             headers = headers + "Round_" + i.ToString() + " Fruit ;";
 
         for (int i = 0; i < FruitsSpawner.Instance.numbOfRounds; i++)
-            headers = headers + "Round_" + i.ToString() + " Time ;";
+            headers = headers + "Round_" + i.ToString() + " Time ;";*/
 
         newuserdata.AppendLine(headers);
     }
@@ -94,13 +94,13 @@ public class SaveUserData : MonoBehaviour
 
     void NewUserData() // (float v, int t) // variables mises en exemple
     {
-        string data = PlayerPrefs.GetInt("IDPlayer")  + ";" + (int)GetComponent<MySceneManager>().GetHandType() + ";" + Measures.Instance.totalElapsedTime + ";";
+        string data = PlayerPrefs.GetInt("IDPlayer")  + ";" + (int)GetComponent<MySceneManager>().GetHandType() + ";" + Measures.Instance.totalElapsedTime + ";"+PlayerPrefs.GetInt("NumberHits")+";"+ PlayerPrefs.GetInt("NumberOpened");
           
-        for (int i = 0; i < FruitsSpawner.Instance.numbOfRounds; i++)
+        /*for (int i = 0; i < FruitsSpawner.Instance.numbOfRounds; i++)
             data = data + Measures.Instance.brokeOrder[i] + ";";
 
         for (int i = 0; i < FruitsSpawner.Instance.numbOfRounds; i++)
-            data = data + Measures.Instance.roundElapsedTime[i] + ";";
+            data = data + Measures.Instance.roundElapsedTime[i] + ";";*/
         newuserdata.AppendLine(data);
     }
 

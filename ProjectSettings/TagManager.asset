@@ -35,6 +35,7 @@ TagManager:
   - Woodbox2
   - Amphora
   - Amphora2
+  - Floor
   layers:
   - Default
   - TransparentFX

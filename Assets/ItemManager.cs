@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     public List<GameObject> variantsMain = new List<GameObject>();
     public List<GameObject> variantsTop = new List<GameObject>();
     public int objectIndex;
@@ -26,10 +26,17 @@ public class ItemManager : MonoBehaviour
     private bool isDestroyed = false;
 
     private bool isOpened = false;
+
+    public bool upperClaw = false;
+    public bool lowerClaw = false;
+
+    public bool isGrabbable = false;
+
+    public Transform parentTransform;
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = this.GetComponent<AudioSource>();
+        //audioSource = this.GetComponent<AudioSource>();
         indexVariant = 0;
     }
 
@@ -62,11 +69,20 @@ public class ItemManager : MonoBehaviour
         //activate
         if (indexVariant < variantsMain.Count)
         {
+            if (transform.tag == "Amphora" || transform.tag == "Amphora2")
+            {
+                Debug.Log("move parent");
+                variantsMain[indexVariant].gameObject.transform.SetParent(parentTransform);
+            }
             variantsMain[indexVariant].gameObject.SetActive(true);
 
         }
         if (indexVariant < variantsTop.Count)
         {
+            if (transform.tag == "Amphore" || transform.tag == "Amphore2")
+            {
+                variantsTop[indexVariant].gameObject.transform.SetParent(parentTransform);
+            }
             variantsTop[indexVariant].gameObject.SetActive(true);
            
 
@@ -86,6 +102,7 @@ public class ItemManager : MonoBehaviour
                 {
                     //AmphoreGrab.SetActive(false);
                 }
+                
             }
         }
 
@@ -110,6 +127,7 @@ public class ItemManager : MonoBehaviour
 
         audioSource.clip = DamageSound;
         audioSource.Play();
+        Debug.Log("Hello");
 
         NewExpManager.Instance.AddBrokenTag(this.tag);
         NewExpManager.Instance.RemoveFromList(this.gameObject);
@@ -148,6 +166,13 @@ public class ItemManager : MonoBehaviour
             ObjectHit();
 
         }
+
+
+        if ((transform.tag == "Amphora" || transform.tag == "Amphora2") && GetComponent<Rigidbody>().velocity.magnitude > .3 && collision.transform.tag == "Floor")
+        {
+            ObjectHit();
+
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -163,7 +188,18 @@ public class ItemManager : MonoBehaviour
         }
 
         
-        if (other.transform.tag == "Hand" || other.transform.tag == " UpperClaw" || other.transform.tag == " LowerClaw")
+        if (other.transform.tag == "UpperClaw" && !isGrabbable)
+            upperClaw = true;
+        if (other.transform.tag == "LowerClaw" && !isGrabbable)
+            lowerClaw = true;
+
+        if(upperClaw && lowerClaw && !isGrabbable)
+        {
+            ObjectHit();
+
+        }
+
+        if (other.transform.tag == "Hand" )
         {
             float handSpeed = other.gameObject.GetComponent<HandVelocity>().GetMagnitude();
             if (handSpeed > handMagnitudeToExplode)
@@ -179,8 +215,38 @@ public class ItemManager : MonoBehaviour
             Debug.Log("toucher le item !!!!");
 
         }
-        
-      
+
+        if (GetComponent<Rigidbody>().velocity.magnitude > .1 && other.transform.tag =="Floor")
+        {
+            ObjectHit();
+
+        }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.tag == " UpperClaw")
+            upperClaw = false;
+        if (other.transform.tag == " LowerClaw")
+            lowerClaw = false;
     }
 
+    public void isgrab()
+    {
+        isGrabbable = true;
+
+    }
+    public void isNotGrab()
+    {
+        StartCoroutine(isGrabWait());
+
+        
+    }
+
+    IEnumerator isGrabWait()
+    {
+
+        yield return new WaitForSeconds(10);
+        isGrabbable = false;
+    }
 }

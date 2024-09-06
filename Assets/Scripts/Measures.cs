@@ -54,8 +54,10 @@ public class Measures : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isTimer)
-            elapsedTime += Time.deltaTime;
+        totalElapsedTime += Time.deltaTime ;
+
+        /*if (isTimer)
+            elapsedTime += Time.deltaTime;*/
     }
 
     public void NewTimer(int nbRoundMaw)

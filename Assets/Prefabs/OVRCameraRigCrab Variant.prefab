@@ -194,7 +194,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -637,6 +637,7 @@ MonoBehaviour:
   HandType: 0
   _pointerPoseRoot: {fileID: 0}
   m_showState: 3
+  RayHelper: {fileID: 0}
 --- !u!114 &719717221682253909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1306,7 +1307,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1498,6 +1499,7 @@ MonoBehaviour:
   HandType: 1
   _pointerPoseRoot: {fileID: 0}
   m_showState: 3
+  RayHelper: {fileID: 0}
 --- !u!114 &5286102382580948872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3643,9 +3645,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 1008746445094470187}
-  _skinnedMeshRenderer: {fileID: 60211812962644731}
   _updateRootPose: 1
   _updateRootScale: 0
+  _skinnedMeshRenderer: {fileID: 60211812962644731}
   _root: {fileID: 0}
   _handMaterialPropertyBlockEditor: {fileID: 0}
   _jointTransforms:
@@ -3919,9 +3921,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 1008746445094470187}
-  _skinnedMeshRenderer: {fileID: 1016561174109886315}
   _updateRootPose: 1
   _updateRootScale: 0
+  _skinnedMeshRenderer: {fileID: 1016561174109886315}
   _root: {fileID: 0}
   _handMaterialPropertyBlockEditor: {fileID: 0}
   _jointTransforms:
@@ -5210,9 +5212,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 1008746445094470187}
-  _skinnedMeshRenderer: {fileID: 2604870352434302563}
   _updateRootPose: 1
   _updateRootScale: 0
+  _skinnedMeshRenderer: {fileID: 2604870352434302563}
   _root: {fileID: 0}
   _handMaterialPropertyBlockEditor: {fileID: 0}
   _jointTransforms:
@@ -5811,9 +5813,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 3506479875759643794}
-  _skinnedMeshRenderer: {fileID: 4027586299638430510}
   _updateRootPose: 1
   _updateRootScale: 0
+  _skinnedMeshRenderer: {fileID: 4027586299638430510}
   _root: {fileID: 0}
   _handMaterialPropertyBlockEditor: {fileID: 0}
   _jointTransforms:

@@ -74,6 +74,7 @@ public class NewExpManager : MonoBehaviour
             {
                 obj.GetComponent<ItemManager>().spawnKey(keyPrefab);
             }
+            ExpFinished();
 
         }
     }
@@ -84,6 +85,8 @@ public class NewExpManager : MonoBehaviour
 
     public void ExpFinished()
     {
-
+        PlayerPrefs.SetInt("NumberHits", nbHits);
+        PlayerPrefs.SetInt("NumberOpened", nbOpenedObjects);
+        SaveUserData.Instance.WriteNewUserData();
     }
 }
