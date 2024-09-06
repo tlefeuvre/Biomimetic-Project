@@ -67,7 +67,7 @@ public class NewExpManager : MonoBehaviour
     }
     public void CheckObjectsStates()
     {
-        if (nbDestroyedObjects + nbOpenedObjects >= 5)
+        if (nbDestroyedObjects + nbOpenedObjects >= 10)
         {
             Debug.Log("spawn key");
             foreach (GameObject obj in allObjects)
