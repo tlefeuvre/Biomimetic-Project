@@ -32,6 +32,12 @@ public class ConstraintRotation : MonoBehaviour
     public float yPConstraint;
     public float zPConstraint;
 
+
+    [Header("Limit rotation")]
+    public bool isZInfLimited;
+    public bool isZUpfLimited;
+    public float ZLimitValue;
+
     private void Start()
     {
     
@@ -48,8 +54,13 @@ public class ConstraintRotation : MonoBehaviour
             yA = yRMaxValue;
         if (zRMaxValue != 0 && zA > zRMaxValue)
             zA = zRMaxValue;*/
+       if(isZInfLimited && zA > ZLimitValue)
+            zA = ZLimitValue;
 
-        transform.localEulerAngles = new Vector3(xR?xRConstraint:xA, yR?yRConstraint:yA, zR?zRConstraint:zA);
+       if(isZUpfLimited && zA < ZLimitValue)
+            zA = ZLimitValue;
+
+        transform.localEulerAngles = new Vector3(xR?xRConstraint:xA, yR?yRConstraint:yA,  zA);
 
         float xPos = transform.localPosition.x;
         float yPos = transform.localPosition.y;
