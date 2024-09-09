@@ -23,7 +23,7 @@ public class SpawnSceneLoader : MonoBehaviour
     IEnumerator SpawnObject()
     {
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(60);
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
         sceneLoader.SetActive(true);
   

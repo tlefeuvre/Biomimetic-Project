@@ -320,13 +320,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7990958731917531026}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6166175, y: 0.34609666, z: 0.34609663, w: 0.61661744}
+  m_LocalRotation: {x: 0.22569798, y: 0.1266803, z: 0.47277668, w: 0.84231514}
   m_LocalPosition: {x: 0.000008, y: -0.001634, z: -0.002949}
   m_LocalScale: {x: 0.009999998, y: 0.009999998, z: 0.009999998}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2806357335571442307}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15.096, y: 26.236, z: 62.147}
 --- !u!1 &8328807285731244248
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +413,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8357360600832937896}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1340,6 +1340,36 @@ PrefabInstance:
       propertyPath: _rigidbody
       value: 
       objectReference: {fileID: 3034830088613444747}
+    - target: {fileID: 2774588027550187232, guid: a7d09d445d6099142aeb21c187168f93,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774588027550187232, guid: a7d09d445d6099142aeb21c187168f93,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774588027550187232, guid: a7d09d445d6099142aeb21c187168f93,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774588027550187232, guid: a7d09d445d6099142aeb21c187168f93,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.00026855298
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774588027550187232, guid: a7d09d445d6099142aeb21c187168f93,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.00095340214
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774588027550187232, guid: a7d09d445d6099142aeb21c187168f93,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.018371237
+      objectReference: {fileID: 0}
     - target: {fileID: 3795451690473372203, guid: a7d09d445d6099142aeb21c187168f93,
         type: 3}
       propertyPath: m_LocalScale.x

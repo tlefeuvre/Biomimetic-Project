@@ -48,6 +48,23 @@ public class ItemManager : MonoBehaviour
 
     public void ObjectHit()
     {
+        switch (objectIndex)
+        {
+            case 1:
+                damageSoundlist = potterySounds; ;
+                break;
+            case 2:
+                damageSoundlist = woodSounds; ;
+                break;
+            case 3:
+                damageSoundlist = metalSounds; ;
+                break;
+        }
+        int index = Random.Range(0, damageSoundlist.Length);
+        DamageSound = damageSoundlist[index];
+        audioSource.clip = DamageSound;
+        audioSource.Play();
+
         if (!isDestroyed)
         {
             NewExpManager.Instance.NewHit();
@@ -110,23 +127,9 @@ public class ItemManager : MonoBehaviour
     }
     public void Destroyed()
     {
-        switch (objectIndex)
-        {
-            case 1:
-                damageSoundlist = potterySounds; ;
-                break;
-            case 2:
-                damageSoundlist = woodSounds; ;
-                break;
-            case 3:
-                damageSoundlist = metalSounds; ;
-                break;
-        }
-        int index = Random.Range(0, damageSoundlist.Length);
-        DamageSound = damageSoundlist[index];
+       
 
-        audioSource.clip = DamageSound;
-        audioSource.Play();
+       
         Debug.Log("Hello");
 
         NewExpManager.Instance.AddBrokenTag(this.tag);
