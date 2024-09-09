@@ -48,6 +48,8 @@ public class ItemManager : MonoBehaviour
 
     public void ObjectHit()
     {
+        DebugLogs.Instance.NewHit(transform.tag);
+
         switch (objectIndex)
         {
             case 1:
@@ -127,9 +129,10 @@ public class ItemManager : MonoBehaviour
     }
     public void Destroyed()
     {
-       
 
-       
+        DebugLogs.Instance.NewDestroy(transform.tag);
+
+
         Debug.Log("Hello");
 
         NewExpManager.Instance.AddBrokenTag(this.tag);
@@ -142,6 +145,7 @@ public class ItemManager : MonoBehaviour
     }
     public void Opened()
     {
+        DebugLogs.Instance.NewOpened(transform.tag);
         Debug.Log("itemmanager");
 
 
