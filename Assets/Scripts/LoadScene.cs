@@ -23,10 +23,11 @@ public class LoadScene : MonoBehaviour
     void Start()
     {
         GetComponent<BoxCollider>().isTrigger = true;
-        GetComponent<BoxCollider>().enabled = false;
-
-        foreach(GameObject part in buttonParts)
+        //GetComponent<BoxCollider>().enabled = false;
+        
+        foreach (GameObject part in buttonParts)
             part.SetActive(false);
+        //StartCoroutine(ActivateButton());
 
     }
 
@@ -46,11 +47,13 @@ public class LoadScene : MonoBehaviour
        
        
 
-        ActivateButton();
+       
     }
 
-    public void ActivateButton()
+    IEnumerator ActivateButton()
     {
+        Debug.Log("ActivateButton0");
+        yield return new WaitForSeconds(10);
         Debug.Log("ActivateButton");
         foreach (GameObject part in buttonParts)
             part.SetActive(true);

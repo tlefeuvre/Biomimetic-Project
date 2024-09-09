@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SpawnSceneLoader : MonoBehaviour
 {
-    public GameObject sceneLoader;
+   
+    public GameObject sceneLoader2;
     // Start is called before the first frame update
     void Start()
     {
+     
 
-      
- 
+
         StartCoroutine(SpawnObject());
 
     }
@@ -25,7 +26,8 @@ public class SpawnSceneLoader : MonoBehaviour
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(60);
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
-        sceneLoader.SetActive(true);
-  
+
+        sceneLoader2.SetActive(true);
+
     }
 }
