@@ -10,7 +10,7 @@ public class ChestManager : MonoBehaviour
     public Transform handlePosition;
     public float openSpeed;
     public Vector3 vectorLookAt;
-    private bool lookat;
+    public bool lookat;
     private Vector3 start;
 
     private Rigidbody rbHandler;

@@ -223,7 +223,7 @@ public class ItemManager : MonoBehaviour
 
         }
 
-        if (GetComponent<Rigidbody>().velocity.magnitude > .1 && other.transform.tag =="Floor")
+        if ((transform.tag == "Amphora" || transform.tag == "Amphora2") &&  GetComponent<Rigidbody>().velocity.magnitude > .3 && other.transform.tag =="Floor")
         {
             ObjectHit();
 

@@ -46,7 +46,7 @@ public class DebugLogs : MonoBehaviour
         Debug.Log(name);
         last3Objects[0] = last3Objects[1];
         last3Objects[1] = last3Objects[2];
-        last3Objects[2] = Time.time.ToString() +name + " - Hit";
+        last3Objects[2] = Time.time.ToString() + " - " +name + " - Hit";
         string full = last3Objects[0] + "\n" + last3Objects[1] + "\n" + last3Objects[2] + "\n";
         logs.text = full;
 
@@ -57,7 +57,7 @@ public class DebugLogs : MonoBehaviour
 
         last3Objects[0] = last3Objects[1];
         last3Objects[1] = last3Objects[2];
-        last3Objects[2] = Time.time.ToString() + name + " - Destroyed";
+        last3Objects[2] = Time.time.ToString() + " - " + name + " - Destroyed";
         string full = last3Objects[0] + "\n" + last3Objects[1] + "\n" + last3Objects[2] + "\n";
         logs.text = full;
 
@@ -68,7 +68,7 @@ public class DebugLogs : MonoBehaviour
 
         last3Objects[0] = last3Objects[1];
         last3Objects[1] = last3Objects[2];
-        last3Objects[2] = Time.time.ToString() + name + " - Opened";
+        last3Objects[2] = Time.time.ToString() + " - " + name + " - Opened";
         string full = last3Objects[0] + "\n" + last3Objects[1] + "\n" + last3Objects[2] + "\n";
         logs.text = full;
     }
