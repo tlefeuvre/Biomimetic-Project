@@ -36,8 +36,10 @@ public class ConstraintRotation : MonoBehaviour
     [Header("Limit rotation")]
     public bool isZInfLimited;
     public bool isZUpfLimited;
-    public float ZLimitValue;
+    public float ZLimitValueUp;
+    public float ZLimitValueInf;
 
+    public bool PrintDebug;
     private void Start()
     {
     
@@ -54,16 +56,17 @@ public class ConstraintRotation : MonoBehaviour
             yA = yRMaxValue;
         if (zRMaxValue != 0 && zA > zRMaxValue)
             zA = zRMaxValue;*/
-       if(isZInfLimited && zA > ZLimitValue)
-            zA = ZLimitValue;
+       if(PrintDebug)
+            Debug.Log("upper claw " + zA  + "/ " + ZLimitValueUp + "/" + ZLimitValueInf);
 
-       if(isZUpfLimited)
-            Debug.Log(zA  + "/ " + ZLimitValue);
+       if(isZInfLimited && zA > ZLimitValueInf)
+            //zA = ZLimitValueInf;
 
-       if(isZUpfLimited && zA-360 < ZLimitValue)
+
+        if (isZUpfLimited && zA < ZLimitValueUp)
         {
             Debug.Log("inf");
-            zA = ZLimitValue;
+           // zA = ZLimitValueUp;
         }
 
         transform.localEulerAngles = new Vector3(xR?xRConstraint:xA, yR?yRConstraint:yA,  zA);

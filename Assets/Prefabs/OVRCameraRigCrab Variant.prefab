@@ -5239,7 +5239,9 @@ MonoBehaviour:
   zPConstraint: 0
   isZInfLimited: 0
   isZUpfLimited: 0
-  ZLimitValue: 0
+  ZLimitValueUp: 0
+  ZLimitValueInf: 0
+  PrintDebug: 0
 --- !u!4 &656178441772796520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3837255680886944796, guid: e56f69c93e04a934f81c41a286015f5f,
@@ -5281,7 +5283,9 @@ MonoBehaviour:
   zPConstraint: 0
   isZInfLimited: 1
   isZUpfLimited: 0
-  ZLimitValue: -15
+  ZLimitValueUp: 0
+  ZLimitValueInf: 0
+  PrintDebug: 0
 --- !u!4 &2041197600618307675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6915181562438525399, guid: e56f69c93e04a934f81c41a286015f5f,
@@ -5323,7 +5327,9 @@ MonoBehaviour:
   zPConstraint: 0
   isZInfLimited: 0
   isZUpfLimited: 0
-  ZLimitValue: 0
+  ZLimitValueUp: 0
+  ZLimitValueInf: 0
+  PrintDebug: 0
 --- !u!137 &2604870352434302563 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7458586956382490607, guid: e56f69c93e04a934f81c41a286015f5f,
@@ -5432,7 +5438,9 @@ MonoBehaviour:
   zPConstraint: 0
   isZInfLimited: 0
   isZUpfLimited: 1
-  ZLimitValue: 5
+  ZLimitValueUp: 0
+  ZLimitValueInf: 0
+  PrintDebug: 0
 --- !u!1 &6780585733243555007 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7080476283249816269, guid: e56f69c93e04a934f81c41a286015f5f,
@@ -5468,7 +5476,9 @@ MonoBehaviour:
   zPConstraint: 0
   isZInfLimited: 0
   isZUpfLimited: 0
-  ZLimitValue: 0
+  ZLimitValueUp: 0
+  ZLimitValueInf: 0
+  PrintDebug: 0
 --- !u!4 &7658052354896465501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6205189993062477871, guid: e56f69c93e04a934f81c41a286015f5f,
@@ -5828,8 +5838,10 @@ MonoBehaviour:
   yPConstraint: 0
   zPConstraint: 0
   isZInfLimited: 1
-  isZUpfLimited: 0
-  ZLimitValue: -80
+  isZUpfLimited: 1
+  ZLimitValueUp: -80
+  ZLimitValueInf: -70
+  PrintDebug: 0
 --- !u!1 &1092943900443313734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6866880679909356167, guid: e56f69c93e04a934f81c41a286015f5f,
@@ -5865,7 +5877,9 @@ MonoBehaviour:
   zPConstraint: 0
   isZInfLimited: 0
   isZUpfLimited: 0
-  ZLimitValue: 0
+  ZLimitValueUp: 0
+  ZLimitValueInf: 0
+  PrintDebug: 0
 --- !u!4 &1121763309551179030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6915181562438525399, guid: e56f69c93e04a934f81c41a286015f5f,
@@ -5907,7 +5921,9 @@ MonoBehaviour:
   zPConstraint: 0
   isZInfLimited: 0
   isZUpfLimited: 0
-  ZLimitValue: 0
+  ZLimitValueUp: 0
+  ZLimitValueInf: 0
+  PrintDebug: 0
 --- !u!4 &1934772672840187685 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3837255680886944796, guid: e56f69c93e04a934f81c41a286015f5f,
@@ -5961,7 +5977,9 @@ MonoBehaviour:
   zPConstraint: 0
   isZInfLimited: 0
   isZUpfLimited: 0
-  ZLimitValue: 0
+  ZLimitValueUp: 0
+  ZLimitValueInf: 0
+  PrintDebug: 0
 --- !u!1 &5721228446534398082 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2234638374124979267, guid: e56f69c93e04a934f81c41a286015f5f,
@@ -5995,9 +6013,11 @@ MonoBehaviour:
   xPConstraint: 0
   yPConstraint: 0
   zPConstraint: 0
-  isZInfLimited: 0
+  isZInfLimited: 1
   isZUpfLimited: 1
-  ZLimitValue: -60
+  ZLimitValueUp: 300
+  ZLimitValueInf: 350
+  PrintDebug: 0
 --- !u!4 &5939147497662662833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 147196130981231728, guid: e56f69c93e04a934f81c41a286015f5f,
