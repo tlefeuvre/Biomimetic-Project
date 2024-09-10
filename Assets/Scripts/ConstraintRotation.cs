@@ -58,7 +58,7 @@ public class ConstraintRotation : MonoBehaviour
             zA = ZLimitValue;
 
        if(isZUpfLimited)
-            Debug.Log(zA - 360 + "/ " + ZLimitValue);
+            Debug.Log(zA  + "/ " + ZLimitValue);
 
        if(isZUpfLimited && zA-360 < ZLimitValue)
         {

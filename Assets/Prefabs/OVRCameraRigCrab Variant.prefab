@@ -1530,6 +1530,7 @@ GameObject:
   - component: {fileID: 1194598752395162067}
   - component: {fileID: 5788666685973732584}
   - component: {fileID: 7382988732265743189}
+  - component: {fileID: 6294373997654189295}
   m_Layer: 0
   m_Name: LowerClaw
   m_TagString: LowerClaw
@@ -1624,6 +1625,21 @@ BoxCollider:
   m_Size: {x: 10.58483, y: 0.8372496, z: 9.999999}
   m_Center: {x: -0.292413, y: -0.24830298, z: -0.0000003579747}
 --- !u!114 &7382988732265743189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7926943730059904180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f351cb6f2459e949ae39589465a922e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  bonkClip: {fileID: 0}
+  clawClip: {fileID: 0}
+--- !u!114 &6294373997654189295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4225,15 +4241,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.138
+      value: -1.686
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.219
+      value: -0.921
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.705
+      value: 0.306
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4241,7 +4257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_LocalRotation.y
@@ -4249,7 +4265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4302,11 +4318,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100006, guid: 126d619cf4daa52469682f85c1378b4a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 373543481518899126}
+      addedObject: {fileID: 6636084257998929798}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: 126d619cf4daa52469682f85c1378b4a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8605408545725855759}
+      addedObject: {fileID: 8672139687483474439}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 126d619cf4daa52469682f85c1378b4a,
         type: 3}
       insertIndex: -1
@@ -4342,7 +4358,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3051639984296845874}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8605408545725855759
+--- !u!114 &8672139687483474439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4442,7 +4458,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3051639984296845874}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &373543481518899126
+--- !u!114 &6636084257998929798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5813,7 +5829,7 @@ MonoBehaviour:
   zPConstraint: 0
   isZInfLimited: 1
   isZUpfLimited: 0
-  ZLimitValue: -15
+  ZLimitValue: -80
 --- !u!1 &1092943900443313734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6866880679909356167, guid: e56f69c93e04a934f81c41a286015f5f,
@@ -5981,7 +5997,7 @@ MonoBehaviour:
   zPConstraint: 0
   isZInfLimited: 0
   isZUpfLimited: 1
-  ZLimitValue: 5
+  ZLimitValue: -60
 --- !u!4 &5939147497662662833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 147196130981231728, guid: e56f69c93e04a934f81c41a286015f5f,
