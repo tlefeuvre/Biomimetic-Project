@@ -57,8 +57,14 @@ public class ConstraintRotation : MonoBehaviour
        if(isZInfLimited && zA > ZLimitValue)
             zA = ZLimitValue;
 
-       if(isZUpfLimited && zA < ZLimitValue)
+       if(isZUpfLimited)
+            Debug.Log(zA - 360 + "/ " + ZLimitValue);
+
+       if(isZUpfLimited && zA-360 < ZLimitValue)
+        {
+            Debug.Log("inf");
             zA = ZLimitValue;
+        }
 
         transform.localEulerAngles = new Vector3(xR?xRConstraint:xA, yR?yRConstraint:yA,  zA);
 

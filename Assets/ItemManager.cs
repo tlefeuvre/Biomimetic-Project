@@ -166,6 +166,8 @@ public class ItemManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("OnCollisionEnter!");
+
         if (collision.transform.tag == "Hand" || collision.transform.tag  == " UpperClaw" || collision.transform.tag == " LowerClaw")
         {
 
@@ -184,6 +186,7 @@ public class ItemManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("OnTriggerEnter!");
 
         if (chestManagerChild )    
         {
