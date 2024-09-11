@@ -39,7 +39,9 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos: []
+  m_SplashScreenLogos:
+  - logo: {fileID: 21300000, guid: 37aca28b0b4999047a5954d590807315, type: 3}
+    duration: 2
   m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 716035941a0b43b418b496c7f62ef333,
     type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
@@ -140,7 +142,7 @@ PlayerSettings:
   preloadedAssets:
   - {fileID: 11400000, guid: d5c4d5b16c20b6b409b26f5aeab12a2c, type: 2}
   - {fileID: 0}
-  - {fileID: 3679613685044252713, guid: 902a0a052b2524745be1caf82afb925c, type: 2}
+  - {fileID: 3310935248316938744, guid: 902a0a052b2524745be1caf82afb925c, type: 2}
   - {fileID: 11400000, guid: 849843389008c6846a760d68d9531923, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
