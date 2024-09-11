@@ -17,6 +17,9 @@ public class NewExpManager : MonoBehaviour
     public List<GameObject> allObjects = new List<GameObject>();
 
     public GameObject keyPrefab;
+    public GameObject finishIndication;
+
+    private bool expIsFinished;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -34,6 +37,7 @@ public class NewExpManager : MonoBehaviour
 
     void Start()
     {
+        expIsFinished = false;
     }
 
     void Update()
@@ -67,7 +71,7 @@ public class NewExpManager : MonoBehaviour
     }
     public void CheckObjectsStates()
     {
-        if (nbDestroyedObjects + nbOpenedObjects >= 10)
+        if (!expIsFinished && nbDestroyedObjects + nbOpenedObjects >= 10)
         {
             Debug.Log("spawn key");
             foreach (GameObject obj in allObjects)
@@ -85,8 +89,23 @@ public class NewExpManager : MonoBehaviour
 
     public void ExpFinished()
     {
-        PlayerPrefs.SetInt("NumberHits", nbHits);
-        PlayerPrefs.SetInt("NumberOpened", nbOpenedObjects);
-        SaveUserData.Instance.WriteNewUserData();
+        if (!expIsFinished)
+        {
+            expIsFinished =true;
+            finishIndication.SetActive(true);
+            PlayerPrefs.SetInt("NumberHits", nbHits);
+            PlayerPrefs.SetInt("NumberOpened", nbOpenedObjects);
+            SaveUserData.Instance.WriteNewUserData();
+        }
+        else
+        {
+            finishIndication.SetActive(true);
+        }
+    }
+
+    public void KeyGrabbed()
+    {
+        finishIndication.SetActive(true);
+
     }
 }
