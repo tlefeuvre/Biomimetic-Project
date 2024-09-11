@@ -638,6 +638,7 @@ MonoBehaviour:
   handlePosition: {fileID: 186260591921247828}
   openSpeed: 10
   vectorLookAt: {x: 0, y: 1, z: 0}
+  lookat: 0
   isOpened: 0
   isBroken: 0
   angleToOpen: 25
@@ -2027,7 +2028,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 96cbc48ff811406449c445c9e9a6a212, type: 3}
   potterySounds: []
   damageSoundlist: []
-  handMagnitudeToExplode: 3
+  handMagnitudeToExplode: 2
   chestManagerChild: {fileID: 3879974181787181094}
   amphoraManagerChild: {fileID: 0}
   indexVariant: 0

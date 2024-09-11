@@ -619,6 +619,7 @@ MonoBehaviour:
   handlePosition: {fileID: 789285379035415945}
   openSpeed: 10
   vectorLookAt: {x: 0, y: 1, z: 0}
+  lookat: 0
   isOpened: 0
   isBroken: 0
   angleToOpen: 10
@@ -854,6 +855,7 @@ GameObject:
   - component: {fileID: 5736029230135893746}
   - component: {fileID: 971675457000724120}
   - component: {fileID: 1133217389365352061}
+  - component: {fileID: 3292430809683741603}
   m_Layer: 0
   m_Name: C1
   m_TagString: Untagged
@@ -1031,6 +1033,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.08425922, y: 0.24934366, z: 0.47241223}
   m_Center: {x: -0.02084484, y: 0.08152689, z: -0.2144237}
+--- !u!54 &3292430809683741603
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5462340061833389206}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 3
 --- !u!1 &5922865903518382836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,7 +1239,7 @@ MonoBehaviour:
   metalSounds: []
   potterySounds: []
   damageSoundlist: []
-  handMagnitudeToExplode: 3
+  handMagnitudeToExplode: 2
   chestManagerChild: {fileID: 4283744959639800899}
   amphoraManagerChild: {fileID: 0}
   indexVariant: 0

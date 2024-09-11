@@ -1761,7 +1761,7 @@ MonoBehaviour:
   metalSounds: []
   potterySounds: []
   damageSoundlist: []
-  handMagnitudeToExplode: 3
+  handMagnitudeToExplode: 2
   chestManagerChild: {fileID: 0}
   amphoraManagerChild: {fileID: 0}
   indexVariant: 0

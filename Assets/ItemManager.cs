@@ -34,7 +34,7 @@ public class ItemManager : MonoBehaviour
 
     public Transform parentTransform;
 
-    private float velocityTohit = 0.05f;
+    private float velocityTohit = 0.04f;
 
     // Start is called before the first frame update
     void Start()
@@ -169,7 +169,7 @@ public class ItemManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("OnCollisionEnter!");
+       
 
         if (collision.transform.tag == "Hand" || collision.transform.tag  == " UpperClaw" || collision.transform.tag == " LowerClaw")
         {

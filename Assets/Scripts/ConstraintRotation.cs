@@ -13,6 +13,8 @@ public class ConstraintRotation : MonoBehaviour
     public float yRConstraint;
     public float zRConstraint;
 
+
+    public float StartZpos;
     [Header("Rotation Offsets")]
     public float xOffset;
     public float yOffset;
@@ -76,5 +78,19 @@ public class ConstraintRotation : MonoBehaviour
         float zPos = transform.localPosition.z;
         transform.localPosition = new Vector3(xP ? xPConstraint : xPos, yP ? yPConstraint : yPos, zP ? zPConstraint : zPos);
 
+    }
+    private void LateUpdate()
+    {
+        float xPos = transform.localPosition.x;
+        float yPos = transform.localPosition.y;
+        if (transform.localRotation.z > StartZpos && tag == "UpperClaw")
+        {
+           transform.localRotation = Quaternion.Euler(transform.localRotation.x, transform.localRotation.z, StartZpos);
+        }
+
+        if (transform.localRotation.z < StartZpos && tag == "LowerClaw")
+        {
+            transform.localRotation = Quaternion.Euler(transform.localRotation.x, transform.localRotation.z, StartZpos);
+        }
     }
 }
