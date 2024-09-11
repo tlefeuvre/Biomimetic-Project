@@ -174,7 +174,7 @@ public class ItemManager : MonoBehaviour
         if (collision.transform.tag == "Hand" || collision.transform.tag  == " UpperClaw" || collision.transform.tag == " LowerClaw")
         {
 
-            Debug.Log("toucher le item collision !!!!");
+            Debug.Log(GetComponent<Rigidbody>().velocity.magnitude + "Speed");
             ObjectHit();
 
         }
@@ -225,7 +225,7 @@ public class ItemManager : MonoBehaviour
 
             }
 
-            Debug.Log("toucher le item !!!!");
+            Debug.Log(other.gameObject.GetComponent<HandVelocity>().GetMagnitude()+"toucher le item 2 !!!!");
 
         }
 
