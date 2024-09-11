@@ -34,6 +34,8 @@ public class ItemManager : MonoBehaviour
 
     public Transform parentTransform;
 
+    private float velocityTohit = 0.05f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -178,7 +180,7 @@ public class ItemManager : MonoBehaviour
         }
 
 
-        if ((transform.tag == "Amphora" || transform.tag == "Amphora2") && GetComponent<Rigidbody>().velocity.magnitude > .3 && collision.transform.tag == "Floor")
+        if ((transform.tag == "Amphora" || transform.tag == "Amphora2") && GetComponent<Rigidbody>().velocity.magnitude > velocityTohit && collision.transform.tag == "Floor")
         {
             ObjectHit();
 
@@ -227,7 +229,7 @@ public class ItemManager : MonoBehaviour
 
         }
 
-        if ((transform.tag == "Amphora" || transform.tag == "Amphora2") &&  GetComponent<Rigidbody>().velocity.magnitude > .3 && other.transform.tag =="Floor")
+        if ((transform.tag == "Amphora" || transform.tag == "Amphora2") &&  GetComponent<Rigidbody>().velocity.magnitude > velocityTohit && other.transform.tag =="Floor")
         {
             ObjectHit();
 
