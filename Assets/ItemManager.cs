@@ -33,6 +33,7 @@ public class ItemManager : MonoBehaviour
     public bool isGrabbable = false;
 
     public Transform parentTransform;
+
     // Start is called before the first frame update
     void Start()
     {
