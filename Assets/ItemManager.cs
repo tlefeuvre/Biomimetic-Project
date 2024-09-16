@@ -26,6 +26,7 @@ public class ItemManager : MonoBehaviour
     private bool isDestroyed = false;
 
     private bool isOpened = false;
+    private bool Exitcollider = false;
 
     public bool upperClaw = false;
     public bool lowerClaw = false;
@@ -48,9 +49,15 @@ public class ItemManager : MonoBehaviour
     {
         
     }
+    IEnumerator waiter()
+    {
 
+        yield return new WaitForSecondsRealtime(0.5f);
+        Exitcollider = false;
+    }
     public void ObjectHit()
     {
+        Exitcollider = true;
         DebugLogs.Instance.NewHit(transform.tag);
 
         switch (objectIndex)
@@ -127,12 +134,13 @@ public class ItemManager : MonoBehaviour
                 
             }
         }
-
+        
 
     }
-    public void Destroyed()
+    
+        public void Destroyed()
     {
-
+        Exitcollider = true;
         DebugLogs.Instance.NewDestroy(transform.tag);
 
 
@@ -171,7 +179,7 @@ public class ItemManager : MonoBehaviour
     {
        
 
-        if (collision.transform.tag == "Hand" || collision.transform.tag  == " UpperClaw" || collision.transform.tag == " LowerClaw")
+        if (collision.transform.tag == "Hand" || collision.transform.tag  == " UpperClaw" || collision.transform.tag == " LowerClaw" && !Exitcollider)
         {
 
             Debug.Log(GetComponent<Rigidbody>().velocity.magnitude + "Speed");
@@ -206,7 +214,7 @@ public class ItemManager : MonoBehaviour
         if (other.transform.tag == "LowerClaw" && !isGrabbable)
             lowerClaw = true;
 
-        if(upperClaw && lowerClaw && !isGrabbable)
+        if(upperClaw && lowerClaw && !isGrabbable && !Exitcollider)
         {
             ObjectHit();
 
@@ -215,7 +223,7 @@ public class ItemManager : MonoBehaviour
         if (other.transform.tag == "Hand" )
         {
             float handSpeed = other.gameObject.GetComponent<HandVelocity>().GetMagnitude();
-            if (handSpeed > handMagnitudeToExplode)
+            if (handSpeed > handMagnitudeToExplode && !Exitcollider)
             {
                 
                 
@@ -242,6 +250,7 @@ public class ItemManager : MonoBehaviour
             upperClaw = false;
         if (other.transform.tag == " LowerClaw")
             lowerClaw = false;
+        StartCoroutine(waiter());
     }
 
     public void isgrab()
