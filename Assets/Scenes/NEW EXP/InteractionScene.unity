@@ -1678,9 +1678,10 @@ PrefabInstance:
     - target: {fileID: 7157336545119695115, guid: cac71ee9839edf94e8ce1a55a09501db,
         type: 3}
       propertyPath: m_Name
-      value: SceneManager
+      value: SceneManagerInteractions
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4750020065198921788, guid: cac71ee9839edf94e8ce1a55a09501db, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1688,6 +1689,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1827671452}
+    - targetCorrespondingSourceObject: {fileID: 7157336545119695115, guid: cac71ee9839edf94e8ce1a55a09501db,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1827671453}
   m_SourcePrefab: {fileID: 100100000, guid: cac71ee9839edf94e8ce1a55a09501db, type: 3}
 --- !u!1 &708462377
 GameObject:
@@ -2416,6 +2421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5720991309323074781, guid: 390c79312bb81cc4cb1e3bb0c7c61981,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720991309323074781, guid: 390c79312bb81cc4cb1e3bb0c7c61981,
+        type: 3}
       propertyPath: m_TagString
       value: Missing4
       objectReference: {fileID: 0}
@@ -2493,6 +2503,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: UpperClaw
+      objectReference: {fileID: 0}
+    - target: {fileID: 6676459894984067472, guid: 390c79312bb81cc4cb1e3bb0c7c61981,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6676459894984067472, guid: 390c79312bb81cc4cb1e3bb0c7c61981,
         type: 3}
@@ -4791,6 +4806,25 @@ MonoBehaviour:
   keyPrefab: {fileID: 1735177677825009064, guid: b8382034e998dc749ba565aa857f9030,
     type: 3}
   finishIndication: {fileID: 1199392540}
+--- !u!114 &1827671453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827671447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab563b84ce02da4cb640a871ea08bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftHand:
+  - {fileID: 873939640}
+  - {fileID: 873939642}
+  rightHand:
+  - {fileID: 873939639}
+  - {fileID: 873939641}
+  isInteractionScene: 1
 --- !u!1 &1867909510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5144,6 +5178,7 @@ MonoBehaviour:
   keySpawner: {fileID: 0}
   AmphoreGrab: {fileID: 0}
   parentTransform: {fileID: 0}
+  testDestroy: 0
 --- !u!4 &2000735584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 978754121114749359, guid: 169fdc62262903b429737c81cfb6c397,
