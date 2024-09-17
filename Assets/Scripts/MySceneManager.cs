@@ -12,6 +12,8 @@ public class MySceneManager : MonoBehaviour
 
     private HandType handType;
 
+    public bool isInteractionScene = false;
+
     void Start()
     {
         if(leftHand.Count > 1 && leftHand[0] == null)
@@ -46,6 +48,10 @@ public class MySceneManager : MonoBehaviour
         handType = (HandType)PlayerPrefs.GetInt("handType");
         HandId handId = (HandId)PlayerPrefs.GetInt("handId");
 
+        if (isInteractionScene)
+        {
+            handType = HandType.HAND;
+        }
         if(handId == HandId.LEFT)
             leftHand[(int)handType].SetActive(true);
 
