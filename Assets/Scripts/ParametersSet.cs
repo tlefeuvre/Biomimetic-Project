@@ -10,6 +10,7 @@ using static UnityEngine.Rendering.DebugUI;
 public class ParametersSet : MonoBehaviour
 {
     public TMP_Dropdown dropdown;
+    public TMP_Dropdown Handdropdown;
     public TMP_InputField inputFieldID;
     public TMP_InputField inputFieldRound;
 
@@ -27,18 +28,20 @@ public class ParametersSet : MonoBehaviour
 
     public void LaunchExp()
     {
-        int handID = int.Parse(inputFieldID.text.ToString());
-        PlayerPrefs.SetInt("IDPlayer", handID);
-
+        int handID = Handdropdown.value;
+        PlayerPrefs.SetInt("handId", handID);
+        GetComponent<MySceneManager>().SetHandVisual();
         //int nbRounds = int.Parse(inputFieldRound.text.ToString());
         //PlayerPrefs.SetInt("nbRounds", nbRounds);
 
         int handType = dropdown.value;
         PlayerPrefs.SetInt("handType", handType);
-
-        SceneManager.LoadScene("FirstSceneNEW", LoadSceneMode.Single);
+        
+        SceneManager.LoadScene("InteractionScene", LoadSceneMode.Single);
 
     }
+
+    
     public void SetHandType()
     {
       

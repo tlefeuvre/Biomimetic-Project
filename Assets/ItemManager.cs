@@ -52,7 +52,7 @@ public class ItemManager : MonoBehaviour
     IEnumerator waiter()
     {
 
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.3f);
         Exitcollider = false;
     }
     public void ObjectHit()

@@ -46,7 +46,8 @@ public class InteractionSceneManager : MonoBehaviour
 
         handType = (HandType)PlayerPrefs.GetInt("handType");
         HandId handId = (HandId)PlayerPrefs.GetInt("handId");
-
+        //HandId handId = (HandId)0;
+        Debug.Log(PlayerPrefs.GetInt("handId") + "hand type");
         if (isInteractionScene)
         {
             handType = HandType.HAND;

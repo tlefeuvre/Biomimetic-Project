@@ -65,7 +65,7 @@ public class LoadScene : MonoBehaviour
     }
     public void LoadNextScene()
     {
-        SceneManager.LoadScene("InteractionScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("FirstSceneNEW", LoadSceneMode.Single);
 
     }
 
