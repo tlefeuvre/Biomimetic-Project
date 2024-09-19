@@ -28,6 +28,9 @@ public class ParametersSet : MonoBehaviour
 
     public void LaunchExp()
     {
+        int playerID = int.Parse(inputFieldID.text.ToString());
+        PlayerPrefs.SetInt("IDPlayer",playerID);
+
         int handID = Handdropdown.value;
         PlayerPrefs.SetInt("handId", handID);
         GetComponent<MySceneManager>().SetHandVisual();

@@ -27,7 +27,6 @@ public class DemoItemManager : MonoBehaviour
 
     private bool isOpened = false;
     private bool Exitcollider = false;
-
     public Transform parentTransform;
 
     private float velocityTohit = 0.04f;
@@ -120,7 +119,7 @@ public class DemoItemManager : MonoBehaviour
     }
     public void Destroyed()
     {
-        SceneManager.LoadScene("SecondScene 1", LoadSceneMode.Single);
+        SceneManager.LoadScene("FirstSceneNEW", LoadSceneMode.Single);
         DebugLogs.Instance.NewDestroy(transform.tag);
 
 

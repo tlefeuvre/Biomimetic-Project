@@ -12,6 +12,7 @@ public class ChestManager : MonoBehaviour
     public Vector3 vectorLookAt;
     public bool lookat;
     private Vector3 start;
+    public Vector3 startpos;
 
     private Rigidbody rbHandler;
 
@@ -22,6 +23,7 @@ public class ChestManager : MonoBehaviour
     public float angleToOpen;
     private void Start()
     {
+        startpos = vrHandler.transform.position;
         start = transform.localEulerAngles;
         Debug.Log(transform.localEulerAngles);
         lookat = false;
@@ -70,6 +72,11 @@ public class ChestManager : MonoBehaviour
             Quaternion lookOnLook = Quaternion.LookRotation(target.transform.position - transform.position);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, Time.deltaTime* openSpeed);
+            Debug.Log(vrHandler.transform.position.y + "angle");
+            if (vrHandler.transform.position.y < (startpos.y+10))
+            {
+                //transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, start.y, start.z);
             if (!isOpened && transform.localEulerAngles.x < 360-angleToOpen)
             {

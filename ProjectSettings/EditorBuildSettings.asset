@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NEW EXP/PreSceneNEW.unity
     guid: 386a964da81d654499d69665b27f4a63
-  - enabled: 1
-    path: Assets/Scenes/NEW EXP/FirstSceneNEW.unity
-    guid: 6b519109de8f38342a896061e0a6ee04
   - enabled: 0
     path: Assets/Scenes/Game/FirstScene.unity
     guid: a4335b23ba80d6945ae55b6a958bb26d
@@ -32,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NEW EXP/InteractionScene.unity
     guid: ec51fb2553c5f364ebd1e04ffb2b7376
+  - enabled: 1
+    path: Assets/Scenes/NEW EXP/FirstSceneNEW.unity
+    guid: 6b519109de8f38342a896061e0a6ee04
   - enabled: 1
     path: Assets/Scenes/NEW EXP/SecondScene 1.unity
     guid: 9b3258a0dcaa3d941802b7f3f345d51b
