@@ -18,7 +18,7 @@ public class LevelFadeChanger : MonoBehaviour
     {
        if(Input.GetMouseButtonDown(0))
         {
-            FadeToLevel(2);
+           // FadeToLevel(2);
         } 
     }
 

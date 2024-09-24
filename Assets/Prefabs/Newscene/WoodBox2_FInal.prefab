@@ -1743,12 +1743,10 @@ MonoBehaviour:
   variantsMain:
   - {fileID: 1607684197007613763}
   - {fileID: 6238811709677528066}
-  - {fileID: 9190271761910735677}
   - {fileID: 8020615123714317481}
   variantsTop:
   - {fileID: 3788126828686370861}
   - {fileID: 5601128351734446667}
-  - {fileID: 3076570598857085420}
   - {fileID: 6362481117183576148}
   objectIndex: 2
   woodSounds:

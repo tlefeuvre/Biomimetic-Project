@@ -804,6 +804,7 @@ MonoBehaviour:
   openSpeed: 10
   vectorLookAt: {x: 0, y: 1, z: 0}
   lookat: 0
+  startpos: {x: 0, y: 0, z: 0}
   isOpened: 0
   isBroken: 0
   angleToOpen: 25
@@ -2175,16 +2176,12 @@ MonoBehaviour:
   variantsMain:
   - {fileID: 7969075912072367538}
   - {fileID: 4515299234304806193}
-  - {fileID: 5005783350560873142}
   - {fileID: 6985516485546909943}
-  - {fileID: 4695969946416910636}
   - {fileID: 8834282194249478948}
   variantsTop:
   - {fileID: 5951287149966659675}
   - {fileID: 5088680672823438420}
-  - {fileID: 7735633534000174646}
   - {fileID: 449868807519176146}
-  - {fileID: 4373154352847203491}
   - {fileID: 3756548069600670543}
   objectIndex: 3
   woodSounds:

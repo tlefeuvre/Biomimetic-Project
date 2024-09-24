@@ -147,14 +147,12 @@ MonoBehaviour:
   - {fileID: 3416619945748680788}
   - {fileID: 2111108535718133499}
   - {fileID: 2887169794519914460}
-  - {fileID: 3473697322498852142}
   - {fileID: 2761465841320583507}
   variantsTop:
   - {fileID: 6501245941897521818}
   - {fileID: 2242124253710956989}
   - {fileID: 4025256463309213197}
   - {fileID: 3095648617972686286}
-  - {fileID: 4598020615812811355}
   - {fileID: 976563325924877532}
   objectIndex: 3
   woodSounds: []
@@ -1724,6 +1722,7 @@ MonoBehaviour:
   openSpeed: 10
   vectorLookAt: {x: 0, y: 1, z: 0}
   lookat: 0
+  startpos: {x: 0, y: 0, z: 0}
   isOpened: 0
   isBroken: 0
   angleToOpen: 25
@@ -2005,6 +2004,7 @@ MonoBehaviour:
   openSpeed: 0
   vectorLookAt: {x: 0, y: 0, z: 0}
   lookat: 0
+  startpos: {x: 0, y: 0, z: 0}
   isOpened: 0
   isBroken: 0
   angleToOpen: 0
