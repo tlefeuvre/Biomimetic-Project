@@ -9,6 +9,10 @@ public class MySceneManager : MonoBehaviour
     public List<GameObject> leftHand = new List<GameObject>();
     public List<GameObject> rightHand = new List<GameObject>();
 
+    public GameObject crabright;
+    public GameObject crableft;
+    public GameObject handright;
+    public GameObject handleft;
 
     private HandType handType;
 
@@ -27,14 +31,23 @@ public class MySceneManager : MonoBehaviour
             rightHand[1] = GameObject.FindGameObjectWithTag("Missing4");
         }
         SetHandVisual();
+
+        crabright.SetActive(false);
+        crableft.SetActive(false);
+        handright.SetActive(false);
+        handleft.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
+        crabright.SetActive(false);
+        crableft.SetActive(false);
+        handright.SetActive(false);
+        handleft.SetActive(false);
+    }
+   
     public void SetHandVisual()
     {
         Debug.Log("set hand visual");

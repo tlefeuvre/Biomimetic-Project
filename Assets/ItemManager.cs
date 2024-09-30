@@ -15,7 +15,7 @@ public class ItemManager : MonoBehaviour
     public AudioClip[] damageSoundlist;
     private AudioClip DamageSound;
     public float handMagnitudeToExplode = 4;
-
+    public ExitTuto exitTuto;
     public GameObject chestManagerChild;
     public GameObject amphoraManagerChild;
     public int indexVariant;
@@ -156,6 +156,7 @@ public class ItemManager : MonoBehaviour
     }
     public void Opened()
     {
+        exitTuto.isOpen = true;
         DebugLogs.Instance.NewOpened(transform.tag);
         Debug.Log("itemmanager");
 

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class DemoItemManager : MonoBehaviour
@@ -15,6 +17,7 @@ public class DemoItemManager : MonoBehaviour
     public AudioClip[] damageSoundlist;
     private AudioClip DamageSound;
     public float handMagnitudeToExplode = 4;
+    public ExitTuto exitTuto;
 
     public GameObject chestManagerChild;
     public GameObject amphoraManagerChild;
@@ -28,7 +31,8 @@ public class DemoItemManager : MonoBehaviour
     private bool isOpened = false;
     private bool Exitcollider = false;
     public Transform parentTransform;
-
+    public Volume postProcess;
+    private Vignette vg;
     private float velocityTohit = 0.04f;
 
     // Start is called before the first frame update
@@ -36,6 +40,8 @@ public class DemoItemManager : MonoBehaviour
     {
         //audioSource = this.GetComponent<AudioSource>();
         indexVariant = 0;
+        postProcess.profile.TryGet(out vg);
+        vg.intensity.value = 0.3f;
     }
 
     // Update is called once per frame
@@ -119,7 +125,8 @@ public class DemoItemManager : MonoBehaviour
     }
     public void Destroyed()
     {
-        SceneManager.LoadScene("FirstSceneNEW", LoadSceneMode.Single);
+        exitTuto.isDestroyed = true;
+        //SceneManager.LoadScene("FirstSceneNEW", LoadSceneMode.Single);
         DebugLogs.Instance.NewDestroy(transform.tag);
 
 

@@ -761,6 +761,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1254966086153165170, guid: 169fdc62262903b429737c81cfb6c397,
         type: 3}
+      propertyPath: exitTuto
+      value: 
+      objectReference: {fileID: 1179481824}
+    - target: {fileID: 1254966086153165170, guid: 169fdc62262903b429737c81cfb6c397,
+        type: 3}
       propertyPath: objectIndex
       value: 0
       objectReference: {fileID: 0}
@@ -2967,6 +2972,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132957583}
   m_Mesh: {fileID: 2977981768884665668, guid: 479d627c07ecbfe49a4be981663e6aed, type: 3}
+--- !u!1 &1179481820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6759429920829633622, guid: 7a17c5086099bfc4884f7883d5c90c2c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6217064991167888688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1179481824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179481820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0a49d9549342946bbe4a5c2af3ffc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDestroyed: 0
+  isOpen: 0
 --- !u!1001 &1199392539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5182,12 +5207,14 @@ MonoBehaviour:
   potterySounds: []
   damageSoundlist: []
   handMagnitudeToExplode: 0.5
+  exitTuto: {fileID: 1179481824}
   chestManagerChild: {fileID: 0}
   amphoraManagerChild: {fileID: 0}
   indexVariant: 0
   keySpawner: {fileID: 0}
   AmphoreGrab: {fileID: 0}
   parentTransform: {fileID: 0}
+  postProcess: {fileID: 1059393731}
 --- !u!4 &2000735584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 978754121114749359, guid: 169fdc62262903b429737c81cfb6c397,
@@ -5346,7 +5373,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6759429920829633622, guid: 7a17c5086099bfc4884f7883d5c90c2c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1179481824}
   m_SourcePrefab: {fileID: 100100000, guid: 7a17c5086099bfc4884f7883d5c90c2c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

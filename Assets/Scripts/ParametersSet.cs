@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,11 +14,14 @@ public class ParametersSet : MonoBehaviour
     public TMP_Dropdown Handdropdown;
     public TMP_InputField inputFieldID;
     public TMP_InputField inputFieldRound;
+    public Volume postProcess;
+    private Vignette vg;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        postProcess.profile.TryGet(out vg);
+        vg.intensity.value = 1f;
     }
 
     // Update is called once per frame
