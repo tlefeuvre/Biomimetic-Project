@@ -56,14 +56,14 @@ public class ItemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (keySpawned)
-        {
-            instantiatedkey.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
-            float newY = initialY + Mathf.Sin(Time.time * levitationSpeed) * levitationHeight;
-            Vector3 currentPosition = instantiatedkey.transform.position;
-            currentPosition.y = newY;
-            instantiatedkey.transform.position = currentPosition;
-        }
+        //if (keySpawned)
+        //{
+        //    instantiatedkey.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+        //    float newY = initialY + Mathf.Sin(Time.time * levitationSpeed) * levitationHeight;
+        //    Vector3 currentPosition = instantiatedkey.transform.position;
+        //    currentPosition.y = newY;
+        //    instantiatedkey.transform.position = currentPosition;
+        //}
     }
     IEnumerator waiter()
     {
