@@ -19,6 +19,9 @@ public class DemoItemManager : MonoBehaviour
     public float handMagnitudeToExplode = 4;
     public ExitTuto exitTuto;
 
+
+
+
     public GameObject chestManagerChild;
     public GameObject amphoraManagerChild;
     public int indexVariant;
@@ -136,7 +139,7 @@ public class DemoItemManager : MonoBehaviour
         NewExpManager.Instance.RemoveFromList(this.gameObject);
 
         if (!isOpened && !isDestroyed)
-            NewExpManager.Instance.NewDestroyedObject();
+            NewExpManager.Instance.NewDestroyedObject(this.gameObject);
         //Destroy(this.gameObject);
         isDestroyed = true;
     }

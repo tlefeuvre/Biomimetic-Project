@@ -5,7 +5,8 @@ using UnityEngine.Rendering.Universal;
 
 public class NewExpManager : MonoBehaviour
 {
-
+ 
+   
     private static NewExpManager instance = null;
     public static NewExpManager Instance => instance;
 
@@ -42,11 +43,13 @@ public class NewExpManager : MonoBehaviour
 
     void Update()
     {
+     
         
     }
     public void RemoveFromList(GameObject obj)
     {
         allObjects.Remove(obj);
+        
     }
 
     public void AddBrokenTag(string tag)
@@ -54,30 +57,33 @@ public class NewExpManager : MonoBehaviour
         brokeOpenOrderTags.Add(tag);
     }
 
-    public void NewDestroyedObject()
+    public void NewDestroyedObject(GameObject usedObject)
     {
         nbDestroyedObjects++;
-        CheckObjectsStates();
+        CheckObjectsStates(usedObject);
 
 
     }
-    public void NewOpenedObject()
+    public void NewOpenedObject(GameObject usedObject)
     {
         Debug.Log("newexpmanager");
 
         nbOpenedObjects++;
-        CheckObjectsStates();
+        CheckObjectsStates(usedObject);
 
     }
-    public void CheckObjectsStates()
+    public void CheckObjectsStates(GameObject usedObject)
     {
-        if (!expIsFinished && nbDestroyedObjects + nbOpenedObjects >= 10)
+        if (!expIsFinished && nbDestroyedObjects + nbOpenedObjects >= 1)
         {
+
             Debug.Log("spawn key");
-            foreach (GameObject obj in allObjects)
-            {
-                obj.GetComponent<ItemManager>().spawnKey(keyPrefab);
-            }
+            usedObject.GetComponent<ItemManager>().spawnKey(keyPrefab);
+            
+            //foreach (GameObject obj in allObjects)
+            //{
+            //    obj.GetComponent<ItemManager>().spawnKey(keyPrefab);
+            //}
             ExpFinished();
 
         }

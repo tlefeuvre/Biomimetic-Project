@@ -23,6 +23,15 @@ public class ItemManager : MonoBehaviour
     public Transform keySpawner;
     public GameObject AmphoreGrab;
 
+
+    private bool keySpawned = false;
+    public float rotationSpeed = 50f;
+    public float levitationHeight = 0.1f;
+    private GameObject instantiatedkey;
+    private float initialY;
+    public float levitationSpeed = 0.5f;
+ 
+
     private bool isDestroyed = false;
 
     private bool isOpened = false;
@@ -47,7 +56,14 @@ public class ItemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (keySpawned)
+        {
+            instantiatedkey.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+            float newY = initialY + Mathf.Sin(Time.time * levitationSpeed) * levitationHeight;
+            Vector3 currentPosition = instantiatedkey.transform.position;
+            currentPosition.y = newY;
+            instantiatedkey.transform.position = currentPosition;
+        }
     }
     IEnumerator waiter()
     {
@@ -150,7 +166,7 @@ public class ItemManager : MonoBehaviour
         NewExpManager.Instance.RemoveFromList(this.gameObject);
 
         if(!isOpened && !isDestroyed)
-            NewExpManager.Instance.NewDestroyedObject();
+            NewExpManager.Instance.NewDestroyedObject(this.gameObject);
         //Destroy(this.gameObject);
         isDestroyed = true;
     }
@@ -165,15 +181,18 @@ public class ItemManager : MonoBehaviour
         NewExpManager.Instance.RemoveFromList(this.gameObject);
 
         if(!isDestroyed && !isOpened)
-            NewExpManager.Instance.NewOpenedObject();
+            NewExpManager.Instance.NewOpenedObject(this.gameObject);
 
         isOpened = true;
 
     }
     public void spawnKey(GameObject key)
     {
+        keySpawned = true;
         GameObject keyObj = Instantiate(key, keySpawner);
         keyObj.transform.localPosition = Vector3.zero;
+        instantiatedkey = keyObj;
+        initialY = keyObj.transform.position.y;
     }
 
     private void OnCollisionEnter(Collision collision)
