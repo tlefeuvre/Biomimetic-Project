@@ -1,7 +1,7 @@
 using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -58,7 +58,6 @@ public class ItemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         //if (keySpawned)
         //{
         //    instantiatedkey.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class KeyManager : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public GameObject glitter;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource.Play();
     }
 
     // Update is called once per frame
@@ -17,6 +19,7 @@ public class KeyManager : MonoBehaviour
     }
     public void Grabbed()
     {
+        glitter.SetActive(false);
         NewExpManager.Instance.KeyGrabbed();
     }
 }
