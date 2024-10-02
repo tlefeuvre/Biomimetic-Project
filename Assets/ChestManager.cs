@@ -75,8 +75,10 @@ public class ChestManager : MonoBehaviour
             Debug.Log(vrHandler.transform.position.y + "angle");
             if (vrHandler.transform.position.y < (startpos.y+10))
             {
+               
                 //transform.rotation = Quaternion.Euler(0, 90, 0);
             }
+           
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, start.y, start.z);
             if (!isOpened && transform.localEulerAngles.x < 360-angleToOpen)
             {

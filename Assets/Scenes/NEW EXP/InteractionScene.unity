@@ -801,8 +801,56 @@ PrefabInstance:
         type: 3}
       insertIndex: 0
       addedObject: {fileID: 1784697040}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5854272218465356773, guid: 169fdc62262903b429737c81cfb6c397,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 316010297}
+    - targetCorrespondingSourceObject: {fileID: 5854272218465356773, guid: 169fdc62262903b429737c81cfb6c397,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 316010296}
   m_SourcePrefab: {fileID: 100100000, guid: 169fdc62262903b429737c81cfb6c397, type: 3}
+--- !u!1 &316010295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5854272218465356773, guid: 169fdc62262903b429737c81cfb6c397,
+    type: 3}
+  m_PrefabInstance: {fileID: 316010294}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &316010296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316010295}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000014, y: 1.0000005, z: 1.0000005}
+  m_Center: {x: 0.00000047683716, y: 0, z: 0.00000011920929}
+--- !u!114 &316010297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316010295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1d2276473a1c349ad46003110ff9a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitTuto: {fileID: 1179481824}
 --- !u!1 &352725405
 GameObject:
   m_ObjectHideFlags: 0
@@ -4721,6 +4769,10 @@ MonoBehaviour:
   rightHand:
   - {fileID: 0}
   - {fileID: 0}
+  crabright: {fileID: 0}
+  crableft: {fileID: 0}
+  handright: {fileID: 0}
+  handleft: {fileID: 0}
   isInteractionScene: 0
 --- !u!4 &1696833158
 Transform:

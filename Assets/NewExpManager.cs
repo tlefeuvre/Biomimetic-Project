@@ -66,7 +66,7 @@ public class NewExpManager : MonoBehaviour
     }
     public void NewOpenedObject(GameObject usedObject)
     {
-        Debug.Log("newexpmanager");
+  
 
         nbOpenedObjects++;
         CheckObjectsStates(usedObject);
@@ -97,6 +97,7 @@ public class NewExpManager : MonoBehaviour
     {
         if (!expIsFinished)
         {
+            Debug.Log("write excel");
             expIsFinished =true;
             finishIndication.SetActive(true);
             PlayerPrefs.SetInt("NumberHits", nbHits);

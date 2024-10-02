@@ -1,7 +1,9 @@
 using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemManager : MonoBehaviour
 {
@@ -15,7 +17,7 @@ public class ItemManager : MonoBehaviour
     public AudioClip[] damageSoundlist;
     private AudioClip DamageSound;
     public float handMagnitudeToExplode = 4;
-    public ExitTuto exitTuto;
+
     public GameObject chestManagerChild;
     public GameObject amphoraManagerChild;
     public int indexVariant;
@@ -56,6 +58,7 @@ public class ItemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //if (keySpawned)
         //{
         //    instantiatedkey.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
@@ -172,7 +175,8 @@ public class ItemManager : MonoBehaviour
     }
     public void Opened()
     {
-        exitTuto.isOpen = true;
+        Debug.Log("trigeriton");
+    
         DebugLogs.Instance.NewOpened(transform.tag);
         Debug.Log("itemmanager");
 
@@ -275,7 +279,8 @@ public class ItemManager : MonoBehaviour
 
     public void isgrab()
     {
-        isGrabbable = true;
+        Debug.Log("grabbed");
+       isGrabbable = true;
 
     }
     public void isNotGrab()
