@@ -35,26 +35,28 @@ public class SessionManager : MonoBehaviour
 
     public static SessionManager Instance { get; private set; }
 
+    private MySceneManager m_sceneManager;
     private int m_requestsCount = 0;
 
     void Start()
     {
         Instance = this;
+        PartId = PlayerPrefs.GetInt("IDPlayer").ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if(!GameManager.Instance.HasSessionBegun && GameManager.inputText != null)
+        //if (!MySceneManager.Instance.HasSessionBegun && GameManager.inputText != null)
         //{
-        //    if (GameManager.inputText != PartId) { PartId = GameManager.inputText; }
+        //    if (MySceneManager.inputText != PartId) { PartId = GameManager.inputText; }
         //}
-        //if (!ItemManager.Instance.HasSessionBegun && ItemManager.inputText != null)
+        // if (!m_sceneManager.HasSessionBegun && m_sceneManager.inputText != null)
         //{
-        //    if (ItemManager.inputText != PartId) { PartId = ItemManager.inputText; }
+        // if (m_sceneManager.inputText != PartId) { PartId = m_sceneManager.inputText; }
         //}
 
-        if (m_partIdField.text != PartId) { m_partIdField.text = PartId; }
+          if (m_partIdField.text != PartId) { m_partIdField.text = PartId; }
     }
 
     public UnityEvent SessionStarted;
@@ -65,7 +67,7 @@ public class SessionManager : MonoBehaviour
     private async Task CreateSessionAsync()
     {
         /*creating folder and JSON*/
-        m_backupFolderPath = Path.Combine(Application.persistentDataPath, "AnimusSessionBackups");
+        m_backupFolderPath = Path.Combine(Application.persistentDataPath, "BiomimeticSessionBackups");
         if (!Directory.Exists(m_backupFolderPath))
         {
             Directory.CreateDirectory(m_backupFolderPath);
@@ -77,8 +79,7 @@ public class SessionManager : MonoBehaviour
             Directory.CreateDirectory(m_backupFolderPath);
         }
 
-        //var body = new { partId = PartId, date = DateTimeOffset.Now , avatarIV = CharacterManager.Instance.AvatarIV.ToString(), coherenceIV = CharacterManager.Instance.CoherenceIV.ToString(), handedness = CharacterManager.Instance.Handedness.ToString() };
-        var body = new { };
+        var body = new { partId = PartId, date = DateTimeOffset.Now , avatarIV = PlayerPrefs.GetInt("handType").ToString(), handedness = PlayerPrefs.GetInt("handId").ToString() };
         string json = JsonConvert.SerializeObject(body);
 
         try

@@ -2172,6 +2172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabf1baad30fc7041a529290c1b0ed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_objectId: Chest
   audioSource: {fileID: 9085596919155430255}
   variantsMain:
   - {fileID: 7969075912072367538}
@@ -2197,6 +2198,9 @@ MonoBehaviour:
   indexVariant: 0
   keySpawner: {fileID: 7658350106006747158}
   AmphoreGrab: {fileID: 0}
+  rotationSpeed: 50
+  levitationHeight: 0.1
+  levitationSpeed: 0.5
   upperClaw: 0
   lowerClaw: 0
   isGrabbable: 0

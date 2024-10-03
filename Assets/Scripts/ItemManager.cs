@@ -1,4 +1,5 @@
 using Oculus.Interaction;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class ItemManager : MonoBehaviour
 {
+    [SerializeField] private string m_objectId;
     public AudioSource audioSource;
     public List<GameObject> variantsMain = new List<GameObject>();
     public List<GameObject> variantsTop = new List<GameObject>();
@@ -17,7 +19,7 @@ public class ItemManager : MonoBehaviour
     public AudioClip[] damageSoundlist;
     private AudioClip DamageSound;
     public float handMagnitudeToExplode = 4;
-
+    public string ObjectId { get => m_objectId; }
     public GameObject chestManagerChild;
     public GameObject amphoraManagerChild;
     public int indexVariant;
@@ -51,6 +53,7 @@ public class ItemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (m_objectId == null) { m_objectId = gameObject.name; }
         //audioSource = this.GetComponent<AudioSource>();
         indexVariant = 0;
     }
@@ -73,11 +76,26 @@ public class ItemManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.3f);
         Exitcollider = false;
     }
+
+    public void RecordEvent(string type, DateTimeOffset dto)
+    {
+        Debug.Log($"<color=orange>Recording '{type}' event</color>", this);
+        SessionManager.Instance.RecordEventAsync(type, ObjectId, dto);
+    }
+
+    public void RecordMetric(string type, float value, DateTimeOffset dto)
+    {
+        Debug.Log($"<color=orange>Recording '{type}' metric: {value}</color>", this);
+        SessionManager.Instance.RecordMetricAsync(type, value, ObjectId, dto);
+    }
     public void ObjectHit()
     {
+        RecordEvent("objHit", DateTimeOffset.Now);
+        RecordMetric("HitStrengh", GetComponent<Rigidbody>().velocity.magnitude, DateTimeOffset.Now);
         Exitcollider = true;
         DebugLogs.Instance.NewHit(transform.tag);
-
+        /*Registering event*/
+       
         switch (objectIndex)
         {
             case 1:
@@ -90,7 +108,7 @@ public class ItemManager : MonoBehaviour
                 damageSoundlist = metalSounds; ;
                 break;
         }
-        int index = Random.Range(0, damageSoundlist.Length);
+        int index = UnityEngine.Random.Range(0, damageSoundlist.Length);
         DamageSound = damageSoundlist[index];
         audioSource.clip = DamageSound;
         audioSource.Play();
@@ -158,6 +176,7 @@ public class ItemManager : MonoBehaviour
     
         public void Destroyed()
     {
+        RecordEvent("objDestroyed", DateTimeOffset.Now);
         Exitcollider = true;
         DebugLogs.Instance.NewDestroy(transform.tag);
 
@@ -174,8 +193,8 @@ public class ItemManager : MonoBehaviour
     }
     public void Opened()
     {
-        Debug.Log("trigeriton");
-    
+        RecordEvent("objOpened", DateTimeOffset.Now);
+
         DebugLogs.Instance.NewOpened(transform.tag);
         Debug.Log("itemmanager");
 
@@ -204,7 +223,7 @@ public class ItemManager : MonoBehaviour
 
         if (collision.transform.tag == "Hand" || collision.transform.tag  == " UpperClaw" || collision.transform.tag == " LowerClaw" && !Exitcollider)
         {
-
+            
             Debug.Log(GetComponent<Rigidbody>().velocity.magnitude + "Speed");
             ObjectHit();
 
@@ -213,6 +232,7 @@ public class ItemManager : MonoBehaviour
 
         if ((transform.tag == "Amphora" || transform.tag == "Amphora2") && GetComponent<Rigidbody>().velocity.magnitude > velocityTohit && collision.transform.tag == "Floor")
         {
+
             ObjectHit();
 
         }

@@ -1739,6 +1739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabf1baad30fc7041a529290c1b0ed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_objectId: Woodbox
   audioSource: {fileID: 8617838122474377468}
   variantsMain:
   - {fileID: 1607684197007613763}
@@ -1765,6 +1766,9 @@ MonoBehaviour:
   indexVariant: 0
   keySpawner: {fileID: 4606555810349891319}
   AmphoreGrab: {fileID: 0}
+  rotationSpeed: 50
+  levitationHeight: 0.1
+  levitationSpeed: 0.5
   upperClaw: 0
   lowerClaw: 0
   isGrabbable: 0

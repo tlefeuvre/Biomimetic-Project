@@ -1218,6 +1218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabf1baad30fc7041a529290c1b0ed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_objectId: Woodbox
   audioSource: {fileID: 8404021617766329933}
   variantsMain:
   - {fileID: 5462340061833389206}
@@ -1239,12 +1240,14 @@ MonoBehaviour:
   potterySounds: []
   damageSoundlist: []
   handMagnitudeToExplode: 2
-  exitTuto: {fileID: 0}
   chestManagerChild: {fileID: 4283744959639800899}
   amphoraManagerChild: {fileID: 0}
   indexVariant: 0
   keySpawner: {fileID: 1468550860631665152}
   AmphoreGrab: {fileID: 0}
+  rotationSpeed: 50
+  levitationHeight: 0.1
+  levitationSpeed: 0.5
   upperClaw: 0
   lowerClaw: 0
   isGrabbable: 0

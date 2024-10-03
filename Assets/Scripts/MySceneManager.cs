@@ -14,6 +14,9 @@ public class MySceneManager : MonoBehaviour
     public GameObject handright;
     public GameObject handleft;
 
+    public bool HasSessionBegun = false;
+ 
+
     private HandType handType;
 
     public bool isInteractionScene = false;

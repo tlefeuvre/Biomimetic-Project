@@ -1219,6 +1219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabf1baad30fc7041a529290c1b0ed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_objectId: Amphora
   audioSource: {fileID: 7613225304887945499}
   variantsMain:
   - {fileID: 5436746434662605396}
@@ -1242,6 +1243,9 @@ MonoBehaviour:
   indexVariant: 0
   keySpawner: {fileID: 8307618888195940408}
   AmphoreGrab: {fileID: 4942675736707814361}
+  rotationSpeed: 50
+  levitationHeight: 0.1
+  levitationSpeed: 0.5
   upperClaw: 0
   lowerClaw: 0
   isGrabbable: 0
@@ -1432,6 +1436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabf1baad30fc7041a529290c1b0ed2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_objectId: Amphora
   audioSource: {fileID: 0}
   variantsMain:
   - {fileID: 8514255568226501337}
@@ -1455,6 +1460,9 @@ MonoBehaviour:
   indexVariant: 0
   keySpawner: {fileID: 8307618888195940408}
   AmphoreGrab: {fileID: 4942675736707814361}
+  rotationSpeed: 50
+  levitationHeight: 0.1
+  levitationSpeed: 0.5
   upperClaw: 0
   lowerClaw: 0
   isGrabbable: 0
