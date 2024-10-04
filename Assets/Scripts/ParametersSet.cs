@@ -37,13 +37,20 @@ public class ParametersSet : MonoBehaviour
 
         int handID = Handdropdown.value;
         PlayerPrefs.SetInt("handId", handID);
-        GetComponent<MySceneManager>().SetHandVisual();
+        if( handID == 0 )
+        { PlayerPrefs.SetString("handSide", "Left");}
+        else { PlayerPrefs.SetString("handSide", "Right");}
+        
+      GetComponent<MySceneManager>().SetHandVisual();
         //int nbRounds = int.Parse(inputFieldRound.text.ToString());
         //PlayerPrefs.SetInt("nbRounds", nbRounds);
 
         int handType = dropdown.value;
         PlayerPrefs.SetInt("handType", handType);
-        
+        if (handType == 0)
+        { PlayerPrefs.SetString("condition", "Glove"); }
+        else { PlayerPrefs.SetString("handSide", "Claw"); }
+
         SceneManager.LoadScene("InteractionScene", LoadSceneMode.Single);
 
     }

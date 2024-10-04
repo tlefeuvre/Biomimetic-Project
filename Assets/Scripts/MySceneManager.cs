@@ -9,10 +9,10 @@ public class MySceneManager : MonoBehaviour
     public List<GameObject> leftHand = new List<GameObject>();
     public List<GameObject> rightHand = new List<GameObject>();
 
-    public GameObject crabright;
-    public GameObject crableft;
-    public GameObject handright;
-    public GameObject handleft;
+    //public GameObject crabright;
+    //public GameObject crableft;
+    //public GameObject handright;
+    //public GameObject handleft;
 
     public bool HasSessionBegun = false;
  
@@ -35,20 +35,20 @@ public class MySceneManager : MonoBehaviour
         }
         SetHandVisual();
 
-        crabright.SetActive(false);
-        crableft.SetActive(false);
-        handright.SetActive(false);
-        handleft.SetActive(false);
+        //crabright.SetActive(false);
+        //crableft.SetActive(false);
+        //handright.SetActive(false);
+        //handleft.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        crabright.SetActive(false);
-        crableft.SetActive(false);
-        handright.SetActive(false);
-        handleft.SetActive(false);
+        //crabright.SetActive(false);
+        //crableft.SetActive(false);
+        //handright.SetActive(false);
+        //handleft.SetActive(false);
     }
    
     public void SetHandVisual()

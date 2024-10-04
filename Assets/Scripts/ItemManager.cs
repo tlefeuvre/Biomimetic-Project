@@ -34,8 +34,8 @@ public class ItemManager : MonoBehaviour
     private GameObject instantiatedkey;
     private float initialY;
     public float levitationSpeed = 0.5f;
- 
 
+    private float handspeed = 0f;
     private bool isDestroyed = false;
 
     private bool isOpened = false;
@@ -77,10 +77,10 @@ public class ItemManager : MonoBehaviour
         Exitcollider = false;
     }
 
-    public void RecordHitEvent(float strengh)
+    public void RecordHitEvent(float strengh, float state)
     {
         
-        var task = SessionManager.Instance.RecordEventAsync("objHit", new {ObjectId}, new {strengh});
+        var task = SessionManager.Instance.RecordEventAsync("objHit", new {ObjectId}, new {strengh, state});
     }
 
     public void RecordOpenEvent()
@@ -96,7 +96,7 @@ public class ItemManager : MonoBehaviour
     public void ObjectHit(float strengh)
     {
 
-        RecordHitEvent(strengh);
+      
        
         Exitcollider = true;
         DebugLogs.Instance.NewHit(transform.tag);
@@ -121,6 +121,7 @@ public class ItemManager : MonoBehaviour
 
         if (!isDestroyed)
         {
+            RecordHitEvent(strengh, indexVariant);
             NewExpManager.Instance.NewHit();
 
         }
@@ -136,7 +137,7 @@ public class ItemManager : MonoBehaviour
         }
         
         indexVariant++;
-
+        
         //activate
         if (indexVariant < variantsMain.Count)
         {
@@ -244,56 +245,48 @@ public class ItemManager : MonoBehaviour
 
         }
     }
-
+   
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter!");
-        float handSpeed = other.gameObject.GetComponent<HandVelocity>().GetMagnitude();
-        if (chestManagerChild )    
-        {
-            if (chestManagerChild.GetComponent<ChestManager>().GetLookAt())
-            {
 
-                return;
-            }
-        }
 
-        
+        if (other.gameObject.GetComponent<HandVelocity>() != null)
+        { handspeed = other.gameObject.GetComponent<HandVelocity>().GetMagnitude(); }
+
+
         if (other.transform.tag == "UpperClaw" && !isGrabbable)
             upperClaw = true;
         if (other.transform.tag == "LowerClaw" && !isGrabbable)
             lowerClaw = true;
 
-        if(upperClaw && lowerClaw && !isGrabbable && !Exitcollider)
+        if (upperClaw && lowerClaw && !isGrabbable && !Exitcollider)
         {
-          ObjectHit(handSpeed);
+            ObjectHit(handspeed);
 
         }
 
-        if (other.transform.tag == "Hand" )
+        if (other.transform.tag == "Hand")
         {
-           
-            if (handSpeed > handMagnitudeToExplode && !Exitcollider)
+
+            if (handspeed > handMagnitudeToExplode && !Exitcollider)
             {
 
 
 
-                //ObjectHit(GetComponent<Rigidbody>().velocity.magnitude);
-                ObjectHit(handSpeed);
-                
+
+                ObjectHit(handspeed);
+
 
             }
 
-            Debug.Log(other.gameObject.GetComponent<HandVelocity>().GetMagnitude()+"toucher le item 2 !!!!");
-
         }
 
-        if ((transform.tag == "Amphora" || transform.tag == "Amphora2") &&  GetComponent<Rigidbody>().velocity.magnitude > velocityTohit && other.transform.tag =="Floor")
-        {
-            ObjectHit(handSpeed);
+        //if ((transform.tag == "Amphora" || transform.tag == "Amphora2") &&  GetComponent<Rigidbody>().velocity.magnitude > velocityTohit && other.transform.tag =="Floor")
+        //{
+        //   ObjectHit(handspeed);
 
-        }
 
+        //}
     }
     private void OnTriggerExit(Collider other)
     {

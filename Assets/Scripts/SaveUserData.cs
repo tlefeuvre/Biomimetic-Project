@@ -36,7 +36,7 @@ public class SaveUserData : MonoBehaviour
         var path = Path.Combine(Application.dataPath, "Participant_" + PlayerPrefs.GetInt("IDPlayer")+"_Condition_" + PlayerPrefs.GetInt("handType") +"_"+ System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm") + ".csv");
         Debug.Log(path);
         FindUsersDataFile(path);
-
+        
         NewUserData(); // (v, t); // variables mises en exemple
 
         SaveNewUserData(path, newuserdata.ToString());

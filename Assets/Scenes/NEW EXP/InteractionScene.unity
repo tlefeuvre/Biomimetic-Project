@@ -766,6 +766,11 @@ PrefabInstance:
       objectReference: {fileID: 1179481824}
     - target: {fileID: 1254966086153165170, guid: 169fdc62262903b429737c81cfb6c397,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254966086153165170, guid: 169fdc62262903b429737c81cfb6c397,
+        type: 3}
       propertyPath: objectIndex
       value: 0
       objectReference: {fileID: 0}
@@ -3812,6 +3817,12 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!4 &1550371109 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3051639984296720560, guid: 390c79312bb81cc4cb1e3bb0c7c61981,
+    type: 3}
+  m_PrefabInstance: {fileID: 873939638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1567419375
 GameObject:
   m_ObjectHideFlags: 0
@@ -4090,7 +4101,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerHead
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1550371109}
     - target: {fileID: 970644637833668187, guid: 049d245a53f74e745a6b17c9ccfc1dc5,
         type: 3}
       propertyPath: targetTransform
@@ -4773,6 +4784,7 @@ MonoBehaviour:
   crableft: {fileID: 0}
   handright: {fileID: 0}
   handleft: {fileID: 0}
+  HasSessionBegun: 0
   isInteractionScene: 0
 --- !u!4 &1696833158
 Transform:

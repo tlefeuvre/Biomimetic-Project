@@ -22,7 +22,7 @@ public enum ERequestType { Session, Event, Metric}
 
 public class SessionManager : MonoBehaviour
 {
-    [SerializeField] TMP_InputField m_partIdField;
+   
     public string EndPoint = "http://localhost/";
 
     public string PartId;
@@ -40,8 +40,10 @@ public class SessionManager : MonoBehaviour
 
     void Start()
     {
+   
         Instance = this;
         PartId = PlayerPrefs.GetInt("IDPlayer").ToString();
+        CreateSession();
     }
 
     // Update is called once per frame
@@ -56,7 +58,7 @@ public class SessionManager : MonoBehaviour
         // if (m_sceneManager.inputText != PartId) { PartId = m_sceneManager.inputText; }
         //}
 
-          if (m_partIdField.text != PartId) { m_partIdField.text = PartId; }
+         
     }
 
     public UnityEvent SessionStarted;
@@ -66,6 +68,7 @@ public class SessionManager : MonoBehaviour
 
     private async Task CreateSessionAsync()
     {
+    
         /*creating folder and JSON*/
         m_backupFolderPath = Path.Combine(Application.persistentDataPath, "BiomimeticSessionBackups");
         if (!Directory.Exists(m_backupFolderPath))
@@ -81,8 +84,8 @@ public class SessionManager : MonoBehaviour
 
         var body = new { date = DateTimeOffset.Now , attributes= new {
             partId = PartId,
-            handType = PlayerPrefs.GetInt("handType").ToString(), 
-            handedness = PlayerPrefs.GetInt("handId").ToString() }
+            handType = PlayerPrefs.GetString("condition"), 
+            handedness = PlayerPrefs.GetString("handSide") }
         };
         string json = JsonConvert.SerializeObject(body);
 
@@ -94,9 +97,9 @@ public class SessionManager : MonoBehaviour
             HttpContent content = new ByteArrayContent(bytes);
             content.Headers.ContentType = new(MediaTypeNames.Application.Json);
 
-            Debug.Log("Sending Request...", this);
+            Debug.Log(" <color=cyan> Sending Session Request...", this);
 
-            HttpResponseMessage response = await client.PostAsync(EndPoint + "Sessions", content);
+            HttpResponseMessage response = await client.PostAsync(EndPoint.TrimEnd('/')+ "/Sessions", content);
 
             Debug.Log($"Response : {(int)response.StatusCode}", this);
 
@@ -152,9 +155,9 @@ public class SessionManager : MonoBehaviour
             HttpContent content = new ByteArrayContent(bytes);
             content.Headers.ContentType = new(MediaTypeNames.Application.Json);
 
-            Debug.Log("Sending Request...", this);
+            Debug.Log("<color=green>Sending Event Request...", this);
 
-            HttpResponseMessage response = await client.PostAsync(EndPoint + "Sessions/" + SessionId + "/Events", content);
+            HttpResponseMessage response = await client.PostAsync(EndPoint.TrimEnd('/') + "/Sessions/" + SessionId + "/Events", content);
 
             Debug.Log($"Response : {(int)response.StatusCode}", this);
 
