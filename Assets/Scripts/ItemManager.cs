@@ -23,7 +23,7 @@ public class ItemManager : MonoBehaviour
     public GameObject chestManagerChild;
     public GameObject amphoraManagerChild;
     public int indexVariant;
-
+   
     public Transform keySpawner;
     public GameObject AmphoreGrab;
 
@@ -77,21 +77,27 @@ public class ItemManager : MonoBehaviour
         Exitcollider = false;
     }
 
-    public void RecordEvent(string type, DateTimeOffset dto)
+    public void RecordHitEvent(float strengh)
     {
-        Debug.Log($"<color=orange>Recording '{type}' event</color>", this);
-        SessionManager.Instance.RecordEventAsync(type, ObjectId, dto);
+        
+        var task = SessionManager.Instance.RecordEventAsync("objHit", new {ObjectId}, new {strengh});
     }
 
-    public void RecordMetric(string type, float value, DateTimeOffset dto)
+    public void RecordOpenEvent()
     {
-        Debug.Log($"<color=orange>Recording '{type}' metric: {value}</color>", this);
-        SessionManager.Instance.RecordMetricAsync(type, value, ObjectId, dto);
+        var task = SessionManager.Instance.RecordEventAsync("objOpen", new { ObjectId }, new { });
+
     }
-    public void ObjectHit()
+    public void RecordDestroyEvent()
     {
-        RecordEvent("objHit", DateTimeOffset.Now);
-        RecordMetric("HitStrengh", GetComponent<Rigidbody>().velocity.magnitude, DateTimeOffset.Now);
+        var task = SessionManager.Instance.RecordEventAsync("objDestroyed", new { ObjectId }, new { });
+
+    }
+    public void ObjectHit(float strengh)
+    {
+
+        RecordHitEvent(strengh);
+       
         Exitcollider = true;
         DebugLogs.Instance.NewHit(transform.tag);
         /*Registering event*/
@@ -176,7 +182,7 @@ public class ItemManager : MonoBehaviour
     
         public void Destroyed()
     {
-        RecordEvent("objDestroyed", DateTimeOffset.Now);
+        RecordDestroyEvent();
         Exitcollider = true;
         DebugLogs.Instance.NewDestroy(transform.tag);
 
@@ -193,7 +199,7 @@ public class ItemManager : MonoBehaviour
     }
     public void Opened()
     {
-        RecordEvent("objOpened", DateTimeOffset.Now);
+        RecordOpenEvent();
 
         DebugLogs.Instance.NewOpened(transform.tag);
         Debug.Log("itemmanager");
@@ -223,9 +229,10 @@ public class ItemManager : MonoBehaviour
 
         if (collision.transform.tag == "Hand" || collision.transform.tag  == " UpperClaw" || collision.transform.tag == " LowerClaw" && !Exitcollider)
         {
-            
-            Debug.Log(GetComponent<Rigidbody>().velocity.magnitude + "Speed");
-            ObjectHit();
+           
+           
+
+            //ObjectHit(collision.impulse.magnitude / Time.fixedDeltaTime);
 
         }
 
@@ -233,7 +240,7 @@ public class ItemManager : MonoBehaviour
         if ((transform.tag == "Amphora" || transform.tag == "Amphora2") && GetComponent<Rigidbody>().velocity.magnitude > velocityTohit && collision.transform.tag == "Floor")
         {
 
-            ObjectHit();
+            //ObjectHit(collision.impulse.magnitude / Time.fixedDeltaTime);
 
         }
     }
@@ -241,7 +248,7 @@ public class ItemManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("OnTriggerEnter!");
-
+        float handSpeed = other.gameObject.GetComponent<HandVelocity>().GetMagnitude();
         if (chestManagerChild )    
         {
             if (chestManagerChild.GetComponent<ChestManager>().GetLookAt())
@@ -259,19 +266,20 @@ public class ItemManager : MonoBehaviour
 
         if(upperClaw && lowerClaw && !isGrabbable && !Exitcollider)
         {
-            ObjectHit();
+          ObjectHit(handSpeed);
 
         }
 
         if (other.transform.tag == "Hand" )
         {
-            float handSpeed = other.gameObject.GetComponent<HandVelocity>().GetMagnitude();
+           
             if (handSpeed > handMagnitudeToExplode && !Exitcollider)
             {
-                
-                
 
-                ObjectHit();
+
+
+                //ObjectHit(GetComponent<Rigidbody>().velocity.magnitude);
+                ObjectHit(handSpeed);
                 
 
             }
@@ -282,7 +290,7 @@ public class ItemManager : MonoBehaviour
 
         if ((transform.tag == "Amphora" || transform.tag == "Amphora2") &&  GetComponent<Rigidbody>().velocity.magnitude > velocityTohit && other.transform.tag =="Floor")
         {
-            ObjectHit();
+            ObjectHit(handSpeed);
 
         }
 

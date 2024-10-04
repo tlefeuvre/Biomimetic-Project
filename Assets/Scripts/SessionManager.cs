@@ -79,7 +79,11 @@ public class SessionManager : MonoBehaviour
             Directory.CreateDirectory(m_backupFolderPath);
         }
 
-        var body = new { partId = PartId, date = DateTimeOffset.Now , avatarIV = PlayerPrefs.GetInt("handType").ToString(), handedness = PlayerPrefs.GetInt("handId").ToString() };
+        var body = new { date = DateTimeOffset.Now , attributes= new {
+            partId = PartId,
+            handType = PlayerPrefs.GetInt("handType").ToString(), 
+            handedness = PlayerPrefs.GetInt("handId").ToString() }
+        };
         string json = JsonConvert.SerializeObject(body);
 
         try
@@ -125,49 +129,11 @@ public class SessionManager : MonoBehaviour
     public void CreateSession() => CreateSessionAsync();
 
 
-    public async Task RecordEventAsync(string type, string targetId, DateTimeOffset dto)
+  
+
+    public async Task RecordEventAsync(string type, object attributes, object metrics, DateTimeOffset? dto = null)
     {
-        var body = new { type, objectId = targetId, date = dto};
-        string json = JsonConvert.SerializeObject(body);
-
-        /*If not connected, writing directly the backup*/
-        if (!IsConnectedToSQL)
-        {
-            WriteBackupJson(false, json, ERequestType.Event);
-            return;
-        }
-
-        try
-        {
-            using HttpClient client = new HttpClient();
-
-            
-            byte[] bytes = Encoding.UTF8.GetBytes(json);
-            HttpContent content = new ByteArrayContent(bytes);
-            content.Headers.ContentType = new(MediaTypeNames.Application.Json);
-
-            Debug.Log("Sending Request...", this);
-
-            HttpResponseMessage response = await client.PostAsync(EndPoint + "Sessions/" + SessionId + "/Events", content);
-
-            Debug.Log($"Response : {(int)response.StatusCode}", this);
-
-            /*Reporting success*/
-            WriteBackupJson(true, json, ERequestType.Event);
-        }
-        catch (Exception e)
-        {
-            Debug.LogException(e, this);
-            RequestFailed?.Invoke();
-
-            /*Reporting failure*/
-            WriteBackupJson(false, json, ERequestType.Event);
-        }
-    }
-
-    public async Task RecordEventAsync(string type, DateTimeOffset dto)
-    {
-        var body = new { type, date = dto };
+        var body = new { type, date = dto??DateTimeOffset.Now, attributes, metrics };
         string json = JsonConvert.SerializeObject(body);
 
         /*If not connected, writing directly the backup*/
@@ -205,85 +171,9 @@ public class SessionManager : MonoBehaviour
         }
     }
 
-    public async Task RecordMetricAsync(string type, float value, string targetId, DateTimeOffset dto)
-    {
-        var body = new { type, value = value , objectId = targetId, date = dto };
-        string json = JsonConvert.SerializeObject(body);
+  
 
-        /*If not connected, writing directly the backup*/
-        if (!IsConnectedToSQL)
-        {
-            WriteBackupJson(false, json, ERequestType.Metric);
-            return;
-        }
-
-        try
-        {
-            using HttpClient client = new HttpClient();
-
-            
-            byte[] bytes = Encoding.UTF8.GetBytes(json);
-            HttpContent content = new ByteArrayContent(bytes);
-            content.Headers.ContentType = new(MediaTypeNames.Application.Json);
-
-            Debug.Log("Sending Request...", this);
-
-            HttpResponseMessage response = await client.PostAsync(EndPoint + "Sessions/" + SessionId + "/Metrics", content);
-
-            Debug.Log($"Response : {(int)response.StatusCode}", this);
-
-            /*Reporting success*/
-            WriteBackupJson(true, json, ERequestType.Metric);
-        }
-        catch (Exception e)
-        {
-            Debug.LogException(e, this);
-            RequestFailed?.Invoke();
-
-            /*Reporting failure*/
-            WriteBackupJson(false, json, ERequestType.Metric);
-        }
-    }
-
-    public async Task RecordMetricAsync(string type, float value, DateTimeOffset dto)
-    {
-        var body = new { type, value = value, date = dto };
-        string json = JsonConvert.SerializeObject(body);
-
-        /*If not connected, writing directly the backup*/
-        if (!IsConnectedToSQL)
-        {
-            WriteBackupJson(false, json, ERequestType.Metric);
-            return;
-        }
-
-        try
-        {
-            using HttpClient client = new HttpClient();
-
-
-            byte[] bytes = Encoding.UTF8.GetBytes(json);
-            HttpContent content = new ByteArrayContent(bytes);
-            content.Headers.ContentType = new(MediaTypeNames.Application.Json);
-
-            Debug.Log("Sending Request...", this);
-
-            HttpResponseMessage response = await client.PostAsync(EndPoint + "Sessions/" + SessionId + "/Metrics", content);
-
-            Debug.Log($"Response : {(int)response.StatusCode}", this);
-
-            /*Reporting success*/
-            WriteBackupJson(true, json, ERequestType.Metric);
-        }
-        catch (Exception e)
-        {
-            Debug.LogException(e, this);
-            RequestFailed?.Invoke();
-
-            /*Reporting failure*/
-            WriteBackupJson(false, json, ERequestType.Metric);
-        }
-    }
+  
 
 
     private void WriteBackupJson(bool success, string json, ERequestType type)
