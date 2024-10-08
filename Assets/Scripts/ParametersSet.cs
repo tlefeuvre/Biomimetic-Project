@@ -49,7 +49,7 @@ public class ParametersSet : MonoBehaviour
         PlayerPrefs.SetInt("handType", handType);
         if (handType == 0)
         { PlayerPrefs.SetString("condition", "Glove"); }
-        else { PlayerPrefs.SetString("handSide", "Claw"); }
+        else { PlayerPrefs.SetString("condition", "Claw"); }
 
         SceneManager.LoadScene("InteractionScene", LoadSceneMode.Single);
 

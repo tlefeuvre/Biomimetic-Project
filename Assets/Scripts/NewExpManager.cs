@@ -92,7 +92,11 @@ public class NewExpManager : MonoBehaviour
     {
         nbHits++;
     }
+    public void RecordFinishEvent(float destroyed, float opened)
+    {
 
+        var task = SessionManager.Instance.RecordEventAsync("ObjectCount", new { opened }, new { destroyed });
+    }
     public void ExpFinished()
     {
         if (!expIsFinished)
@@ -108,6 +112,7 @@ public class NewExpManager : MonoBehaviour
         {
             finishIndication.SetActive(true);
         }
+        RecordFinishEvent(nbOpenedObjects, nbHits);
     }
 
     public void KeyGrabbed()

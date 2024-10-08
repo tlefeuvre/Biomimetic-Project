@@ -41,6 +41,14 @@ public class DebugLogs : MonoBehaviour
     {
         
     }
+
+    public void SessionConnect()
+    {
+        Debug.Log("Session Connected");
+     
+        logs.text = "Session Connected";
+
+    }
     public void NewHit(string name)
     {
         Debug.Log(name);

@@ -108,6 +108,7 @@ public class SessionManager : MonoBehaviour
             SessionId = responseBody.Id;
 
             Debug.Log($"ALL GOOD - {SessionId}", this);
+            DebugLogs.Instance.SessionConnect();
             SessionStarted?.Invoke();
 
             /*Reporting success*/

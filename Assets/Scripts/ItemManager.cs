@@ -183,36 +183,44 @@ public class ItemManager : MonoBehaviour
     
         public void Destroyed()
     {
-        RecordDestroyEvent();
-        Exitcollider = true;
-        DebugLogs.Instance.NewDestroy(transform.tag);
+        if (!isOpened)
+        {
+            RecordDestroyEvent();
+            Exitcollider = true;
+            DebugLogs.Instance.NewDestroy(transform.tag);
 
 
-        Debug.Log("Hello");
+            Debug.Log("Hello");
 
-        NewExpManager.Instance.AddBrokenTag(this.tag);
-        NewExpManager.Instance.RemoveFromList(this.gameObject);
+            NewExpManager.Instance.AddBrokenTag(this.tag);
+            NewExpManager.Instance.RemoveFromList(this.gameObject);
 
-        if(!isOpened && !isDestroyed)
-            NewExpManager.Instance.NewDestroyedObject(this.gameObject);
-        //Destroy(this.gameObject);
-        isDestroyed = true;
+            if (!isOpened && !isDestroyed)
+                NewExpManager.Instance.NewDestroyedObject(this.gameObject);
+            //Destroy(this.gameObject);
+            isDestroyed = true;
+        }
     }
     public void Opened()
     {
-        RecordOpenEvent();
 
-        DebugLogs.Instance.NewOpened(transform.tag);
-        Debug.Log("itemmanager");
+        if (isDestroyed == false)
+        {
+            RecordOpenEvent();
+
+            DebugLogs.Instance.NewOpened(transform.tag);
+            Debug.Log("opened");
 
 
-        NewExpManager.Instance.AddBrokenTag(this.tag);
-        NewExpManager.Instance.RemoveFromList(this.gameObject);
+            NewExpManager.Instance.AddBrokenTag(this.tag);
+            NewExpManager.Instance.RemoveFromList(this.gameObject);
 
-        if(!isDestroyed && !isOpened)
-            NewExpManager.Instance.NewOpenedObject(this.gameObject);
+            if (!isDestroyed && !isOpened)
+                NewExpManager.Instance.NewOpenedObject(this.gameObject);
 
-        isOpened = true;
+            isOpened = true;
+        }
+       
 
     }
     public void spawnKey(GameObject key)
